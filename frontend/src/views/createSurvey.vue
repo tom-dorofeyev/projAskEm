@@ -1,45 +1,29 @@
 <template>
   <div class="create-survey-page">
     <h1>create Survey</h1>
-    <section class="quest-editot-list" v-if="quests.length > 0">
-      <div v-for="currQuest in quests"
-            :key="currQuest.title"
-            class="quest-editor">
-        choose question type:
-        <select v-model="quests.type">
-          <option value="textBox">Text Box</option>
-          <option value="singleAnswer">Single Answer</option>
-          <option value="multAnswer">Multiple Answers</option>
-        </select>
-      </div>
-    </section>
-
-    {{quests}}
-
-    <button @click="addQuest">Add Question</button>
+    Enter Survey Name:
+    <input type="text">
+    <create-quest></create-quest>
+    <button @click="publishSurvey">Publish</button>
   </div>
 </template>
 
 <script>
-
+  import createQuest from '@/components/createQuest'
 
 export default {
   data(){
     return{
-      quests:[]
+      survey:{name:'',description:'', tags:[]},
     }
   },
   methods:{
-    addQuest(){
-      this.quests.push({
-        title: '',
-        type:'',
-        opts:[]
-      })
+    publishSurvey(){
+      console.log('publishing')
     }
   },
   components: {
-
+    createQuest
   }
 }
 </script>
