@@ -1,6 +1,6 @@
 <template>
   <div class="create-survey-page">
-    HELLO CREATE YOUR SURVEY
+    MAKING A SURVEY
   </div>
 </template>
 
