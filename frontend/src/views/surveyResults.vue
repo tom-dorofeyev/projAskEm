@@ -27,10 +27,10 @@
 </template>
 
 <script>
-import surveyDB from "../data/surveyDB.js";
+import surveyService from "../services/surveyService.js";
 export default {
   data: () => ({
-    survey: surveyDB.surveys[0]
+    survey: surveyService.DB.surveys[0]
   }),
   components: {}
 };
