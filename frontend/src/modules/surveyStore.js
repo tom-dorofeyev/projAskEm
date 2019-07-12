@@ -1,5 +1,5 @@
 export default {
-    state:{
+    state: {
 
     },
     mutations: {
@@ -9,6 +9,8 @@ export default {
 
     },
     actions: {
-
+        publishSurvey(context, { survey }) {
+            console.log(survey)
+        }
     },
 }

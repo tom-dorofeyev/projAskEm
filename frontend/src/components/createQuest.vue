@@ -3,10 +3,10 @@
     <section class="quest-editot-list" v-if="quests.length > 0">
       <div v-for="(currQuest, index) in quests" :key="index" class="quest-editor">
         Enter Question:
-        <input type="text" v-model="currQuest.title"/>
+        <input type="text" v-model="currQuest.title" />
         <section class="type-selection">
           choose question type:
-          <select v-model="currQuest.type">
+          <select v-model="currQuest.type" @input="setQuestType">
             <option v-for="type in typeOptions" :value="type.value" :key="type.value">{{type.txt}}</option>
           </select>
         </section>
@@ -14,12 +14,12 @@
       </div>
     </section>
     <button @click="addQuest">Add Question</button>
-    {{quests}}
   </div>
 </template>
 
 <script>
 export default {
+    props:['value'],
   data() {
     return {
       quests: [],
@@ -38,10 +38,14 @@ export default {
         type: "",
         opts: []
       });
+      this.$emit('input', this.quests)
     },
     removeQuest(index) {
       this.quests.splice(index, 1);
     },
+    setQuestType(ev){
+      console.log(ev.target.value)
+    }
   },
   components: {}
 };
