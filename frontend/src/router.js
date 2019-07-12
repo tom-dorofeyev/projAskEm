@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import home from './views/homePage.vue'
 import about from './views/about.vue'
 import login from './views/login.vue'
+import userDetails from './views/userDetails.vue'
 import surveyResults from './views/surveyResults.vue'
 import createSurvey from './views/createSurvey.vue'
 
@@ -31,6 +32,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: login
+    },
+    {
+      path: '/profile',
+      name: 'userDetails',
+      component: userDetails
     },
     {
       path: '/survey/create',
