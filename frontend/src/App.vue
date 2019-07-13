@@ -6,7 +6,7 @@
       <router-link to="/login">Login</router-link> | 
       <router-link to="/profile">User Details</router-link> | 
       <router-link to="/survey/list">Survey List</router-link> |
-      <router-link to="/survey/results/:id">Survey Results</router-link>
+      <router-link to="/survey/submit">Survey Submit</router-link>
     </nav>
     <router-view/>
   </div>
@@ -29,5 +29,24 @@
       color: #42b983;
     }
   }
+}
+.survey-submit-container{
+    background-color: lightgreen;
+    text-align: left;
+}
+.survey-submit-header{
+  text-align: center;
+  margin-bottom: 0;
+}
+.survey-submit-qst-number{
+  text-align: center;
+}
+.survey-submit-created{
+  margin: 0;
+  text-align: center;
+}
+.survey-submit-btn{
+  margin: 0 auto;
+  text-align: center;
 }
 </style>

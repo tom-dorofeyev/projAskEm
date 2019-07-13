@@ -13,6 +13,10 @@ export default {
     actions: {
         publishSurvey(context, { survey }) {
             surveyService.add(survey)
-        }
+        },
+        readSurvey(context, { }) {
+            surveyService.read()
+        },
+
     },
 }
