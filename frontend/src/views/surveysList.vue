@@ -2,7 +2,7 @@
 <template>
   <div class="surveys-list-page">
     <div class="survey-results-container">
-      <li>
+      <li >
         <h1>{{survey.name}}</h1>
         Questions:{{survey.quests.length}}
         <h6>{{survey.createdAt}}</h6>
