@@ -29,13 +29,13 @@
 </template>
 
 <script>
-import surveyService from "../services/surveyService.js";
+import httpService from "../services/httpService.js";
 export default {
   data: () => ({
-    survey: surveyService.DB.surveys[0]
+    survey: {}
   }),
   created() {
-    // surveyService.query().then(bugs => (this.bugs = bugs));
+    // this.survey = httpService.get()
   },
   components: {}
 };

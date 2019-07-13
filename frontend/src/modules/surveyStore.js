@@ -1,5 +1,7 @@
+import surveyService from '@/services/surveyService'
+
 export default {
-    state:{
+    state: {
 
     },
     mutations: {
@@ -9,6 +11,8 @@ export default {
 
     },
     actions: {
-
+        publishSurvey(context, { survey }) {
+            surveyService.add(survey)
+        }
     },
 }
