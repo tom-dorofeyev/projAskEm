@@ -23,12 +23,14 @@
 export default {
   data(){
     return{
-      survey:{name:'',description:'', tags:[],createdBy:null,quests:[],userLiked:[]},
+      survey:{name:'',description:'', tags:[],isActive: true,createdBy:null,
+      quests:[],createdAt: null,endDate:null,userLiked:[]},
     }
   },
   methods:{
     publishSurvey(){
       let survey = this.survey
+      survey.createdAt = Date.now()
       this.$store.dispatch({type:'publishSurvey', survey})
     },
     addTag(ev){

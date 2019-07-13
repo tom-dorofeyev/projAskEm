@@ -1,3 +1,5 @@
+import surveyService from '@/services/surveyService'
+
 export default {
     state: {
 
@@ -10,7 +12,7 @@ export default {
     },
     actions: {
         publishSurvey(context, { survey }) {
-            console.log(survey)
+            surveyService.add(survey)
         }
     },
 }
