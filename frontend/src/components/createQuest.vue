@@ -13,7 +13,7 @@
         <button @click="removeQuest(index)">delete question</button>
       </div>
     </section>
-    <button @click="addQuest">Add Question</button>
+    <button @click="addQuest" type="button">Add Question</button>
   </div>
 </template>
 
