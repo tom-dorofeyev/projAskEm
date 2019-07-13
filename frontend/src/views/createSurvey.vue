@@ -28,10 +28,15 @@ export default {
     }
   },
   methods:{
-    publishSurvey(){
+    async publishSurvey(){
       let survey = this.survey
       survey.createdAt = Date.now()
-      this.$store.dispatch({type:'publishSurvey', survey})
+      try{
+        this.$store.dispatch({type:'publishSurvey', survey})
+        this.$router.push('/')
+      } catch(err){
+        console.log('had problems')
+      }
     },
     addTag(ev){
       this.survey.tags.push(ev.target.value)

@@ -11,8 +11,8 @@ export default {
 
     },
     actions: {
-        publishSurvey(context, { survey }) {
-            surveyService.add(survey)
+        async publishSurvey(context, { survey }) {
+            await surveyService.add(survey)
         }
     },
 }
