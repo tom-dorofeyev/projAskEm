@@ -171,6 +171,21 @@
           "txt": "Sharing media to friends"
         }
       ]
+    },
+    {
+      "_id": "5x63",
+      "surveyId": "5c10",
+      "userId": "u105",
+      "answers": [
+        {
+          "optIdx": "1",
+          "txt": "test"
+        },
+        {
+          "optIdx": "3",
+          "txt": "Sharing media to friends"
+        }
+      ]
     }
   ]
 }

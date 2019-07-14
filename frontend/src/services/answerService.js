@@ -2,7 +2,7 @@ export default {
     add,
     query,
     getById,
-    submit
+    getBySurveyId
 }
 
 import httpService from './httpService'
@@ -11,12 +11,17 @@ async function add(survey) {
     return await httpService.post('answers', answer)
 }
 
-// async function submit(submition){
-//     console.log(submition, 'service got')
-// }
-
 async function query() {
     return await httpService.get('answers')
+}
+
+//TODO: when moving to mongo, make the request filter on the db side.
+async function getBySurveyId(surveyId) {
+    let answers = await query()
+    var surveyAnswers = answers.filter(answer => {
+        return answer.surveyId === surveyId
+    })
+    return surveyAnswers
 }
 
 async function getById(id){
