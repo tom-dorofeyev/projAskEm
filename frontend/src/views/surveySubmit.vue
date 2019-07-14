@@ -1,6 +1,6 @@
 
 <template>
-  <div class="survey-submit-page">
+  <div class="survey-submit-page" v-if="survey._id">
     <div class="survey-submit-container">
       <form id="myForm">
         <h1 class="survey-submit-header">{{survey.name}}</h1>
@@ -8,35 +8,21 @@
         <h6 class="survey-submit-created">{{survey.tags}}</h6>
         <h5 class="survey-submit-qst-number">"{{survey.description}}"</h5>
         <h6 class="survey-submit-qst-number">Survey has {{survey.quests.length}} Questions</h6>
-        <h4>1.{{survey.quests[0].title}} ({{survey.quests[0].type}})</h4>
-        {{survey.quests[0].opts[0]}}
-        <input type="checkbox" name="opts0" />
-        {{survey.quests[0].opts[1]}}
-        <input type="checkbox" name="opts1" />
-        {{survey.quests[0].opts[2]}}
-        <input type="checkbox" name="opts2" />
-        <h4>2.{{survey.quests[1].title}} ({{survey.quests[1].type}})</h4>
-        {{survey.quests[1].opts[0]}}
-        <input type="checkbox" name="opts0" />
-        {{survey.quests[1].opts[1]}}
-        <input type="checkbox" name="opts1" />
-        {{survey.quests[1].opts[2]}}
-        <input type="checkbox" name="opts2" />
-        <br />
-        <br />
+
+
+        <div class="quest-list" v-for="(currQuest, questIdx) in survey.quests" :key="questIdx">
+          <h4>{{currQuest.title}}</h4>
+          <div class="option-list" v-for="(option, optIdx) in currQuest.opts" :key="optIdx">
+            <input :type="getQuestType(currQuest.type)" :name="currQuest.title"/>
+            {{option}}
+          </div>
+        </div>
+
+
         <section class="survey-submit-btn">
-          <router-link to="/">
             <input type="button" @click="submitSurvey()" value="Submit Answers!" />
-          </router-link>
         </section>
       </form>
-      <hr />
-      <p>
-        Users Liked:
-        {{survey.userLiked[0].name}}
-        {{survey.userLiked[1].name}}
-        {{survey.userLiked[2].name}}
-      </p>
     </div>
   </div>
 </template>
@@ -45,13 +31,23 @@
 import surveyService from "../services/surveyService.js";
 export default {
   data: () => ({
-    survey: surveyService.DB.surveys[0]
+    survey: {}
   }),
+  created() {
+    (async () => {
+      let surveyId = this.$route.params.id;
+      const foundSurvey = await this.$store.dispatch({type: "surveyById",surveyId});
+      this.survey = foundSurvey;
+    })();
+  },
   methods: {
     submitSurvey() {
       console.log("Survey Submitted!");
+    },
+    getQuestType(type) {
+      if (type === "singleSelect") return "radio";
+      else if (type === "multSelect") return "checkbox";
     }
-  },
-  components: {}
+  }
 };
 </script>

@@ -42,7 +42,7 @@
         },
         {
           "title": "What is your most used Social Network?",
-          "type": "MultSelect",
+          "type": "multSelect",
           "opts": [
             "Facebook",
             "Twitter",

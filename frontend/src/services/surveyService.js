@@ -1,7 +1,8 @@
 export default {
     DB,
     add,
-    read
+    query,
+    getById
 }
 
 import DB from '../data/surveyDB'
@@ -11,6 +12,10 @@ async function add(survey) {
     return await httpService.post('surveys', survey)
 }
 
-async function read() {
+async function query() {
     return await httpService.get('surveys')
+}
+
+async function getById(id){
+    return await httpService.get(`surveys/${id}`)
 }

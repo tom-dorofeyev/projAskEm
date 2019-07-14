@@ -20,11 +20,6 @@ export default new Router({
       component: home
     },
     {
-      path: '/survey/submit',
-      name: 'surveySubmit',
-      component: surveySubmit
-    },
-    {
       path: '/survey/list',
       name: 'surveysList',
       component: surveysList
@@ -48,6 +43,11 @@ export default new Router({
       path: '/survey/create',
       name: 'createSurvey',
       component: createSurvey
-    }
+    },
+    {
+      path: '/survey/:id',
+      name: 'surveySubmit',
+      component: surveySubmit
+    },
   ]
 })

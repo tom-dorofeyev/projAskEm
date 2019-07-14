@@ -2,21 +2,28 @@ import surveyService from '@/services/surveyService'
 
 export default {
     state: {
-
-    },
-    mutations: {
-
+        surveys: []
     },
     getters: {
-
+        getSurveyList(state) {
+            return state.surveys
+        }
+    },
+    mutations: {
+        setSurveys(state, { surveys }) {
+            state.surveys = surveys
+        }
     },
     actions: {
         publishSurvey(context, { survey }) {
             surveyService.add(survey)
         },
-        readSurvey(context, { }) {
-            surveyService.read()
+        async loadSurveys(context) {
+            let surveys = await surveyService.query();
+            context.commit({ type: 'setSurveys', surveys });
         },
-
+        surveyById(context, { surveyId }){
+            return surveyService.getById(surveyId)
+        }
     },
 }

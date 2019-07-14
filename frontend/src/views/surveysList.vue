@@ -1,26 +1,27 @@
 
 <template>
-  <div class="surveys-list-page">
-    <div class="survey-results-container">{{survey}}</div>
+  <div class="surveys-list-page" v-if="surveys.length > 0">
+    <div class="survey-results-container" v-for="currSurvey in surveys" :key="currSurvey._id">
+      <router-link :to="getSurveyUrl(currSurvey._id)">{{currSurvey.name}}</router-link>
+    </div>
   </div>
 </template>
 
 <script>
-import surveyService from "../services/surveyService.js";
 export default {
   data: () => ({
-    survey: {}
+    surveys: [],
   }),
   created() {
-    this.survey = this.readSurvey();
-    console.log(this.survey);
+    (async () => {
+      await this.$store.dispatch({type:'loadSurveys'})
+      this.surveys = this.$store.getters.getSurveyList;
+    })();
   },
   methods: {
-    readSurvey() {
-      return this.$store
-        .dispatch({ type: "readSurvey" })
-        .then(res => (this.survey = res));
+    getSurveyUrl(id){
+      return `/survey/${id}`
     }
-  }
+  },
 };
 </script>
