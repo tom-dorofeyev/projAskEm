@@ -45,7 +45,7 @@ export default {
       this.submition.surveyId = surveyId
       const foundSurvey = await this.$store.dispatch({type: "surveyById",surveyId});
       this.survey = foundSurvey;
-      this.survey.quests.forEach(() => this.submition.answers.push({optIdx:[],txt:''}))
+      this.survey.quests.forEach(() => this.submition.answers.push({optIdx:null,txt:''}))
     })();
   },
   methods: {
@@ -59,6 +59,8 @@ export default {
     },
     updateSubmition(questIdx,optIdx){
       let answers = this.submition.answers
+      // answers[questIdx].optIdx.includes(optIdx) ? splice : push
+      answers[questIdx].optIdx = optIdx
     }
   }
 };
