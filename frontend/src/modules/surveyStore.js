@@ -24,6 +24,9 @@ export default {
         },
         surveyById(context, { surveyId }){
             return surveyService.getById(surveyId)
+        },
+        submitSurvey(context, { submition }){
+            return surveyService.submit(submition);
         }
     },
 }

@@ -34,8 +34,8 @@ export default {
       quests: [],
       typeOptions: [
         { value: "textBox", txt: "Text Box" },
-        { value: "singleAnswer", txt: "Single Answer" },
-        { value: "multAnswer", txt: "Multiple Answers" }
+        { value: "singleSelect", txt: "Single Answer" },
+        { value: "multSelect", txt: "Multiple Answers" }
       ],
     };
   },
@@ -59,7 +59,7 @@ export default {
     },
     checkAnswerType(idx){
       const questType = this.quests[idx].type
-      if(questType === 'singleAnswer' || questType === 'multAnswer') return true
+      if(questType === 'singleSelect' || questType === 'multSelect') return true
     }
   },
 };

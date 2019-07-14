@@ -1,15 +1,18 @@
 export default {
-    DB,
     add,
     query,
-    getById
+    getById,
+    submit
 }
 
-import DB from '../data/surveyDB'
 import httpService from './httpService'
 
 async function add(survey) {
     return await httpService.post('surveys', survey)
+}
+
+async function submit(submition){
+    console.log(submition, 'service got')
 }
 
 async function query() {

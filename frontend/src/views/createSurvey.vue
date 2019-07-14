@@ -35,7 +35,7 @@ export default {
         this.$store.dispatch({type:'publishSurvey', survey})
         this.$router.push('/')
       } catch(err){
-        console.log('had problems')
+        console.log('had problems publishing survey')
       }
     },
     addTag(ev){
