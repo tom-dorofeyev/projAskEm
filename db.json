@@ -95,5 +95,82 @@
       "userLiked": [],
       "_id": "pF0Hu_E"
     }
+  ],
+  "answers": [
+    {
+      "_id": "5x58",
+      "surveyId": "5c09",
+      "userId": "u101",
+      "answers": [
+        {
+          "optIdx": "1",
+          "txt": "Facebook"
+        },
+        {
+          "optIdx": "2",
+          "txt": "Image Storage"
+        }
+      ]
+    },
+    {
+      "_id": "5x59",
+      "surveyId": "5c09",
+      "userId": "u102",
+      "answers": [
+        {
+          "optIdx": "2",
+          "txt": "Twitter"
+        },
+        {
+          "optIdx": "3",
+          "txt": "Sharing media to friends"
+        }
+      ]
+    },
+    {
+      "_id": "5x60",
+      "surveyId": "5c09",
+      "userId": "u103",
+      "answers": [
+        {
+          "optIdx": "1",
+          "txt": "Facebook"
+        },
+        {
+          "optIdx": "1",
+          "txt": "Live"
+        }
+      ]
+    },
+    {
+      "_id": "5x61",
+      "surveyId": "5c09",
+      "userId": "u104",
+      "answers": [
+        {
+          "optIdx": "3",
+          "txt": "LinkedIn"
+        },
+        {
+          "optIdx": "1",
+          "txt": "Live"
+        }
+      ]
+    },
+    {
+      "_id": "5x62",
+      "surveyId": "5c09",
+      "userId": "u105",
+      "answers": [
+        {
+          "optIdx": "1",
+          "txt": "Facebook"
+        },
+        {
+          "optIdx": "3",
+          "txt": "Sharing media to friends"
+        }
+      ]
+    }
   ]
 }
