@@ -1,16 +1,16 @@
 import router from '@/router'
 
-
-//when working on our server add word API to BASE_URL
 const BASE_URL = process.env.NODE_ENV === 'production'
-    ? '/'
-    : '//localhost:3000/'
+    ? '/api/'
+    : '//localhost:3000/api/'
 
 
-import Axios from 'axios';
-var axios = Axios.create({
-    withCredentials: true
-});
+// import Axios from 'axios';
+// var axios = Axios.create({
+//     withCredentials: true
+// });
+
+import axios from 'axios'
 
 async function ajax(endpoint, method='get', data=null) {
     try {

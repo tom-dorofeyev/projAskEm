@@ -1,0 +1,27 @@
+[
+  {
+    "_id": "xyz111",
+    "name": "shahar",
+    "isAdmin": false
+  },
+  {
+    "_id": "xyz123",
+    "name": "tom",
+    "isAdmin": true
+  },
+  {
+    "name": "puki",
+    "_id": "39s",
+    "isAdmin": false
+  },
+  {
+    "name": "bobo",
+    "_id": "Ys3",
+    "isAdmin": false
+  },
+  {
+    "name": "momo",
+    "_id": "Hkb",
+    "isAdmin": false
+  }
+]
