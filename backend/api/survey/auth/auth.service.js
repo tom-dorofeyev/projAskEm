@@ -30,6 +30,7 @@ async function remove(id){
 async function getById(id){
     try {
         const foundSurvey = await surveyService.getById(id)
+        console.log(foundSurvey)
         return foundSurvey
     } catch (err) {
         throw err

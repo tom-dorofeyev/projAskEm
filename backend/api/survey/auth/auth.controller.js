@@ -35,7 +35,7 @@ async function getById(req, res) {
     const id = req.params.id
     try {
         const foundSurvey = await authService.getById(id)
-        res.json({foundSurvey})
+        res.json(foundSurvey)
     } catch (error) {
         res.status(500).send({ error })
     }

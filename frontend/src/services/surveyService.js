@@ -17,4 +17,5 @@ async function query() {
 
 async function getById(id){
     return await httpService.get(`survey/${id}`)
+
 }
