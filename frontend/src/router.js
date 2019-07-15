@@ -41,6 +41,11 @@ export default new Router({
       component: login
     },
     {
+      path:'/signup',
+      name: 'signup',
+      component: signUp
+    },
+    {
       path: '/profile',
       name: 'userDetails',
       component: userDetails
@@ -54,11 +59,6 @@ export default new Router({
       path: '/survey/:id',
       name: 'surveySubmit',
       component: surveySubmit
-    },
-    {
-      path:'/signup',
-      name: 'signup',
-      component: signUp
     }
   ]
 })
