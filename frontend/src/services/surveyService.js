@@ -5,6 +5,7 @@ export default {
 }
 
 import httpService from './httpService'
+import axios from 'axios'
 
 async function add(survey) {
     return await httpService.post('survey', survey)
