@@ -1,3 +1,4 @@
+import userService from '../services/userService'
 export default {
     state:{
 
@@ -9,6 +10,9 @@ export default {
 
     },
     actions: {
+        doSignUp(context, {user}){
+            userService.add(user)      
+        }
 
     },
 }
