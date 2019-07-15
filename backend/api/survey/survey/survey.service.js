@@ -5,7 +5,6 @@ module.exports = {
     getById,
     update
 }
-const fs = require('fs')
 
 const dbService = require('../../../services/db.service')
 const ObjectId = require('mongodb').ObjectId

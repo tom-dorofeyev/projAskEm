@@ -1,11 +1,11 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const port = process.env.PORT || 3000;
 const multer = require('multer')
 const session = require('express-session');
 const cors = require('cors');
+const app = express();
 
 app.use(cookieParser());
 app.use(express.static('public'));
