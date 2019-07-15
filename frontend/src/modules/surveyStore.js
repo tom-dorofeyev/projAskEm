@@ -15,6 +15,7 @@ export default {
         }
     },
     actions: {
+        //TODO: add mutation to surveys
         publishSurvey(context, { survey }) {
             surveyService.add(survey)
         },

@@ -72,6 +72,28 @@
       "endDate": null,
       "userLiked": [],
       "_id": "eXXxM5v"
+    },
+    {
+      "name": "this is a survey",
+      "description": "bluh lbuh",
+      "tags": [],
+      "isActive": true,
+      "createdBy": null,
+      "quests": [
+        {
+          "title": "this is a quest",
+          "type": "singleSelect",
+          "opts": [
+            "im an answer",
+            "im an answer1",
+            "im an answer2"
+          ]
+        }
+      ],
+      "createdAt": 1563109125339,
+      "endDate": null,
+      "userLiked": [],
+      "_id": "EztVgS5"
     }
   ]
 }
