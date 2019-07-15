@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h2 class="about-title container">About Us</h2>
+    <h2 class="about-title">About Us</h2>
     <div class="our-mission-div flex">
       <div class="our-mission">Our Mission</div>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam necessitatibus fugiat blanditiis dolores consequuntur id expedita similique omnis nulla, sequi animi ex asperiores possimus quam nostrum mollitia eos nam? Ratione. Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, cumque? Dolorem dolorum iure sit maxime odit tempora eaque modi, dolor eligendi rerum quisquam quibusdam doloremque dignissimos sequi consectetur quis rem!</p>

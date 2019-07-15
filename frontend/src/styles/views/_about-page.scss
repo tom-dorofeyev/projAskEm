@@ -20,11 +20,6 @@
         padding: 2rem;
         flex-direction: column;
         
-        @media (min-width: 800px) {
-            flex-direction: row;
-            justify-content: space-around;
-        }
-        
         .our-mission {
             font-size: 3rem;
             width: 90vw;
@@ -44,8 +39,18 @@
             }
         }
 
+        @media (min-width: 800px) {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
     }
 
+    .our-mission-img {
+        width: 100vw;
+        height: 65vh;
+        object-fit: cover;
+    }
     .about-details {
         flex-direction: column;
         text-align: center;
@@ -125,6 +130,8 @@
                     max-width: 250px;
                     flex-direction: column-reverse;
                     margin-bottom: 0;
+                    height: 670px;
+                    justify-content: flex-end;
                 }
 
                 & > *:not(:last-child){

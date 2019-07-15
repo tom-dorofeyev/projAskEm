@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <nav class="main-nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> | 
-      <router-link to="/login">Login</router-link> | 
-      <router-link to="/profile">User Details</router-link> | 
-      <router-link to="/survey/list">Survey List</router-link> |
-      <router-link to="/signup">Sign Up</router-link>
-    </nav>
+    <app-header></app-header>
     <router-view />
   </div>
 </template>
+
+<script>
+  import appHeader from "@/components/appHeader";
+
+export default {
+  components: {
+    appHeader
+  }
+}
+</script>
 
 <style lang="scss">
 @import "../src/styles/global.scss";
