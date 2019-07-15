@@ -32,7 +32,7 @@ export default {
             return surveyService.getById(surveyId)
         },
         submitSurvey(context, { submition }){
-            return answerService.submit(submition);
+            return answerService.add(submition);
         }
     },
 }

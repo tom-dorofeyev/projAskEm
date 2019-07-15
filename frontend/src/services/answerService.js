@@ -2,13 +2,14 @@ export default {
     add,
     query,
     getById,
-    getBySurveyId
+    getBySurveyId,
+    add,
 }
 
 import httpService from './httpService'
 
-async function add(survey) {
-    return await httpService.post('answers', answer)
+async function add(submition){
+    return await httpService.post('answers', submition)
 }
 
 async function query() {
