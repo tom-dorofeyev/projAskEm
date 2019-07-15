@@ -52,76 +52,166 @@
       ]
     },
     {
-      "name": "test survey",
-      "description": "test test test",
+      "name": "who is awesome ?",
+      "description": "this is a test survey",
       "tags": [],
-      "isActive": true,
-      "createdBy": null,
-      "quests": [],
-      "createdAt": 1563034154305,
-      "endDate": null,
-      "userLiked": [],
-      "_id": "rgEsWIM"
-    },
-    {
-      "name": "test survey",
-      "description": "test test test",
-      "tags": [
-        "facebook"
-      ],
-      "isActive": true,
-      "createdBy": null,
-      "quests": [
-        {
-          "title": "who is AWESOME ?",
-          "type": "singleAnswer",
-          "opts": [
-            "tom",
-            "nofar",
-            "nadav"
-          ]
-        }
-      ],
-      "createdAt": 1563034187269,
-      "endDate": null,
-      "userLiked": [],
-      "_id": "8ZAthg2"
-    },
-    {
-      "name": "test survey",
-      "description": "test test test",
-      "tags": [],
-      "isActive": true,
-      "createdBy": null,
-      "quests": [],
-      "createdAt": 1563034302302,
-      "endDate": null,
-      "userLiked": [],
-      "_id": "zfmtcDb"
-    },
-    {
-      "name": "test survey",
-      "description": "test test test",
-      "tags": [
-        "facebook"
-      ],
       "isActive": true,
       "createdBy": null,
       "quests": [
         {
           "title": "who is awesome ?",
-          "type": "singleAnswer",
+          "type": "singleSelect",
           "opts": [
-            "tom",
-            "nofar",
-            "nadav"
+            "me!!",
+            "me!!!!",
+            "me!!!!!!!!!!!!"
           ]
         }
       ],
-      "createdAt": 1563034321574,
+      "createdAt": 1563101161769,
       "endDate": null,
       "userLiked": [],
-      "_id": "XxRUHhN"
+      "_id": "eXXxM5v"
+    },
+    {
+      "name": "Boogie the Pimp",
+      "description": "This survey finds out whos the king?",
+      "tags": [],
+      "isActive": true,
+      "createdBy": null,
+      "quests": [
+        {
+          "title": "Is he the king?",
+          "type": "singleSelect",
+          "opts": [
+            "Yes!",
+            "Yes Lord!",
+            "Ohhhhh baby jesus yes!"
+          ]
+        }
+      ],
+      "createdAt": 1563114985540,
+      "endDate": null,
+      "userLiked": [],
+      "_id": "pF0Hu_E"
+    }
+  ],
+  "answers": [
+    {
+      "_id": "5x58",
+      "surveyId": "5c09",
+      "userId": "u101",
+      "answers": [
+        {
+          "optIdx": "1",
+          "txt": "Facebook"
+        },
+        {
+          "optIdx": "2",
+          "txt": "Image Storage"
+        }
+      ]
+    },
+    {
+      "_id": "5x59",
+      "surveyId": "5c09",
+      "userId": "u102",
+      "answers": [
+        {
+          "optIdx": "2",
+          "txt": "Twitter"
+        },
+        {
+          "optIdx": "3",
+          "txt": "Sharing media to friends"
+        }
+      ]
+    },
+    {
+      "_id": "5x60",
+      "surveyId": "5c09",
+      "userId": "u103",
+      "answers": [
+        {
+          "optIdx": "1",
+          "txt": "Facebook"
+        },
+        {
+          "optIdx": "1",
+          "txt": "Live"
+        }
+      ]
+    },
+    {
+      "_id": "5x61",
+      "surveyId": "5c09",
+      "userId": "u104",
+      "answers": [
+        {
+          "optIdx": "3",
+          "txt": "LinkedIn"
+        },
+        {
+          "optIdx": "1",
+          "txt": "Live"
+        }
+      ]
+    },
+    {
+      "_id": "5x62",
+      "surveyId": "5c09",
+      "userId": "u105",
+      "answers": [
+        {
+          "optIdx": "1",
+          "txt": "Facebook"
+        },
+        {
+          "optIdx": "3",
+          "txt": "Sharing media to friends"
+        }
+      ]
+    },
+    {
+      "_id": "5x63",
+      "surveyId": "5c10",
+      "userId": "u105",
+      "answers": [
+        {
+          "optIdx": "1",
+          "txt": "test"
+        },
+        {
+          "optIdx": "3",
+          "txt": "Sharing media to friends"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "userName": "Nofar",
+      "email": "Nofar@walla.com",
+      "fullName": "Nofar PEL",
+      "password": "123456",
+      "isAdmin": false,
+      "_id": 1
+    },
+    {
+      "userName": "Tom",
+      "email": "Tom@walla.com",
+      "fullName": "Tom Tom",
+      "password": "123456",
+      "isAdmin": false,
+      "_id": 2
+    },
+    {
+      "userName": "Nadav",
+      "email": "Nadav@gmail.com",
+      "fullName": "Nadav Ab",
+      "password": "12345",
+      "isAdmin": false,
+      "_id": 3
     }
   ]
 }

@@ -5,7 +5,7 @@
     <input type="text" v-model="user.fullName" placeholder="Enter Full Name" required />
     <input type="password" v-model="user.password" placeholder="Enter Password" required />
     <input type="password" v-model="user.rePassword" placeholder="Re Enter Password" required />
-    <button>Sign Up</button>
+    <button type="button" @click="doSignUp">Sign Up</button>
   </form>
 </template>
 
@@ -33,11 +33,10 @@ export default {
       try {
         this.$store.dispatch({ type: "doSignUp", user });
         this.$router.push("/profile");
-        cleanInputs();
+        this.cleanInputs();
       } catch {
         console.log("got an error!");
       }
-      console.log(user);
     },
     cleanInputs() {
       this.user = {
