@@ -54,7 +54,7 @@ app.use(session({
 
 
 //ROUTES
-const surveyRoute = require('./api/survey/auth/auth.routes');
+const surveyRoute = require('./api/survey/survey/survey.routes');
 const userRoute = require('./api/user/user.route');
 app.use('/api/survey', surveyRoute);
 app.use('/api/user', userRoute);

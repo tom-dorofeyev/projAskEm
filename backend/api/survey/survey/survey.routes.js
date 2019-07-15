@@ -1,6 +1,6 @@
 const surveyService = require('../survey/survey.service');
 const express = require('express');
-const {query, getById, update, remove, add} = require('./auth.controller')
+const {query, getById, update, remove, add} = require('./survey.controller')
 
 const router = express.Router()
 module.exports = router
