@@ -1,4 +1,14 @@
 {
+  "users": [
+    {
+      "userName": "asdas",
+      "email": "aasdasd@gmail.com",
+      "fullName": "asdasda@gmail.com",
+      "password": "a",
+      "isAdmin": false,
+      "_id": 1
+    }
+  ],
   "answers": [
     {
       "surveyId": "5c09",
@@ -15,6 +25,70 @@
         }
       ],
       "_id": 1
+    },
+    {
+      "surveyId": "5c09",
+      "userId": null,
+      "answers": [
+        {
+          "optIdx": 0
+        },
+        {
+          "optionsIdxs": [
+            0
+          ]
+        }
+      ],
+      "_id": 2
+    },
+    {
+      "surveyId": "5c09",
+      "userId": null,
+      "answers": [
+        {
+          "optIdx": 0
+        },
+        {
+          "optionsIdxs": [
+            0
+          ]
+        }
+      ],
+      "_id": 3
+    },
+    {
+      "surveyId": "5c09",
+      "userId": null,
+      "answers": [
+        {
+          "optIdx": 2
+        },
+        {
+          "optionsIdxs": [
+            2,
+            1,
+            0
+          ]
+        }
+      ],
+      "_id": 4
+    },
+    {
+      "surveyId": "5c09",
+      "userId": null,
+      "answers": [
+        {
+          "optIdx": 2
+        },
+        {
+          "optionsIdxs": [
+            2,
+            1,
+            0
+          ]
+        }
+      ],
+      "_id": 5
     }
   ],
   "surveys": [
