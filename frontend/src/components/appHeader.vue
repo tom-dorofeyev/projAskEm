@@ -1,6 +1,6 @@
 <template>
     <div class="app-header-div flex">
-    <img src="@/assets/images/askem.png" alt="">
+    <router-link to="/"><img src="@/assets/images/askem.png" alt="Link to home page"></router-link>
     <nav class="main-nav flex">
       <router-link to="/">Home</router-link> 
       <router-link to="/about">About</router-link> 
@@ -12,8 +12,3 @@
 
     </div>
 </template>
-
-<script>
-export default {
-}
-</script>

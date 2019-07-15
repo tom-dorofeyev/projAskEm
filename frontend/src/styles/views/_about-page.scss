@@ -6,7 +6,6 @@
     .about-title {
         align-items: center;
         margin: 0;
-        width: 100vw;
         padding: 1.2rem;
         text-align: center;
         background-color: $color3;
@@ -47,7 +46,7 @@
     }
 
     .our-mission-img {
-        width: 100vw;
+        width: 100%;
         height: 65vh;
         object-fit: cover;
     }
