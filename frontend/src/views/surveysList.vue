@@ -15,6 +15,7 @@
         <h5 class="survey-preview-quest-counter">{{currSurvey.quests.length}} Questions</h5>
         <br />
         <router-link class="survey-preview-btn" :to="getSurveyUrl(currSurvey._id)">Enter Survey</router-link>
+        <router-link class="survey-preview-results-btn" :to="getSurveyResultsUrl(currSurvey._id)">Survey Results</router-link>
         <br />
         <br />
       </div>
@@ -36,6 +37,9 @@ export default {
   methods: {
     getSurveyUrl(id) {
       return `/survey/${id}`;
+    },
+    getSurveyResultsUrl(id) {
+      return `/survey/results/${id}`;
     }
   }
 };
