@@ -1,0 +1,221 @@
+{
+  "users": [
+    {
+      "userName": "asdas",
+      "email": "aasdasd@gmail.com",
+      "fullName": "asdasda@gmail.com",
+      "password": "a",
+      "isAdmin": false,
+      "_id": 1
+    }
+  ],
+  "answers": [
+    {
+      "surveyId": "5c09",
+      "userId": null,
+      "answers": [
+        {
+          "optIdx": 0
+        },
+        {
+          "optionsIdxs": [
+            0,
+            2
+          ]
+        }
+      ],
+      "_id": 1
+    },
+    {
+      "surveyId": "5c09",
+      "userId": null,
+      "answers": [
+        {
+          "optIdx": 0
+        },
+        {
+          "optionsIdxs": [
+            0
+          ]
+        }
+      ],
+      "_id": 2
+    },
+    {
+      "surveyId": "5c09",
+      "userId": null,
+      "answers": [
+        {
+          "optIdx": 0
+        },
+        {
+          "optionsIdxs": [
+            0
+          ]
+        }
+      ],
+      "_id": 3
+    },
+    {
+      "surveyId": "5c09",
+      "userId": null,
+      "answers": [
+        {
+          "optIdx": 2
+        },
+        {
+          "optionsIdxs": [
+            2,
+            1,
+            0
+          ]
+        }
+      ],
+      "_id": 4
+    },
+    {
+      "surveyId": "5c09",
+      "userId": null,
+      "answers": [
+        {
+          "optIdx": 2
+        },
+        {
+          "optionsIdxs": [
+            2,
+            1,
+            0
+          ]
+        }
+      ],
+      "_id": 5
+    }
+  ],
+  "surveys": [
+    {
+      "_id": "5c09",
+      "name": "Social Networks Survey",
+      "description": "A General Survey to better understand the user distribution between different social networks - and why people use them",
+      "tags": [
+        "Social",
+        "Facebook",
+        "Media"
+      ],
+      "isActive": true,
+      "createdBy": "u101",
+      "createdAt": "Thu Jul 11 2019 09:11:40 GMT+0300 (Israel Daylight Time)",
+      "endDate": "Thu Jul 13 2019 09:11:40 GMT+0300 (Israel Daylight Time)",
+      "userLiked": [
+        {
+          "_id": "u101",
+          "name": "bobo",
+          "img": ""
+        },
+        {
+          "_id": "u102",
+          "name": "kabobo",
+          "img": ""
+        },
+        {
+          "_id": "u103",
+          "name": "shlomo",
+          "img": ""
+        }
+      ],
+      "quests": [
+        {
+          "title": "What is your most used Social Network?",
+          "type": "singleSelect",
+          "opts": [
+            "Facebook",
+            "Twitter",
+            "LinkedIn"
+          ]
+        },
+        {
+          "title": "What is your most used Social Network?",
+          "type": "multSelect",
+          "opts": [
+            "Facebook",
+            "Twitter",
+            "LinkedIn"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "who is awesome ?",
+      "description": "this is a test survey",
+      "tags": [],
+      "isActive": true,
+      "createdBy": null,
+      "quests": [
+        {
+          "title": "who is awesome ?",
+          "type": "singleSelect",
+          "opts": [
+            "me!!",
+            "me!!!!",
+            "me!!!!!!!!!!!!"
+          ]
+        }
+      ],
+      "createdAt": 1563101161769,
+      "endDate": null,
+      "userLiked": [],
+      "_id": "eXXxM5v"
+    },
+    {
+      "name": "this is a survey",
+      "description": "bluh lbuh",
+      "tags": [],
+      "isActive": true,
+      "createdBy": null,
+      "quests": [
+        {
+          "title": "this is a quest",
+          "type": "singleSelect",
+          "opts": [
+            "im an answer",
+            "im an answer1",
+            "im an answer2"
+          ]
+        }
+      ],
+      "createdAt": 1563109125339,
+      "endDate": null,
+      "userLiked": [],
+      "_id": "EztVgS5"
+    },
+    {
+      "name": "text test",
+      "description": "",
+      "tags": [],
+      "isActive": true,
+      "createdBy": null,
+      "quests": [
+        {
+          "title": "who is awesome ?",
+          "type": "textBox",
+          "opts": []
+        }
+      ],
+      "createdAt": 1563182276667,
+      "endDate": null,
+      "userLiked": [],
+      "_id": "dDuPdtR"
+    },
+    {
+      "name": "",
+      "description": "",
+      "tags": [],
+      "isActive": true,
+      "createdBy": null,
+      "quests": [],
+      "createdAt": 1563182489191,
+      "endDate": null,
+      "userLiked": [],
+      "_id": "x2fr6Ls"
+    }
+  ]
+}
