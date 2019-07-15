@@ -1,5 +1,7 @@
 export default {
-    DB
+    add
 }
 
-import DB from '../data/userDB'
+async function add(user) {
+    return await httpService.post('users', user)
+}
