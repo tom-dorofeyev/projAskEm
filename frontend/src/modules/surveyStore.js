@@ -1,4 +1,5 @@
 import surveyService from '@/services/surveyService'
+import answerService from '@/services/answerService'
 
 export default {
     state: {
@@ -16,8 +17,12 @@ export default {
     },
     actions: {
         //TODO: add mutation to surveys
-        publishSurvey(context, { survey }) {
-            surveyService.add(survey)
+        async publishSurvey(context, { survey }) {
+            try{
+                await surveyService.add(survey)
+            } catch(err){
+                console.log('had errors publishing survey', err)
+            }
         },
         async loadSurveys(context) {
             let surveys = await surveyService.query();
@@ -27,7 +32,7 @@ export default {
             return surveyService.getById(surveyId)
         },
         submitSurvey(context, { submition }){
-            return surveyService.submit(submition);
+            return answerService.submit(submition);
         }
     },
 }

@@ -1,7 +1,6 @@
 
 <template>
   <div class="survey-submit-page" v-if="survey._id">
-    {{submition}}
     <div class="survey-submit-container">
       <form id="myForm">
         <h1 class="survey-submit-header">{{survey.name}}</h1>
@@ -51,8 +50,11 @@ export default {
       const submition = this.submition;
       this.$store.dispatch({ type: "submitSurvey", submition });
     },
-    updateAns(optIdx, questIdx){
-      console.log(optIdx)
+    updateAns(answer, questIdx){
+      let currAnswer = this.submition.answers[questIdx]
+      if(typeof answer === 'number')currAnswer.optIdx = answer
+      else if(Array.isArray(answer)) currAnswer.optionsIdxs = answer
+      else if(typeof answer === 'string') currAnswer.txt = answer
     }
   },
   computed: {

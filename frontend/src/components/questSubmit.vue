@@ -9,7 +9,7 @@
 <script>
 
 export default {
-    props:['quest'],
+    props:['quest','questIdx'],
   data() {
     return {
 
@@ -17,8 +17,7 @@ export default {
   },
   methods: {
     updateAns(ans){
-      console.log('updating, got: ', ans)
-      this.$emit('update-answer', ans)
+      this.$emit('update-answer', ans, this.questIdx)
     }
   },
   computed:{
@@ -26,6 +25,7 @@ export default {
       const type = this.quest.type
       if(type === 'singleSelect') return () => import('./singleSelect')
       else if(type === 'multSelect') return () => import('./multSelect')
+      else return () => import('./textSubmit')
     }
   },
 };

@@ -1,4 +1,22 @@
 {
+  "answers": [
+    {
+      "surveyId": "5c09",
+      "userId": null,
+      "answers": [
+        {
+          "optIdx": 0
+        },
+        {
+          "optionsIdxs": [
+            0,
+            2
+          ]
+        }
+      ],
+      "_id": 1
+    }
+  ],
   "surveys": [
     {
       "_id": "5c09",
@@ -94,6 +112,36 @@
       "endDate": null,
       "userLiked": [],
       "_id": "EztVgS5"
+    },
+    {
+      "name": "text test",
+      "description": "",
+      "tags": [],
+      "isActive": true,
+      "createdBy": null,
+      "quests": [
+        {
+          "title": "who is awesome ?",
+          "type": "textBox",
+          "opts": []
+        }
+      ],
+      "createdAt": 1563182276667,
+      "endDate": null,
+      "userLiked": [],
+      "_id": "dDuPdtR"
+    },
+    {
+      "name": "",
+      "description": "",
+      "tags": [],
+      "isActive": true,
+      "createdBy": null,
+      "quests": [],
+      "createdAt": 1563182489191,
+      "endDate": null,
+      "userLiked": [],
+      "_id": "x2fr6Ls"
     }
   ]
 }
