@@ -1,4 +1,3 @@
-const surveyService = require('../survey/survey.service');
 const express = require('express');
 const {query, getById, update, remove, add} = require('./survey.controller')
 
@@ -17,4 +16,4 @@ router.post('/', add)
 //REMOVE SURVEY
 router.delete('/:id', remove)
 
-//CONSIDER: adding edit survey
+//CONSIDER: adding edit survey route
