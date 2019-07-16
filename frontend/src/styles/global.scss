@@ -9,3 +9,13 @@
 @import "basics/base.scss";
 @import "basics/links.scss";
 @import "basics/buttons.scss";
+@import "basics/typography.scss";
+
+// Pages
+@import "views/home-page.scss";
+@import "views/survey-app.scss";
+@import "views/about-page.scss";
+
+//Components
+@import "components/appHeader.scss";
+@import "components/appFooter.scss";

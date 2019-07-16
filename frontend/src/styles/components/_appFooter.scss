@@ -1,0 +1,29 @@
+.footer-section{
+    background-color: $color4;
+    text-align: center;
+
+    .follow-us {
+        flex-direction: column;
+        
+        & > * {
+            margin-bottom:1rem;
+        }
+
+        img {
+            width: 1.5rem;
+            padding: 0.4rem;
+            background-color: silver;
+            cursor: pointer;
+        }
+
+        img:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+
+    h6 {
+        margin: 0;
+        padding: 0.5rem;
+    }
+
+}
