@@ -27,7 +27,7 @@
 import questSubmit from '@/components/questSubmit'
 import io from 'socket.io-client';
 
-var socket = io.connect('http://localhost');
+var socket = io.connect('http://localhost:3000');
   socket.on('news', function (data) {
     console.log(data);
     socket.emit('my other event', { my: 'data' });

@@ -7,17 +7,6 @@ const session = require('express-session');
 const cors = require('cors');
 const app = express();
 
-//socket
-// var server = app.listen(8080)
-var io = require('socket.io')(server);
-
-io.on('connection', (socket) => {
-    socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-      console.log(data);
-    });
-  });
-
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -56,4 +45,14 @@ app.use('/api/survey', surveyRoute);
 app.use('/api/answer', answerRoute);
 // app.use('/api/user', userRoute);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+const server = app.listen(port, () => console.log('Example app listening on port' + port + '!'))
+
+
+var io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+    socket.emit('news', { hello: 'world' });
+    socket.on('my other event', function (data) {
+      console.log(data);
+    });
+  });
