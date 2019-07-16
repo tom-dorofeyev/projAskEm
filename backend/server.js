@@ -7,6 +7,17 @@ const session = require('express-session');
 const cors = require('cors');
 const app = express();
 
+//socket
+// var server = app.listen(8080)
+var io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+    socket.emit('news', { hello: 'world' });
+    socket.on('my other event', function (data) {
+      console.log(data);
+    });
+  });
+
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -18,23 +29,6 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false }
 }));
-
-//SOCKET.IO
-// const http = require('http').Server(app);
-// const io = require('socket.io')(http);
-// const socketPort = 8081;
-
-// io.on('connection', function (socket) {
-//     console.log('user connected')
-//     socket.emit('news', { hello: 'world' });
-//     socket.on('my other event', function (data) {
-//         console.log(data);
-//     });
-// });
-
-// http.listen(socketPort, () => {
-//     console.log(`socket listening on port ${socketPort}`)
-// });
 
 //CLOUDINARY
 // const cloudinary = require('cloudinary').v2;

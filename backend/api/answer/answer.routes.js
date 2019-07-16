@@ -1,17 +1,17 @@
 const express = require('express');
-const { add, getBySurveyId } = require('./answer.controller')
+const { add, getBySurveyId , getByUserId} = require('./answer.controller')
 
 const router = express.Router()
 module.exports = router
 
-// //ANSWER LIST
-// router.get('/', query)
-
 // ANSWERS BY SURVEY ID
 router.get('/:surveyId', getBySurveyId)
+
+// ANSWERS BY USER ID
+router.get('/:userId', getByUserId)
 
 //ADDING ANSWER
 router.post('/', add)
 
-//REMOVE ANSWER
+//CONSIDER: let user remove his answers for specific survey
 // router.delete('/:id', remove)

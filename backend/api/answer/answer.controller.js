@@ -2,9 +2,20 @@ const answerService = require('./answer.service')
 
 module.exports = {
     add,
-    getBySurveyId
+    getBySurveyId,
+    getByUserId
 }
 
+
+async function getByUserId(req, res) {
+    const { userId } = req.params
+    try {
+        const answersFound = await answerService.getByUserId(userId)
+        res.json(answersFound)
+    } catch (error) {
+        res.status(500).send({ error })
+    }
+}
 
 async function getBySurveyId(req, res) {
     const { surveyId } = req.params
