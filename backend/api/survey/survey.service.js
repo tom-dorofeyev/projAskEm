@@ -6,7 +6,7 @@ module.exports = {
     update
 }
 
-const dbService = require('../../../services/db.service')
+const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
 const COLLECTION_KEY = 'survey'
 

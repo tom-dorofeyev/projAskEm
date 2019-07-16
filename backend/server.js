@@ -57,11 +57,11 @@ app.use(session({
 
 
 
-// const answerRoute = require('./api/answer/answer.routes');
-const surveyRoute = require('./api/survey/survey/survey.routes');
+const answerRoute = require('./api/answer/answer.routes');
+const surveyRoute = require('./api/survey/survey.routes');
 // const userRoute = require('./api/user/user.route');
 app.use('/api/survey', surveyRoute);
 // app.use('/api/user', userRoute);
-// app.use('/api/answer', answerRoute);
+app.use('/api/answer', answerRoute);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
