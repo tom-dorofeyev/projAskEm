@@ -1,5 +1,6 @@
 module.exports = {
     add,
+    getBySurveyId
 }
 
 const dbService = require('../../services/db.service')
@@ -10,9 +11,9 @@ const COLLECTION_KEY = 'answer'
 async function getBySurveyId(id) {
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
-        return await collection.aggregate({$match: {surveyId: id}});
+        return await collection.find({surveyId : id}).map(submition => submition.answers).toArray();
     } catch (err) {
-        console.log(`ERROR: cannot insert answer`)
+        console.log(`ERROR: cannot get answers by survey ID`)
         throw err;
     }
 }

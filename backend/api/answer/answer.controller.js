@@ -6,8 +6,8 @@ module.exports = {
 }
 
 
-async function getBySurveyId(req,res) {
-    const surveyId = req.params.id
+async function getBySurveyId(req, res) {
+    const { surveyId } = req.params
     try {
         const answersFound = await answerService.getBySurveyId(surveyId)
         res.json(answersFound)
@@ -18,7 +18,6 @@ async function getBySurveyId(req,res) {
 
 async function add(req, res) {
     const answer = req.body
-    console.log('controller got ans: ', answer)
     try {
         const answerWithId = await answerService.add(answer)
         res.json(answerWithId)

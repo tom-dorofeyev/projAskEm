@@ -7,13 +7,14 @@ export default {
 }
 
 import httpService from './httpService'
+const API_KEY = 'answer'
 
 async function add(submition){
-    return await httpService.post('answers', submition)
+    return await httpService.post(API_KEY, submition)
 }
 
 async function query() {
-    return await httpService.get('answers')
+    return await httpService.get(API_KEY)
 }
 
 //TODO: when moving to mongo, make the request filter on the db side.
@@ -26,5 +27,5 @@ async function getBySurveyId(surveyId) {
 }
 
 async function getById(id){
-    return await httpService.get(`answers/${id}`)
+    return await httpService.get(`${API_KEY}/${id}`)
 }

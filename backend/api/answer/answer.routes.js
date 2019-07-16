@@ -8,7 +8,7 @@ module.exports = router
 // router.get('/', query)
 
 // ANSWERS BY SURVEY ID
-router.get('/:id', getBySurveyId)
+router.get('/:surveyId', getBySurveyId)
 
 //ADDING ANSWER
 router.post('/', add)
