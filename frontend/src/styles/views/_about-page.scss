@@ -6,7 +6,6 @@
     .about-title {
         align-items: center;
         margin: 0;
-        width: 100vw;
         padding: 1.2rem;
         text-align: center;
         background-color: $color3;
@@ -19,11 +18,6 @@
         color: silver;
         padding: 2rem;
         flex-direction: column;
-        
-        @media (min-width: 800px) {
-            flex-direction: row;
-            justify-content: space-around;
-        }
         
         .our-mission {
             font-size: 3rem;
@@ -44,8 +38,18 @@
             }
         }
 
+        @media (min-width: 800px) {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
     }
 
+    .our-mission-img {
+        width: 100%;
+        height: 65vh;
+        object-fit: cover;
+    }
     .about-details {
         flex-direction: column;
         text-align: center;
@@ -125,6 +129,8 @@
                     max-width: 250px;
                     flex-direction: column-reverse;
                     margin-bottom: 0;
+                    height: 670px;
+                    justify-content: flex-end;
                 }
 
                 & > *:not(:last-child){

@@ -12,13 +12,18 @@ html {
 
 body {
   margin: 0;
+  font-family: $font2;
   // background-color: $clr5;
   // color: $clr2;
 }
 
-img {
-  max-width: 100%;
+a {
+  text-decoration: none;
 }
+
+// img {
+//   max-width: 100%;
+// }
 
 // #app {
 //   font-family: "Avenir", Helvetica, Arial, sans-serif;

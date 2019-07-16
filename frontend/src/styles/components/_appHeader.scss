@@ -1,0 +1,35 @@
+.app-header-div {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color:$color4;
+
+    .main-nav {
+        justify-content: space-between;
+        flex-grow: 2;
+        align-items: center;
+
+        a {
+            color: $color3;
+        }
+
+        a:active {
+            color: $color2;
+        }
+    }
+
+    img {
+        // width: 150px;
+        // height: 60px;
+
+        width: 100px;
+        height: 50px;
+        margin-right: 7rem;
+    }
+
+
+
+    @media (min-width: 800px) {
+        flex-direction: row;
+    }
+}
