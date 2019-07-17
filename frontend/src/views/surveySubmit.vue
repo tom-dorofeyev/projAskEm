@@ -25,13 +25,6 @@
 <script>
 
 import questSubmit from '@/components/questSubmit'
-import io from 'socket.io-client';
-
-var socket = io.connect('http://localhost:3000');
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
-});
 
 export default {
   data: () => ({
@@ -55,7 +48,9 @@ export default {
   methods: {
     submitSurvey() {
       const submition = this.submition;
+      const surveyId = this.survey._id
       this.$store.dispatch({ type: "submitSurvey", submition });
+      this.$store.dispatch({type: 'emitSubmition', surveyId})
     },
     updateAns(answer, questIdx){
       let currAnswer = this.submition.answers[questIdx]

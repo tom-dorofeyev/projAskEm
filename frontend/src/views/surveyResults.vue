@@ -11,8 +11,15 @@
 
 <script>
 export default {
+  data(){
+    return {
+      surveyId: ''
+    }
+  },
   created() {
     const surveyId = this.$route.params.surveyId;
+    this.surveyId = surveyId
+    this.$store.dispatch({type: 'watchingResults', surveyId});
     // this.$store.dispatch({ type: "getAnswersBySurveyId", surveyId });
     (async () => {
       await this.$store.dispatch({ type: "getAnswersBySurveyId", surveyId });
@@ -26,6 +33,10 @@ export default {
     answers() {
       return this.$store.getters.answers;
     }
+  },
+  destroyed(){
+    const surveyId = this.surveyId
+    this.$store.dispatch({type: 'leftResults', surveyId});
   }
 };
 </script>

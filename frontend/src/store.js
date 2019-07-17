@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import surveyStore from './modules/surveyStore'
 import userStore from './modules/userStore'
 import answerStore from './modules/answerStore'
+import socketStore from './modules/socketStore'
 
 Vue.use(Vuex)
 
@@ -20,6 +21,7 @@ export default new Vuex.Store({
   modules:{
     surveyStore,
     userStore,
-    answerStore
+    answerStore,
+    socketStore
   }
 })

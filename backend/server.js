@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const port = process.env.PORT || 3000;
 const multer = require('multer')
 const session = require('express-session');
 const cors = require('cors');
 const app = express();
+const http = require('http').createServer(app);
+const socketService = require('./services/socket.service')
+
 
 app.use(cookieParser());
 app.use(express.static('public'));
@@ -18,6 +20,8 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false }
 }));
+
+socketService.setup(http);
 
 //CLOUDINARY
 // const cloudinary = require('cloudinary').v2;
@@ -37,22 +41,11 @@ app.use(session({
 
 
 //ROUTES
-
 const surveyRoute = require('./api/survey/survey.routes');
 const answerRoute = require('./api/answer/answer.routes');
-// const userRoute = require('./api/user/user.route');
+
 app.use('/api/survey', surveyRoute);
 app.use('/api/answer', answerRoute);
-// app.use('/api/user', userRoute);
 
-const server = app.listen(port, () => console.log('Example app listening on port' + port + '!'))
-
-
-var io = require('socket.io')(server);
-
-io.on('connection', (socket) => {
-    socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-      console.log(data);
-    });
-  });
+const port = process.env.PORT || 3000;
+http.listen(port, () => console.log('Example app listening on port' + port + '!'))
