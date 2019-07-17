@@ -9,7 +9,7 @@ const app = express();
 
 //socket
 // var server = app.listen(8080)
-var io = require('socket.io')(server);
+var io = require('socket.io')();
 
 io.on('connection', (socket) => {
     socket.emit('news', { hello: 'world' });

@@ -20,6 +20,7 @@ async function getByUserId(id) {
 }
 
 async function getBySurveyId(id) {
+    console.log('I am in here back end',id)
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
         return await collection.find({surveyId : id}).map(submition => submition.answers).toArray();
