@@ -21,6 +21,7 @@ async function getBySurveyId(req, res) {
     const { surveyId } = req.params
     try {
         const answersFound = await answerService.getBySurveyId(surveyId)
+        console.log(answersFound)
         res.json(answersFound)
     } catch (error) {
         res.status(500).send({ error })

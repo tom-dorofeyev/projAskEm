@@ -4,7 +4,7 @@
     <div class="survey-submit-container">
       <form id="myForm">
         <h1 class="survey-submit-header">{{survey.name}}</h1>
-        <h6 class="survey-submit-created">{{survey.createdAt}}</h6>
+        <h6 class="survey-submit-created">Created {{survey.createdAt | moment("from", "now") }}</h6>
         <h6 class="survey-submit-created">{{survey.tags}}</h6>
         <h5 class="survey-submit-qst-number">"{{survey.description}}"</h5>
         <h6 class="survey-submit-qst-number">Survey has {{survey.quests.length}} Questions</h6>
@@ -25,8 +25,6 @@
 <script>
 
 import questSubmit from '@/components/questSubmit'
-import io from 'socket.io-client';
-
 
 export default {
   data: () => ({
@@ -50,7 +48,9 @@ export default {
   methods: {
     submitSurvey() {
       const submition = this.submition;
+      const surveyId = this.survey._id
       this.$store.dispatch({ type: "submitSurvey", submition });
+      this.$store.dispatch({type: 'emitSubmition', surveyId})
     },
     updateAns(answer, questIdx){
       let currAnswer = this.submition.answers[questIdx]
