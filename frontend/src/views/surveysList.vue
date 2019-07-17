@@ -4,7 +4,7 @@
     <div>
       <div class="survey-preview-container" v-for="currSurvey in surveys" :key="currSurvey._id">
         <h3 class="survey-preview-title">{{currSurvey.name}}</h3>
-        <p class="survey-preview-timestamp">{{currSurvey.createdAt}}</p>
+        <p class="survey-preview-timestamp">{{currSurvey.createdAt | moment("from", "now") }}</p>
         <section v-if="currSurvey.tags.length">
           <div
             class="survey-preview-tags"
@@ -26,7 +26,8 @@
 <script>
 export default {
   data: () => ({
-    surveys: []
+    surveys: [],
+    timeStamp: Date.now()
   }),
   created() {
     (async () => {
