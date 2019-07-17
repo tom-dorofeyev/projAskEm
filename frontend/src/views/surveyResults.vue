@@ -1,6 +1,6 @@
 <template>
   <section class="survey-results-container" v-if="currSurvey">
-    <!-- {{currSurvey}} -->
+    {{currSurvey}}
     <h1>{{currSurvey.name}} Results</h1>
     <section v-if="(currSurvey.quests)">
       <h5 v-if="(currSurvey.quests.length)">{{currSurvey.quests.length}} Questions</h5>
@@ -59,23 +59,25 @@
 
 <script>
 export default {
-  async created() {
+   created() {
     const surveyId = this.$route.params.surveyId;
-    await this.$store.dispatch({ type: "getAnswersBySurveyId", surveyId });
-    this.answersData.getSurveyList.forEach(survey => {
-      if (survey._id == surveyId) {
-        this.currSurvey = survey;
-      }
-    });
+    this.surveyId = surveyId
+    this.$store.dispatch({type: 'watchingResults', surveyId});
+    // this.$store.dispatch({ type: "getAnswersBySurveyId", surveyId });
+    (async () => {
+      await this.$store.dispatch({ type: "getAnswersBySurveyId", surveyId });
+      // this.answersData = this.$store.getters.answers;
+    })();
   },
-  async mounted() {
-    this.answersData = this.$store.getters;
-  },
-  data() {
+  data(){
     return {
+      surveyId: '',
       answersData: [],
       currSurvey: {}
     };
+  },
+  async mounted() {
+    this.answersData = this.$store.getters;
   },
   computed: {
     answerCounter() {
@@ -145,6 +147,10 @@ export default {
       console.log("Single Answers: ", optIdxCount);
       console.log("Mult Answers: ", optsIdxsCount);
     }
+  },
+  destroyed(){
+    const surveyId = this.surveyId
+    this.$store.dispatch({type: 'leftResults', surveyId});
   }
 };
 </script>
