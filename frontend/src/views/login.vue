@@ -1,16 +1,17 @@
 <template>
   <div class="login">
     <h1>Login!</h1>
+    <h3>{{msg}}</h3>
     <div class="login-container">
       <label for="uname">
         <b>Username</b>
       </label>
-      <input type="text" placeholder="Enter Username" name="uname" required /> <br>
+      <input type="text" v-model="loginCred.userName" placeholder="Enter Username" name="uname" required /> <br>
 
       <label for="psw">
         <b>Password</b>
       </label>
-      <input type="password" placeholder="Enter Password" name="psw" required /> <br>
+      <input type="password" v-model="loginCred.password" placeholder="Enter Password" name="psw" required /> <br>
 
       <button @click="doLogin" type="submit">Login</button>
       <label>
@@ -26,13 +27,19 @@
 export default {
   data(){
     return{
+      msg:'',
+      loginCred: {
+        userName: '',
+        password: '',
+      },
 
     }
   },
   methods:{
-    doLogin(){
-      console.log('Logging in! (Just a log - not actually logging)')
-    }
+    doLogin() {
+      if(!this.loginCred.userName || !this.loginCred.password) return this.msg = 'Missing username or password'
+      this.$store.dispatch({type :'login', userCred: this.loginCred})
+    },
   },
   components: {
   }

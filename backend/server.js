@@ -8,7 +8,7 @@ const cors = require('cors');
 const app = express();
 
 //socket
-// var server = app.listen(8080)
+var server = app.listen(8080)
 var io = require('socket.io')(server);
 
 io.on('connection', (socket) => {
@@ -51,9 +51,12 @@ app.use(session({
 
 const surveyRoute = require('./api/survey/survey.routes');
 const answerRoute = require('./api/answer/answer.routes');
-// const userRoute = require('./api/user/user.route');
+const userRoutes = require('./api/user/user.routes');
+const authRoutes = require('./api/auth/auth.routes');
+
 app.use('/api/survey', surveyRoute);
 app.use('/api/answer', answerRoute);
-// app.use('/api/user', userRoute);
+app.use('/api/user', userRoutes);
+app.use('/api/auth', authRoutes);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
