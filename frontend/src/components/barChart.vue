@@ -5,7 +5,6 @@ export default {
   props: ["labels", "label", "data"],
   extends: Bar,
   mounted() {
-      console.log(this.data)
     // Overwriting base render method with actual data.
     this.renderChart({
       labels: this.labels,
