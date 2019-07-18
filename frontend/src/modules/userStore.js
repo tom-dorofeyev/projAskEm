@@ -1,32 +1,51 @@
 import userService from '../services/userService'
+
 export default {
-    state:{
-        
+    state: {
+        user: ''
     },
     mutations: {
-
+        setUser(state, { user }) {
+            state.user = user
+        },
     },
     getters: {
-
+        user(state) {
+            return state.user
+        }
     },
     actions: {
-        async signup(context, {user}){
+        async signup(context, { user }) {
             try {
-                await userService.signup(user)   
-            } catch(err){
-                console.log('Had err while trying to signup user');
-                
+                const newUser = await userService.signup(user)
+                context.commit({ type: 'setUser', user: newUser })
+            } catch (err) {
+                throw err
             }
         },
-        login(context, {userCred}){
-            return userService.login(userCred)
+        async login(context, { userCred }) {
+            try {
+                const exsistUser = await userService.login(userCred)
+                context.commit({ type: 'setUser', user: exsistUser })
+            } catch (err) {
+                throw err
+            }
         },
         logout(context) {
             userService.logout()
+            context.commit({ type: 'setUser', user: '' })
         },
-        userById(context, {userId}){
+        userById(context, { userId }) {
             return userService.getById(userId)
-        }
+        },
+        async loadUser(context) {
+            try {
+                const user = await userService.query()
+                context.commit({ type: 'setUser', user })
+            } catch (err) {
+                throw err
+            }
+        },
 
     },
 }

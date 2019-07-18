@@ -8,7 +8,6 @@ const app = express();
 const http = require('http').createServer(app);
 const socketService = require('./services/socket.service')
 
-
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -43,7 +42,6 @@ socketService.setup(http);
 //ROUTES
 const surveyRoute = require('./api/survey/survey.routes');
 const answerRoute = require('./api/answer/answer.routes');
-<<<<<<< HEAD
 const userRoutes = require('./api/user/user.routes');
 const authRoutes = require('./api/auth/auth.routes');
 
@@ -51,11 +49,6 @@ app.use('/api/survey', surveyRoute);
 app.use('/api/answer', answerRoute);
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
-=======
-
-app.use('/api/survey', surveyRoute);
-app.use('/api/answer', answerRoute);
->>>>>>> origin/master
 
 const port = process.env.PORT || 3000;
 http.listen(port, () => console.log('Example app listening on port' + port + '!'))

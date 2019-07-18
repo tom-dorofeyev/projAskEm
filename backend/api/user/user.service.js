@@ -4,7 +4,7 @@ module.exports = {
     remove,
     getById,
     update,
-    getUser
+    getUser,
 }
 
 const fs = require('fs')
@@ -14,12 +14,12 @@ const ObjectId = require('mongodb').ObjectId
 const COLLECTION_KEY = 'user'
 
 async function query() {
+    
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
-        const users = await collection.find(criteria).toArray();
+        const users = await collection.find().toArray();
         return users
     } catch (err) {
-        console.log('ERROR: cannot find user')
         throw err;
     }
 }
@@ -30,7 +30,6 @@ async function add(user) {
         await collection.insertOne(user);
         return user;
     } catch (err) {
-        console.log(`ERROR: cannot insert user`)
         throw err;
     }
 }
@@ -40,7 +39,6 @@ async function remove(userId) {
     try {
         await collection.remove({ "_id": ObjectId(userId) })
     } catch (err) {
-        console.log(`ERROR: cannot remove user ${userId}`)
         throw err;
     }
 }
@@ -53,7 +51,6 @@ async function update(user) {
         await collection.updateOne({ "_id": ObjectId(userId) }, { $set: user })
         return user
     } catch (err) {
-        console.log(`ERROR: cannot update userId ${user._id}`)
         throw err;
     }
 }
@@ -70,11 +67,10 @@ async function getById(userId) {
 }
 
 
-async function getUser(userName, password) {
+async function getUser(userName) {
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try{
         const foundUser = await collection.findOne({userName})
-        console.log('found user in user service:', foundUser)
         if(foundUser) return foundUser
     } catch(err){
         throw err
