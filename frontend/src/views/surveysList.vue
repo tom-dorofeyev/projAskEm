@@ -1,7 +1,7 @@
 
 <template>
   <div class="surveys-list-page" v-if="surveys.length > 0">
-    <div>
+    <div class="survey-preview-section">
       <div class="survey-preview-container" v-for="currSurvey in surveys" :key="currSurvey._id">
         <h3 v-if="currSurvey.name" class="survey-preview-title">{{currSurvey.name}}</h3>
         <h3 v-if="!currSurvey.name" class="survey-preview-title">No Title</h3>
