@@ -31,7 +31,7 @@ export default {
         console.log("Re Password Entered isn't Match!");
       delete user.rePassword;
       try {
-        this.$store.dispatch({ type: "doSignUp", user });
+        this.$store.dispatch({ type: "signup", user });
         this.$router.push("/profile");
         this.cleanInputs();
       } catch {
