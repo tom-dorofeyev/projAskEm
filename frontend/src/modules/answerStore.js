@@ -5,7 +5,7 @@ export default {
         currSurveyAnswers: [],
     },
     mutations: {
-        setAnswersBySurveyId(state, {surveyAnswers}) {
+        setAnswers(state, {surveyAnswers}) {
             state.currSurveyAnswers = surveyAnswers
         }
     },
@@ -17,7 +17,7 @@ export default {
     actions: {
         async getAnswersBySurveyId(context, {surveyId}) {
             var surveyAnswers = await answerService.getBySurveyId(surveyId)
-            context.commit({type: 'setAnswersBySurveyId', surveyAnswers})
+            context.commit({type: 'setAnswers', surveyAnswers})
         }
     },
 }
