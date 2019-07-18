@@ -2,22 +2,22 @@ import answerService from '../services/answerService'
 
 export default {
     state:{
-        answers: [],
+        currSurveyAnswers: [],
     },
     mutations: {
-        setAnswersBySurveyId(state, {surveyAnswers}) {
-            state.answers = surveyAnswers
+        setAnswers(state, {surveyAnswers}) {
+            state.currSurveyAnswers = surveyAnswers
         }
     },
     getters: {
-        answers(state) {
-            return state.answers
+        SurveyAnswers(state) {
+            return state.currSurveyAnswers
         }
     },
     actions: {
         async getAnswersBySurveyId(context, {surveyId}) {
             var surveyAnswers = await answerService.getBySurveyId(surveyId)
-            context.commit({type: 'setAnswersBySurveyId', surveyAnswers})
+            context.commit({type: 'setAnswers', surveyAnswers})
         }
     },
 }

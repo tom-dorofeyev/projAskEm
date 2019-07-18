@@ -10,14 +10,17 @@ const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
 const COLLECTION_KEY = 'survey'
 
-async function query(filterBy = {}) {
-
+async function query(filterBy = {}){
     const criteria = {};
+
     if (filterBy.name) {
-        criteria.name = filterBy.name
+        criteria.name = filterBy.name;
     }
     if (filterBy.type) {
-        criteria.type = filterBy.type
+        criteria.type = filterBy.type;
+    }
+    if(filterBy.createdBy) {
+        criteria.createdBy = filterBy.createdBy;
     }
 
     const collection = await dbService.getCollection(COLLECTION_KEY)

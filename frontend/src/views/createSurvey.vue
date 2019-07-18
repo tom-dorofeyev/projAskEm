@@ -1,16 +1,14 @@
 <template>
-  <div class="create-survey-page">
+  <div class="create-survey">
     <h1>create Survey</h1>
     <form @submit.prevent="publishSurvey">
       Enter Survey Name:
       <input type="text" v-model="survey.name" />
-      Enter Survey Description:
+      <br />Enter Survey Description:
       <textarea v-model="survey.description"></textarea>
-      <input type="text" @keyup.enter="addTag" placeholder="Add Tags..." />
-      <div class="tags" v-for="(tag, tagIdx) in survey.tags" :key="tagIdx">
-        {{tag}}
-        <button @click="removeTag(tagIdx)">X</button>
-      </div>
+      <br />
+      <input type="text" v-model="survey.tags" placeholder="Add Tags..." />
+      <br />
       <create-quest v-model="survey.quests"></create-quest>
       <button type="submit">Publish</button>
     </form>
@@ -28,11 +26,27 @@ export default {
         description: "",
         tags: [],
         isActive: true,
-        createdBy: null,
+        createdBy: "u101",
         quests: [],
         createdAt: null,
         endDate: null,
-        userLiked: []
+        userLiked: [
+          {
+            _id: "u101",
+            name: "bobo",
+            img: ""
+          },
+          {
+            _id: "u102",
+            name: "kabobo",
+            img: ""
+          },
+          {
+            _id: "u103",
+            name: "shlomo",
+            img: ""
+          }
+        ]
       }
     };
   },
@@ -40,18 +54,19 @@ export default {
     async publishSurvey() {
       let survey = this.survey;
       survey.createdAt = Date.now();
+      survey.endDate = survey.createdAt * 1.00135;
+      var res = survey.tags;
+      if (survey.tags.includes(",")) res = survey.tags.split(",");
+      if (survey.tags.includes(" ")) res = survey.tags.split(" ");
+      if (survey.tags.includes("-")) res = survey.tags.split("-");
+      if (survey.tags.includes("#")) res = survey.tags.split("#");
+      survey.tags = res;
       try {
         this.$store.dispatch({ type: "publishSurvey", survey });
-        this.$router.push("/");
+        this.$router.push("/survey/list");
       } catch (err) {
         console.log("had problems publishing survey");
       }
-    },
-    addTag(ev) {
-      this.survey.tags.push(ev.target.value);
-    },
-    removeTag(idx) {
-      this.survey.tags.splice(idx, 1);
     }
   },
   components: {

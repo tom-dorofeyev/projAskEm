@@ -5,7 +5,7 @@
       <form id="myForm">
         <h1 class="survey-submit-header">{{survey.name}}</h1>
         <h6 class="survey-submit-created">Created {{survey.createdAt | moment("from", "now") }}</h6>
-        <h6 class="survey-submit-created">{{survey.tags}}</h6>
+        <h6 class="survey-submit-created">Swag{{survey.tags}}</h6>
         <h5 class="survey-submit-qst-number">"{{survey.description}}"</h5>
         <h6 class="survey-submit-qst-number">Survey has {{survey.quests.length}} Questions</h6>
 
