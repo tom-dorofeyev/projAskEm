@@ -1,14 +1,18 @@
 const express = require('express');
-const { add, getBySurveyId , getByUserId} = require('./answer.controller')
+const { add, getBySurveyId , getByUserId, getMostAnweredSurveys} = require('./answer.controller')
 
 const router = express.Router()
 module.exports = router
 
-// ANSWERS BY SURVEY ID
-router.get('/:surveyId', getBySurveyId)
+//MOST ANSWERED SURVEY ID
+router.get('/mostAnswered' , getMostAnweredSurveys)
+
 
 // ANSWERS BY USER ID
-router.get('/:userId', getByUserId)
+router.get('/userAnswers/:userId', getByUserId)
+
+// ANSWERS BY SURVEY ID
+router.get('/surveyAnswers/:surveyId', getBySurveyId)
 
 //ADDING ANSWER
 router.post('/', add)
