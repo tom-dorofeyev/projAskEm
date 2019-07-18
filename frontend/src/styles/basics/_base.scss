@@ -43,65 +43,11 @@ a {
 //   }
 // }
 
-.survey-preview-container {
-  border-bottom-left-radius: 30%;
-  border-bottom-right-radius: 30%;
-  opacity: 1;
-  text-align: center;
-  background-color: $color4;
-  border: 1px solid black;
-  margin-bottom: 15px;
-  margin-top: 15px;
-  margin-left: 30%;
-  margin-right: 30%;
-}
 
-.survey-preview-title {
-  margin: 0;
-  color: $color1;
-  background-color: $color3;
-}
-
-.survey-preview-timestamp {
-  background-color: $color2;
-  font-size: 12px;
-  margin: 0;
-}
-
-.survey-preview-tags {
-  background-color: $color2;
-  font-size: 11px;
-  font-style: italic;
-  font-weight: bold;
-}
 
 .survey-preview-quest-counter {
-  text-align: left;
-  margin: 0;
-  background-color: $color4;
-  margin-bottom: 5px;
+  margin-bottom: 0;
 }
-
-.survey-preview-users-liked-container{
-  margin: 0;
-  margin-bottom: 20px;
-}
-
-.survey-preview-users-liked-header{
-  text-align: left;
-  margin: 0;
-}
-
-.survey-preview-users-liked-list{
-  margin: 0;
-}
-
-.survey-preview-users-liked-user{
-  list-style: none;
-  margin-left: 5px;
-  float: left;
-}
-
 .survey-preview-btn {
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -155,6 +101,25 @@ a {
   text-decoration: none;
 }
 
+.survey-preview-title {
+  margin: 0;
+}
+.survey-preview-tags {
+  font-size: 11px;
+  font-style: italic;
+  font-weight: bold;
+}
+.survey-preview-timestamp {
+  font-size: 12px;
+  margin: 0;
+}
+.survey-preview-container {
+  background-color: lightblue;
+  border: 1px solid black;
+  margin-bottom: 1px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
 .survey-submit-container {
   background-color: lightgreen;
   text-align: left;
@@ -174,7 +139,7 @@ a {
   margin: 0 auto;
   text-align: center;
 }
-.survey-results-container {
-  text-align: left;
-  margin-left: 20%;
-}
+ .survey-results-container{
+   text-align: left;
+   margin-left: 20%;
+ }

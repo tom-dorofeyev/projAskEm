@@ -6,16 +6,10 @@ export default {
     },
     mutations: {
         setAnswersBySurveyId(state, {surveyAnswers}) {
-            state.surveyAnswers = surveyAnswers
-        },
-        setAnswers(state, { answers }) {
-            state.answers = answers
+            state.answers = surveyAnswers
         }
     },
     getters: {
-        answersBySurveyId(state) {
-            return state.surveyAnswers
-        },
         answers(state) {
             return state.answers
         }
@@ -24,10 +18,6 @@ export default {
         async getAnswersBySurveyId(context, {surveyId}) {
             var surveyAnswers = await answerService.getBySurveyId(surveyId)
             context.commit({type: 'setAnswersBySurveyId', surveyAnswers})
-        },
-        async loadAnswers(context) {
-            let answers = await answerService.query();
-            context.commit({ type: 'setAnswers', answers });
-        },
+        }
     },
 }
