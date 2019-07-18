@@ -8,10 +8,6 @@
   </section>
 </template>
 
-
-
-
-
 <script>
 import resultPreview from '../components/resultPreview'
 
