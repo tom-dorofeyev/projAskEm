@@ -19,7 +19,7 @@ async function query() {
 
 //TODO: when moving to mongo, make the request filter on the db side.
 async function getBySurveyId(surveyId) {
-    let answers = await httpService.get(`${API_KEY}/${surveyId}`)
+    let answers = await httpService.get(API_KEY + '/surveyAnswers/' + surveyId)
     var surveyAnswers = answers
     return surveyAnswers
 }

@@ -2,16 +2,16 @@ import answerService from '../services/answerService'
 
 export default {
     state:{
-        answers: [],
+        currSurveyAnswers: [],
     },
     mutations: {
         setAnswersBySurveyId(state, {surveyAnswers}) {
-            state.answers = surveyAnswers
+            state.currSurveyAnswers = surveyAnswers
         }
     },
     getters: {
-        answers(state) {
-            return state.answers
+        SurveyAnswers(state) {
+            return state.currSurveyAnswers
         }
     },
     actions: {
