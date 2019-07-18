@@ -1,7 +1,6 @@
 
 <template>
-  <div class="surveys-list-page" v-if="surveys.length > 0">
-    <div class="survey-preview-section">
+  <div class="survey-list" v-if="surveys.length > 0">
       <div class="survey-preview-container" v-for="currSurvey in surveys" :key="currSurvey._id">
         <h3 v-if="currSurvey.name" class="survey-preview-title">{{currSurvey.name}}</h3>
         <h3 v-if="!currSurvey.name" class="survey-preview-title">No Title</h3>
@@ -15,6 +14,7 @@
           >#{{tag}}</div>
         </section>
         <h5 class="survey-preview-quest-counter">{{currSurvey.quests.length}} Questions</h5>
+        <h5 class="survey-preview-quest-description">"{{currSurvey.description}}"</h5>
         <section class="survey-preview-users-liked-container">
          <h5 v-if="currSurvey.userLiked[0]"  class="survey-preview-users-liked-header" >Liked By:</h5> 
           <ul class="survey-preview-users-liked-list">
@@ -29,7 +29,6 @@
         <br />
         </section>
       </div>
-    </div>
   </div>
 </template>
 
