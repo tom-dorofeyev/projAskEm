@@ -10,7 +10,7 @@ export default {
         }
     },
     getters: {
-        SurveyAnswers(state) {
+        surveyAnswers(state) {
             return state.currSurveyAnswers
         }
     },

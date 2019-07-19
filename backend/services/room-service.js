@@ -2,12 +2,16 @@
 // This is a room service that allows up to 2 people in a room
 
 module.exports = {
-    placeInRoom
+    placeInRoom,
+    findSurveyRoom
 }
 
 function placeInRoom(member, surveyId) {
     var room = findSurveyRoom(surveyId)
-    if (room) return room;
+    if (room) {
+        room.members.push(member);
+        return room
+    }
     return createRoom(member, surveyId)
 }
 

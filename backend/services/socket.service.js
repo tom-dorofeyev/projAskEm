@@ -24,9 +24,15 @@ function setup(http) {
             console.log('Placed', member, 'in room:', room);
             socket.join(room.surveyId)
         })
+
+        socket.on('leftResults', (surveyId) => {
+            room = roomService.findSurveyRoom(surveyId);
+            socket.leave(room.surveyId)
+        })
         
         socket.on('surveySubmitted', surveyId => {
-            io.to(room.surveyId).emit('surveySubmit', surveyId)
+            room = roomService.findSurveyRoom(surveyId)
+            if(room.surveyId) io.to(room.surveyId).emit('surveySubmit', surveyId)
         })
 
     });

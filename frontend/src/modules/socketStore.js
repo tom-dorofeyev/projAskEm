@@ -19,8 +19,7 @@ export default {
             socket.emit('watchingResults', ({surveyId, member: 'Y'}))
         },
         leftResults(context, { surveyId }){
-            console.log('left survey results:', surveyId)
-            // socket.emit('leftResults', surveyId)
+            socket.emit('leftResults', surveyId)
         }
     },
 }
