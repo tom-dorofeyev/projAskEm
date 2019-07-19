@@ -11,14 +11,6 @@ import barChart from "./barChart";
 
 export default {
   props: ["quest", "answer"],
-  data(){
-      return {
-          chartData:{label: '', labels:[], data:[]}
-      }
-  },
-  created(){
-
-  },
   computed: {
     getLabels() {
       let labels = [];
