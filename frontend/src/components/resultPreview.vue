@@ -1,5 +1,5 @@
 <template>
-  <section class="result-preview">
+  <section class="result-preview" v-if="quest.title">
     <h3>{{quest.title}}</h3>
     <bar-chart :labels="getLabels" :data="getData"/>
   </section>

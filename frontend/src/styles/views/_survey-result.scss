@@ -1,0 +1,9 @@
+.result-list{
+  &{
+    display:flex;
+    flex-wrap:wrap;
+  }
+  & > .result-preview{
+    width:45vw;
+  }
+}

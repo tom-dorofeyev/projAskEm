@@ -2,8 +2,10 @@
   <section class="survey-results-container" 
             v-if="answersToShow.length > 0 && survey.name">
     <h1>{{survey.name}}</h1>
-    <div class="result-list" v-for="(ans, idx) in answersToShow" :key="idx">
-      <result-preview :quest="survey.quests[idx]" :answer="ans" />
+    <div class="result-list">
+      <template v-for="(ans, idx) in answersToShow">
+        <result-preview :quest="survey.quests[idx]" :answer="ans" :key="idx" />
+      </template>
     </div>
   </section>
 </template>
@@ -44,5 +46,8 @@ export default {
 };
 </script>
 
-<style>
+
+<style lang="scss" scoped src="@/styles/views/_survey-result.scss">
+
 </style>
+
