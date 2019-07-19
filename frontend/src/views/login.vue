@@ -6,12 +6,26 @@
       <label for="uname">
         <b>Username</b>
       </label>
-      <input type="text" v-model="loginCred.userName" placeholder="Enter Username" name="uname" required /> <br>
+      <input
+        type="text"
+        v-model="loginCred.userName"
+        placeholder="Enter Username"
+        name="uname"
+        required
+      />
+      <br />
 
       <label for="psw">
         <b>Password</b>
       </label>
-      <input type="password" v-model="loginCred.password" placeholder="Enter Password" name="psw" required /> <br>
+      <input
+        type="password"
+        v-model="loginCred.password"
+        placeholder="Enter Password"
+        name="psw"
+        required
+      />
+      <br />
 
       <button @click="doLogin" type="submit">Login</button>
       <label>
@@ -23,25 +37,28 @@
 
 
 <script>
-
 export default {
-  data(){
-    return{
-      msg:'',
+  data() {
+    return {
+      msg: "",
       loginCred: {
-        userName: '',
-        password: '',
-      },
-
+        userName: "",
+        password: ""
+      }
+    };
+  },
+  methods: {
+    async doLogin() {
+      if (!this.loginCred.userName || !this.loginCred.password)
+        return (this.msg = "Missing user name or password");
+      try {
+        await this.$store.dispatch({ type: "login", userCred: this.loginCred });
+        this.$router.push("/");
+      } catch (err) {
+        this.msg = err;
+      }
     }
   },
-  methods:{
-    doLogin() {
-      if(!this.loginCred.userName || !this.loginCred.password) return this.msg = 'Missing username or password'
-      this.$store.dispatch({type :'login', userCred: this.loginCred})
-    },
-  },
-  components: {
-  }
-}
+  components: {}
+};
 </script>

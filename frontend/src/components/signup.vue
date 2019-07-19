@@ -1,5 +1,6 @@
 <template>
   <form>
+    <h2 class="signup-msg">{{msg}}</h2>
     <input type="text" v-model="user.userName" placeholder="Enter User Name" required />
     <input type="email" v-model="user.email" placeholder="Enter Your Email" required />
     <input type="text" v-model="user.fullName" placeholder="Enter Full Name" required />
@@ -12,6 +13,7 @@
 <script>
 export default {
   name: "sign-up",
+
   data() {
     return {
       user: {
@@ -21,21 +23,24 @@ export default {
         password: "",
         rePassword: "",
         isAdmin: false
-      }
+      },
+      msg: ""
     };
   },
+
   methods: {
     async doSignUp() {
       let user = this.user;
       if (user.password !== user.rePassword)
-        console.log("Re Password Entered isn't Match!");
+        return (this.msg = "Password isn't match!");
       delete user.rePassword;
+
       try {
-        this.$store.dispatch({ type: "signup", user });
-        this.$router.push("/profile");
+        await this.$store.dispatch({ type: "signup", user });
+        this.$router.push("/");
         this.cleanInputs();
-      } catch {
-        console.log("got an error!");
+      } catch (err) {
+        this.msg = err;
       }
     },
     cleanInputs() {

@@ -23,8 +23,8 @@ async function ajax(endpoint, method='get', data=null) {
     } catch (err) {
         if (err.response.status === 401) {
             router.push('/');
-        }
-
+        } 
+        throw err.response.data.error
     }
 }
 

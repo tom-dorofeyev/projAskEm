@@ -8,7 +8,6 @@ const app = express();
 const http = require('http').createServer(app);
 const socketService = require('./services/socket.service')
 
-
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(bodyParser.json());
