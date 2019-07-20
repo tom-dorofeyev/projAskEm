@@ -1,35 +1,40 @@
 .app-header-div {
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color:$color4;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: $color4;
 
-    .main-nav {
-        justify-content: space-between;
-        flex-grow: 2;
-        align-items: center;
+  .main-nav {
+    .router-link-exact-active {
+      color: $color2 !important;
+    }
+    justify-content: left;
+    flex-grow: 2;
+    align-items: center;
 
-        a {
-            color: $color3;
-        }
-
-        a:active {
-            color: $color2;
-        }
+    a {
+      margin-right: 0.6em;
+      color: $color3;
     }
 
-    img {
-        // width: 150px;
-        // height: 60px;
-
-        width: 100px;
-        height: 50px;
-        margin-right: 7rem;
+    a:active {
+      color: $color2;
     }
-
-
-
-    @media (min-width: 800px) {
-        flex-direction: row;
+    .router-link-exact-active {
+      color: $color2;
     }
+  }
+
+  img {
+    // width: 150px;
+    // height: 60px;
+
+    width: 100px;
+    height: 50px;
+    margin-right: 2rem;
+  }
+
+  @media (min-width: 800px) {
+    flex-direction: row;
+  }
 }

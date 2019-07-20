@@ -5,12 +5,12 @@
       <div class="our-mission">Our Mission</div>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam necessitatibus fugiat blanditiis dolores consequuntur id expedita similique omnis nulla, sequi animi ex asperiores possimus quam nostrum mollitia eos nam? Ratione. Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, cumque? Dolorem dolorum iure sit maxime odit tempora eaque modi, dolor eligendi rerum quisquam quibusdam doloremque dignissimos sequi consectetur quis rem!</p>
     </div>
-    <img class="our-mission-img" src="@/assets/images/aboutus.jpg">
       <ul class="about-details flex clean-list">
         <li><div class="heading">3</div><p>Users Around The World</p></li>
         <li><div class="heading">100</div><p>Surveys Uploaded</p></li>
         <li><div class="heading">3</div><p>Partners Uses Our Services</p></li>
       </ul>
+    <img class="our-mission-img" src="@/assets/images/aboutus.jpg">
     <section class="our-team-section">
       <h2 class="our-team-title">Our Team</h2>
       <div class="our-team-div flex">

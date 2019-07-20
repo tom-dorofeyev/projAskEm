@@ -5,7 +5,7 @@
     <div class="homepage-header">
       <img src="../assets/images/askem.png" alt="">
     <h2>Watch The World Answer</h2>
-    <router-link to="/survey/create" class="button">Make Suvey</router-link> 
+    <router-link to="/survey/create" class="button">Make a Suvey</router-link> 
     </div>
   </div>
 </template>
