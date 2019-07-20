@@ -12,12 +12,13 @@ const BASE_URL = process.env.NODE_ENV === 'production'
 
 import axios from 'axios'
 
-async function ajax(endpoint, method='get', data=null) {
+async function ajax(endpoint, method='get', data=null, query=null) {
     try {
         const res = await axios({
             url: BASE_URL + endpoint,
             method,
-            data
+            data,
+            params:query
         })
         return res.data;
     } catch (err) {
@@ -29,8 +30,8 @@ async function ajax(endpoint, method='get', data=null) {
 }
 
 export default {
-    get(endpoint, data){
-        return ajax(endpoint, 'GET', data)
+    get(endpoint, data, query){
+        return ajax(endpoint, 'GET', data, query)
     },
     post(endpoint, data){
         return ajax(endpoint, 'POST', data)

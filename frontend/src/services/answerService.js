@@ -7,7 +7,7 @@ export default {
 }
 
 import httpService from './httpService'
-const API_KEY = 'answer'
+const API_KEY = 'answer/'
 
 async function add(submition){
     return await httpService.post(API_KEY, submition)
@@ -18,7 +18,7 @@ async function query() {
 }
 
 async function getBySurveyId(surveyId) {
-    let allSurveySubmitions = await httpService.get(API_KEY + '/surveyAnswers/' + surveyId)
+    let allSurveySubmitions = await httpService.get(API_KEY, null, {surveyId})
     return _getSummedResults(allSurveySubmitions)
 }
 

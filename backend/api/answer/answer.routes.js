@@ -1,5 +1,5 @@
 const express = require('express');
-const { add, getBySurveyId , getByUserId, getMostAnweredSurveys} = require('./answer.controller')
+const { add, getBySurveyId , getByUserId, getMostAnweredSurveys, query} = require('./answer.controller')
 
 const router = express.Router()
 module.exports = router
@@ -7,12 +7,8 @@ module.exports = router
 //MOST ANSWERED SURVEY ID
 router.get('/mostAnswered' , getMostAnweredSurveys)
 
-
-// ANSWERS BY USER ID
-router.get('/userAnswers/:userId', getByUserId)
-
-// ANSWERS BY SURVEY ID
-router.get('/surveyAnswers/:surveyId', getBySurveyId)
+//GETTING ANSWERS WITH QUERY
+router.get('/', query)
 
 //ADDING ANSWER
 router.post('/', add)

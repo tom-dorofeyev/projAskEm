@@ -2,36 +2,26 @@ const answerService = require('./answer.service')
 
 module.exports = {
     add,
-    getBySurveyId,
-    getByUserId,
-    getMostAnweredSurveys
+    getMostAnweredSurveys,
+    query
 }
 
+async function query(req, res){
+    const filterBy = req.query
+    console.log('answer query got: ', filterBy)
+    try {
+        const answers = await answerService.query(filterBy)
+        res.json(answers)
+
+    } catch (error) {
+        res.status(500).send({error})
+    }
+}
 
 async function getMostAnweredSurveys(req, res) {
     try {
         const mostAnsweredSurveys = await answerService.getMostAnweredSurveys()
         res.json(mostAnsweredSurveys)
-    } catch (error) {
-        res.status(500).send({ error })
-    }
-}
-
-async function getByUserId(req, res) {
-    const { userId } = req.params
-    try {
-        const answersFound = await answerService.getByUserId(userId)
-        res.json(answersFound)
-    } catch (error) {
-        res.status(500).send({ error })
-    }
-}
-
-async function getBySurveyId(req, res) {
-    const { surveyId } = req.params
-    try {
-        const answersFound = await answerService.getBySurveyId(surveyId)
-        res.json(answersFound)
     } catch (error) {
         res.status(500).send({ error })
     }

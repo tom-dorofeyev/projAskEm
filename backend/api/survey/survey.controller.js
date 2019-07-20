@@ -9,7 +9,7 @@ const userService = require('./survey.service')
 // const logger = require('../../services/logger.service')
 
 async function query(req, res) {
-    const filterBy = res.query;
+    const filterBy = req.query;
     try {
         const surveys = await userService.query(filterBy)
         res.json(surveys)

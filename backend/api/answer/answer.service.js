@@ -1,14 +1,32 @@
 module.exports = {
     add,
-    getBySurveyId,
-    getByUserId,
-    getMostAnweredSurveys
+    getMostAnweredSurveys,
+    query
 }
 
 const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
 const COLLECTION_KEY = 'answer'
 
+async function query(filterBy = {}){
+    const criteria = {};
+
+    if(filterBy.userId) {
+        criteria.userId = filterBy.userId;
+    }
+
+    if(filterBy.surveyId) {
+        criteria.surveyId = filterBy.surveyId;
+    }
+
+    const collection = await dbService.getCollection(COLLECTION_KEY)
+    try {
+        return await collection.find(criteria).map(submition => submition.answers).toArray();
+    } catch (err) {
+        console.log('ERROR: cannot find answers')
+        throw err;
+    }
+}
 
 async function getMostAnweredSurveys() {
     const collection = await dbService.getCollection(COLLECTION_KEY)
@@ -25,26 +43,6 @@ async function getMostAnweredSurveys() {
 
     } catch (err) {
         console.log(`ERROR: cannot get most answered`)
-        throw err;
-    }
-}
-
-async function getByUserId(id) {
-    const collection = await dbService.getCollection(COLLECTION_KEY)
-    try {
-        return await collection.find({userId : id}).map(submition => submition.answers).toArray();
-    } catch (err) {
-        console.log(`ERROR: cannot get answers by survey ID`)
-        throw err;
-    }
-}
-
-async function getBySurveyId(id) {
-    const collection = await dbService.getCollection(COLLECTION_KEY)
-    try {
-        return await collection.find({surveyId : id}).map(submition => submition.answers).toArray();
-    } catch (err) {
-        console.log(`ERROR: cannot get answers by survey ID`)
         throw err;
     }
 }
