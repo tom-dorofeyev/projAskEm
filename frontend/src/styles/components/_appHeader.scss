@@ -1,41 +1,45 @@
-.app-header-div {
+.main-nav {
+  .router-link-exact-active {
+    color: $color2 !important;
+  }
+
+  a {
+    margin-right: 0.6em;
+    color: $color3;
+    font-weight: 800;
+  }
+
+  a:active {
+    color: $color2;
+  }
+  .router-link-exact-active {
+    color: $color2;
+  }
+}
+
+img {
+  // width: 150px;
+  // height: 60px;
+
+  width: 100px;
+  height: 50px;
+  margin-right: 2rem;
+}
+
+@include for-wide-layout {
+  flex-direction: row;
+  height: 100px;
+}
+
+.app-header-div{
+  justify-content: left;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 20px;
   background-color: $color4;
-
-  .main-nav {
-    .router-link-exact-active {
-      color: $color2 !important;
-    }
-    justify-content: left;
-    flex-grow: 2;
-    align-items: center;
-
-    a {
-      margin-right: 0.6em;
-      color: $color3;
-      font-weight: 800;
-    }
-
-    a:active {
-      color: $color2;
-    }
-    .router-link-exact-active {
-      color: $color2;
-    }
-  }
-
-  img {
-    // width: 150px;
-    // height: 60px;
-
-    width: 100px;
-    height: 50px;
-    margin-right: 2rem;
-  }
-
-  @media (min-width: 800px) {
-    flex-direction: row;
+  flex-grow: 2;
+  align-items: center;
+  height: 35px;
+  @include for-wide-layout {
+    margin: 33px 150px;
   }
 }
