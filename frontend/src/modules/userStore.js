@@ -2,7 +2,7 @@ import userService from '../services/userService'
 
 export default {
     state: {
-        user: ''
+        user: {}
     },
     mutations: {
         setUser(state, { user }) {
