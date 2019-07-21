@@ -19,6 +19,7 @@ const config = {
 
 app.use(cors(config));
 
+
 app.set('trust proxy', true)
 app.use(session({
     key: 'user',
