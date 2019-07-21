@@ -11,6 +11,7 @@ const BASE_URL = process.env.NODE_ENV === 'production'
 // });
 
 import axios from 'axios'
+axios.defaults.withCredentials = true;
 
 async function ajax(endpoint, method='get', data=null, query=null) {
     try {

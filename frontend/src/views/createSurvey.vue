@@ -1,18 +1,27 @@
 <template>
   <div class="create-survey">
-  <div class="create-survey-container">
-    <h1>Create Survey</h1>
-    <form class="create-survey-form" @submit.prevent="publishSurvey">
-      <input class="survey-input" type="text" placeholder="Enter Survey Name" v-model="survey.name" />
-      <br />
-      <textarea class="survey-input-desc" placeholder="Enter Survey Description" v-model="survey.description"></textarea>
-      <br />
-      <input class="survey-tags" type="text" v-model="survey.tags" placeholder="Add Tags..." />
-      <br />
-      <create-quest v-model="survey.quests"></create-quest>
-      <button type="submit">Publish</button>
-    </form>
-  </div>
+    <div class="create-survey-container">
+      <h1>Create Survey</h1>
+      <form class="create-survey-form" @submit.prevent="publishSurvey">
+        <input
+          class="survey-input"
+          type="text"
+          placeholder="Enter Survey Name"
+          v-model="survey.name"
+        />
+        <br />
+        <textarea
+          class="survey-input-desc"
+          placeholder="Enter Survey Description"
+          v-model="survey.description"
+        ></textarea>
+        <br />
+        <input class="survey-tags" type="text" v-model="survey.tags" placeholder="Add Tags..." />
+        <br />
+        <create-quest v-model="survey.quests"></create-quest>
+        <button type="submit">Publish</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -27,7 +36,7 @@ export default {
         description: "",
         tags: [],
         isActive: true,
-        createdBy: "u101",
+        createdBy:{},
         quests: [],
         createdAt: null,
         endDate: null,
@@ -51,6 +60,10 @@ export default {
       }
     };
   },
+  created(){
+    console.log(this.user);
+    
+  },
   methods: {
     async publishSurvey() {
       let survey = this.survey;
@@ -68,6 +81,11 @@ export default {
       } catch (err) {
         console.log("had problems publishing survey");
       }
+    }
+  },
+  computed: {
+    user(){
+      return this.$store.getters.user
     }
   },
   components: {

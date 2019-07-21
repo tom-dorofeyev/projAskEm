@@ -11,13 +11,21 @@ const socketService = require('./services/socket.service')
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(bodyParser.json());
-app.use(cors())
 
+const config = {
+    origin: 'http://localhost:8080',
+    credentials: true,
+};
+
+app.use(cors(config));
+
+app.set('trust proxy', true)
 app.use(session({
+    key: 'user',
     secret: 'puki muki',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }
+    cookie: { secure: false, maxAge: 60000}
 }));
 
 socketService.setup(http);
