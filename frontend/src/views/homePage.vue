@@ -1,6 +1,11 @@
 <template>
   <div class="home-page">
     <!-- <img class="homepage-backgroung-img" src="../assets/images/homepage-background.jpg" alt=""> -->
+    <div class="background">
+    </div>
+    <div class="red-bcg">
+      <img src="@/assets/images/askem-bcg-img.png" alt="">
+    </div>
     <div class="homepage-header">
       <div class="text-container">
         <img src="../assets/images/askem.png" alt=""/>
