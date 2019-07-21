@@ -15,10 +15,14 @@
     height: auto;
   }
   .survey-preview-title {
+    color: $color1;
+    position: relative;
+    top: -4vh;
     margin: 0;
   }
 
   .survey-preview-timestamp {
+    top: 0px;
     font-size: 12px;
     margin: 0;
   }
