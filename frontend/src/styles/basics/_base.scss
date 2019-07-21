@@ -3,16 +3,18 @@
 }
 
 html {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  // font-family: "Roboto", sans-serif;
+  // font-size: 14px;
+  font-size: 1em;
   @include for-normal-layout {
-    font-size: 16px;
+    // font-size: 16px;
+    font-size: 1em;
   }
 }
 
 body {
   margin: 0;
-  font-family: $font2;
+  font-family: $font1;
 }
 
 a {
