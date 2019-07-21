@@ -1,17 +1,18 @@
 <template>
   <div class="create-survey">
-    <h1>create Survey</h1>
-    <form @submit.prevent="publishSurvey">
-      Enter Survey Name:
-      <input type="text" v-model="survey.name" />
-      <br />Enter Survey Description:
-      <textarea v-model="survey.description"></textarea>
+  <div class="create-survey-container">
+    <h1>Create Survey</h1>
+    <form class="create-survey-form" @submit.prevent="publishSurvey">
+      <input class="survey-input" type="text" placeholder="Enter Survey Name" v-model="survey.name" />
       <br />
-      <input type="text" v-model="survey.tags" placeholder="Add Tags..." />
+      <textarea class="survey-input-desc" placeholder="Enter Survey Description" v-model="survey.description"></textarea>
+      <br />
+      <input class="survey-tags" type="text" v-model="survey.tags" placeholder="Add Tags..." />
       <br />
       <create-quest v-model="survey.quests"></create-quest>
       <button type="submit">Publish</button>
     </form>
+  </div>
   </div>
 </template>
 

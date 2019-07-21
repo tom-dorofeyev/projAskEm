@@ -3,7 +3,7 @@
   <div class="survey-list" v-if="surveys.length > 0">
     <div class="survey-preview-container" v-for="currSurvey in surveys" :key="currSurvey._id">
       <img src="@/assets/images/tags/default1.jpg" />
-      <!-- <img v-bind:src="'@/assets/images/tags/'+currSurvey.tags[0]+'.jpg'" /> -->
+      <!-- <img :src="'/assets/images/tags/'+currSurvey.tags[0]+'.jpg'" /> -->
       <h3 v-if="currSurvey.name" class="survey-preview-title">{{currSurvey.name}}</h3>
       <h3 v-if="!currSurvey.name" class="survey-preview-title">No Title</h3>
       <p
