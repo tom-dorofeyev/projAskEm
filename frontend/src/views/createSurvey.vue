@@ -61,13 +61,13 @@ export default {
     };
   },
   created(){
-    console.log(this.user);
-    
+    // console.log(this.user);
   },
   methods: {
     async publishSurvey() {
       let survey = this.survey;
       survey.createdAt = Date.now();
+      survey.createdBy = this.$store.getters.user
       survey.endDate = survey.createdAt * 1.00135;
       var res = survey.tags;
       if (survey.tags.includes(",")) res = survey.tags.split(",");

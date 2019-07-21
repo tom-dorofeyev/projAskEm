@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const multer = require('multer')
+// const multer = require('multer')
 const session = require('express-session');
 const cors = require('cors');
 const app = express();
