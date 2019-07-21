@@ -41,6 +41,7 @@ export default {
         async loadUser(context) {
             try {
                 const user = await userService.query()
+                console.log('User In The FE Store', user);
                 context.commit({ type: 'setUser', user })
             } catch (err) {
                 throw err

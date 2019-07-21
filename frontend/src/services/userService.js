@@ -9,7 +9,7 @@ export default {
 import httpService from './httpService'
 
 async function login(userCred) {
-    return await httpService.post('auth/login',  {userName: userCred.userName, password: userCred.password})
+    return await httpService.post('auth/login',  userCred)
 }
 
 async function signup(userCred) {
