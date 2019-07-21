@@ -1,4 +1,6 @@
 .survey-list {
+  // display: flex;
+  //     
   .survey-preview-container {
     display: flex;
     flex-grow: 1;
@@ -19,7 +21,6 @@
   }
 
   img {
-    // opacity: 0.8;
     width: 100%;
     height: auto;
   }
