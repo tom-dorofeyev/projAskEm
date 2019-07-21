@@ -1,5 +1,7 @@
 .survey-list {
   .survey-preview-container {
+    display: flex;
+    flex-direction: column;
     opacity: 1;
     text-align: left;
     border: 1px solid black;
@@ -15,37 +17,52 @@
     height: auto;
   }
   .survey-preview-title {
-    color: $color1;
     position: relative;
+    color: $color1;
     top: -4vh;
     margin: 0;
   }
 
   .survey-preview-timestamp {
+    padding-left: 0.2em;
+    padding-top: 0.2em;
     position: relative;
     top: -4vh;
     font-size: 12px;
     margin: 0;
+    align-content: space-around;
   }
 
   .survey-preview-tags {
-    font-size: 11px;
+    position: relative;
+    color: $color3;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    float:right;
+    font-size: 0.8em;
     font-style: italic;
     font-weight: bold;
     padding-right: 0.5vw;
+    top: -11vh;
   }
 
   .survey-preview-quest-counter {
-    text-align: center;
+    position: relative;
+    color: $color1;
+    top: -12vh;
+    text-align: right;
     margin: 0;
     margin-bottom: 5px;
   }
   .survey-preview-quest-description {
+    position: relative;
     text-align: left;
-    font-size: 0.7em;
+    font-size: 1em;
     margin: 0;
     margin-bottom: 5px;
     margin-left: 1vw;
+    top: -9vh;
   }
 
   .survey-preview-users-liked-container {
@@ -65,7 +82,7 @@
   .survey-preview-users-liked-user {
     list-style: none;
     margin-left: 5px;
-    float:left;
+    float: left;
   }
 
   .survey-preview-btns-container {
