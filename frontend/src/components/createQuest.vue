@@ -3,7 +3,7 @@
     <section class="quest-editot-list" v-if="quests.length > 0">
       <div v-for="(currQuest, questIdx) in quests" :key="questIdx" class="quest-editor">
         Enter Question:
-        <input type="text" v-model="currQuest.title" />
+        <input class="survey-input" type="text" v-model="currQuest.title" />
 
         <section class="type-selection">
           choose question type:
@@ -15,7 +15,7 @@
           <div class="answer-edit-list" v-if="currQuest.opts.length > 0">
             <div class="answer-editor" v-for="(option, ansIdx) in currQuest.opts" :key="ansIdx">
               <input type="text" placeholder="Enter Answer..." v-model="currQuest.opts[ansIdx]">
-              <button @click="removeOption(ansIdx, questIdx)" type="button">Remove Option</button>
+              <button @click="removeOption(ansIdx, questIdx)" type="button">x</button>
             </div>
           </div>
         <button @click="addOption(questIdx)" v-if="checkAnswerType(questIdx)" type="button">Add Option</button>

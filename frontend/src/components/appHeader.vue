@@ -4,7 +4,7 @@
     <nav class="main-nav flex">
       <router-link to="/about">About</router-link> 
       <router-link to="/survey/list">Survey List</router-link> 
-      <router-link to="/signup">Signp</router-link>
+      <router-link to="/signup">Sign up</router-link>
       <router-link to="/login">Login</router-link>
     </nav>
       <button v-if="!user" @click="doSignin">Sign In</button>
