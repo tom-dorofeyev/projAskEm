@@ -8,7 +8,6 @@ module.exports = {
 
 async function query(req, res){
     const filterBy = req.query
-    console.log('answer query got: ', filterBy)
     try {
         const answers = await answerService.query(filterBy)
         res.json(answers)

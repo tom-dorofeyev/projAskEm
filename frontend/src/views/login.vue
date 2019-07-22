@@ -3,34 +3,20 @@
     <h1>Login!</h1>
     <h3>{{msg}}</h3>
     <div class="login-container">
-      <label for="uname">
-        <b>Username</b>
-      </label>
-      <input
-        type="text"
-        v-model="loginCred.userName"
-        placeholder="Enter Username"
-        name="uname"
-        required
-      />
-      <br />
+      <form @submit.prevent="doLogin">
+          <b>Username</b>
+        <input
+          type="text"
+          v-model="loginCred.userName" placeholder="Enter Username" required/>
+        <br />
+          <b>Password</b>
+        <input
+          type="password"
+          v-model="loginCred.password" placeholder="Enter Password" required/>
+        <br />
 
-      <label for="psw">
-        <b>Password</b>
-      </label>
-      <input
-        type="password"
-        v-model="loginCred.password"
-        placeholder="Enter Password"
-        name="psw"
-        required
-      />
-      <br />
-
-      <button @click="doLogin" type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember" /> Remember me
-      </label>
+        <button type="submit">Login</button>
+      </form>
     </div>
   </div>
 </template>
@@ -59,6 +45,5 @@ export default {
       }
     }
   },
-  components: {}
 };
 </script>

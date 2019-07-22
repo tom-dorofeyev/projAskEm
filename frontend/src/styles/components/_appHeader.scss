@@ -1,11 +1,12 @@
 
 a {
-  width:77px;
-  height:100%;
-  text-align: center;
-  padding-top: 6px;
-  color: $color3;
-  font-weight: 800;
+  @include header-buttons
+}
+
+.header-btn-list > button {
+  @include header-buttons;
+  border:none;
+  padding: 6px 0 9px 0;
 }
 
 a:active {
