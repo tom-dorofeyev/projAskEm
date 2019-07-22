@@ -5,7 +5,7 @@
   text-align: center;
 
   .survey-input{
-    width: 100%;
+    width: auto;
     margin-bottom: 1px;
   }
   .survey-tags{
@@ -22,10 +22,15 @@
     margin-top: 15vh;
     margin-bottom: 15vh;
   }
+
+  .create-survey-header{
+
+  }
+
   .create-survey-form {
     padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.199);
-
+    // border: 1px solid rgba(0, 0, 0, 0.199);
+    text-align: left;
     margin-left: 25vw;
     margin-right: 25vw;
   }

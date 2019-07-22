@@ -14,8 +14,8 @@ import axios from 'axios'
 axios.defaults.withCredentials = true;
 
 async function ajax(endpoint, method='get', data=null, query=null) {
-    console.log('endpoint:',`${BASE_URL}${endpoint}`);
-    console.log('http://localhost:3000/api/auth/login');
+    // console.log('endpoint:',`${BASE_URL}${endpoint}`);
+    // console.log('http://localhost:3000/api/auth/login');
     
     
     try {
