@@ -39,10 +39,10 @@
             :key="tagIdx"
           >#{{tag}}</div>
         </section>
-        <!-- <router-link
+        <router-link
             class="survey-preview-results-btn"
             :to="getSurveyResultsUrl(currSurvey._id)"
-        >Survey Results</router-link>-->
+        >Survey Results</router-link>
       </section>
     </div>
   </div>
@@ -74,3 +74,7 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" src="@/styles/views/_survey-list.scss">
+
+</style>
