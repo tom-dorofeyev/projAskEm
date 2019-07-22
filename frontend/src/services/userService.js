@@ -14,6 +14,7 @@ async function login(userCred) {
         sessionStorage.setItem('user', JSON.stringify(user));
         return user
     } catch (err) {
+        
         throw err
     }
 }

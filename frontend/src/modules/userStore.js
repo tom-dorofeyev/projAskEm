@@ -25,11 +25,13 @@ export default {
             }
         },
         async login(context, { userCred }) {
+            
             try {
                 const exsistUser = await userService.login(userCred)
                 context.commit({ type: 'setUser', user: exsistUser })
                 return Promise.resolve()
             } catch (err) {
+                console.log('login catch at store',err);
                 throw err
             }
         },
