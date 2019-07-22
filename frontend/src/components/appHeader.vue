@@ -9,7 +9,7 @@
     </nav>
       <button v-if="!user" @click="doSignin">Sign In</button>
       <nav class="user-main-nav flex" v-if="user">
-        <router-link to="/profile">User Details</router-link>
+        <button @click="userProfile">Your Profile</button>
         <button @click="doLogout">Logout</button>
       </nav>
     </div>
@@ -17,27 +17,25 @@
 
 <script>
 export default {
-  data() {
-    return {
-    }
-  },
   created(){
-    this.$store.dispatch({ type: "loadUser" })
+    this.$store.dispatch({ type: 'loadUser' })
   },
   methods: {
     doSignin(){
-      //TODO: after marging signup and login change it!
       this.$router.push('/signup')
     },
-    doLogout(){
-      this.$store.dispatch({type:'logout'})      
+    async doLogout(){
+      await this.$store.dispatch({type:'logout'})    
+      this.$router.push('/')
+    },
+    userProfile(){
+      this.$router.push(`/user/${this.user._id}`)
     }
   },
   computed: {
     user(){
-      const user = this.$store.getters.user
-      return user
-    }
+      return this.$store.getters.user
+    },
   }
 
 }

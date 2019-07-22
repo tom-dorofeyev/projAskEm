@@ -61,8 +61,6 @@ export default {
     };
   },
   created(){
-    console.log(this.user);
-    
   },
   methods: {
     async publishSurvey() {
@@ -84,8 +82,10 @@ export default {
     }
   },
   computed: {
-    user(){
-      return this.$store.getters.user
+    async user(){
+      const user = this.$store.getters.user;
+      if (Object.keys(user).length === 0) return false;
+      return user;
     }
   },
   components: {

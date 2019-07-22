@@ -3,7 +3,7 @@ export default {
     login,
     logout,
     getById,
-    query
+    query,
 }
 
 import httpService from './httpService'
@@ -23,7 +23,6 @@ async function signup(userCred) {
         const user = await httpService.post('auth/signup', userCred);
         sessionStorage.setItem('user', JSON.stringify(user));
         return user
-
     } catch (err) {
         throw err
     }
@@ -43,5 +42,6 @@ async function getById(id) {
 }
 
 async function query() {
-    return JSON.parse(sessionStorage.getItem('user'));
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    return await httpService.get(`user/${user._id}`)
 }

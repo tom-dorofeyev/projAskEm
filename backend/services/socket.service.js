@@ -32,6 +32,7 @@ function setup(http) {
         
         socket.on('surveySubmitted', surveyId => {
             room = roomService.findSurveyRoom(surveyId)
+            if (!room) return
             if(room.surveyId) io.to(room.surveyId).emit('surveySubmit', surveyId)
         })
 

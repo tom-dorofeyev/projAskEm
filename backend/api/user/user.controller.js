@@ -6,11 +6,21 @@ module.exports = {
 const userService = require('./user.service')
 
 async function getUser(req, res) {  
-    const user = await userService.getById(req.params.id)
-    res.send(user)
+    try {
+        const user = await userService.getById(req.params.id)
+        res.status(200).send(user)
+    } catch (err) {
+        res.status(500).send({ error: err })
+    }
 }
 
 async function getUsers(req, res){
-    const users = await userService.query()
-    res.send(users)
+    console.log('req session in the be user controller',req.session);
+    
+    try {
+        const users = await userService.query()
+        res.status(200).send(users)
+    } catch (err) {
+        res.status(500).send({ error: err })
+    }
 }

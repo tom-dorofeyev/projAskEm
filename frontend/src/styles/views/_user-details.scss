@@ -1,0 +1,44 @@
+
+.user-details-section {
+    position: relative;
+    text-align: center;
+
+    .user-details-name {
+        position: absolute;
+        width: 100vw;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        margin: 0;
+        font-family: $font2;
+        color: $color5;
+    }
+
+    .user-details-top-img{
+        height: 36vh;
+        width: 100vw;
+        object-fit: cover;
+    }
+
+    .users-details-container {
+        height: 1.3rem;
+        width: 100vw;
+        display: inline-flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        h4 {
+            font-family: $font2;
+            margin: 0;
+        }
+        h4:first-child {
+            margin-right: 20px;
+        }
+        .user-detail-span{ 
+            font-weight: 300;
+        }
+    }
+    .edit-detail{
+        width: 1.2rem;
+    }
+}

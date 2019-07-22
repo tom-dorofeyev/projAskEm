@@ -19,6 +19,7 @@ export default {
             try {
                 const newUser = await userService.signup(user)
                 context.commit({ type: 'setUser', user: newUser })
+                return Promise.resolve()
             } catch (err) {
                 throw err
             }
@@ -27,25 +28,37 @@ export default {
             try {
                 const exsistUser = await userService.login(userCred)
                 context.commit({ type: 'setUser', user: exsistUser })
+                return Promise.resolve()
             } catch (err) {
                 throw err
             }
         },
-        logout(context) {
-            userService.logout()
-            context.commit({ type: 'setUser', user: '' })
+        async logout(context) {
+            try {
+                await userService.logout()
+                context.commit({ type: 'setUser', user: ''})
+                return Promise.resolve()
+            } catch (err) {
+                throw err
+            }
         },
-        userById(context, { userId }) {
-            return userService.getById(userId)
+        async userById(context, { userId }) {           
+            try {
+                const loggedInUser = await userService.getById(userId)
+                context.commit({ type: 'setUser', user: loggedInUser })                
+                return Promise.resolve()
+            } catch (err) {            
+                throw err
+            }
         },
         async loadUser(context) {
             try {
                 const user = await userService.query()
                 context.commit({ type: 'setUser', user })
+                return Promise.resolve()
             } catch (err) {
                 throw err
             }
         },
-
     },
 }
