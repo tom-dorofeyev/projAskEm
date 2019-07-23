@@ -1,17 +1,26 @@
 
 <template>
   <div class="survey-list" v-if="surveys.length > 0">
-    <div class="survey-preview-container" v-for="currSurvey in surveys" :key="currSurvey._id">
+    <div class="survey-preview-container flex" v-for="currSurvey in surveys" :key="currSurvey._id">
       <!-- <img src="@/assets/images/tags/default1.jpg" />
       <img :src="'../assets/images/tags/'+currSurvey.tags[0]+'.jpg'" /> -->
-      <img class="homepage-backgroung-img" src="../assets/images/homepage-background.jpg" alt />
 
       <div class="survey-img-container">
-        <h3 v-if="currSurvey.name" class="survey-preview-title">{{currSurvey.name}}</h3>
-        <h3 v-if="!currSurvey.name" class="survey-preview-title">No Title</h3>
-        <h5 class="survey-preview-quest-counter">Questions:{{currSurvey.quests.length}}</h5>
+        <img class="survey-img" src="../assets/images/homepage-background.jpg" alt />
+        <div class="title-under-img flex">
+          <h3 class="survey-preview-title">{{ currSurvey.name ? currSurvey.name : 'No Title'}}</h3>
+          <h5 class="survey-preview-quest-counter">Questions:{{currSurvey.quests.length}}</h5>
+        </div>
       </div>
-      <h5 class="survey-preview-quest-description">"{{currSurvey.description}}"</h5>
+      <section class="survey-preview-tags-container flex" v-if="currSurvey.tags.length">
+        <div
+            class="survey-preview-tags"
+            v-for="(tag, tagIdx) in currSurvey.tags"
+            :key="tagIdx">
+          #{{tag }}
+        </div>
+      </section>
+      <h5 v-if="currSurvey.description" class="survey-preview-quest-description">"{{currSurvey.description}}"</h5>
       <!-- <p
         v-if="currSurvey.createdAt"
         class="survey-preview-timestamp"
@@ -31,14 +40,16 @@
         </ul>
       </section>-->
       <section class="survey-preview-btns-container">
-        <router-link class="survey-preview-btn" :to="getSurveyUrl(currSurvey._id)">Enter Survey</router-link>
-        <section class="survey-preview-tags-container" v-if="currSurvey.tags.length">
+        <router-link class="survey-preview-btn" :to="getSurveyUrl(currSurvey._id)">Add Your Opinion </router-link>
+        <router-link class="survey-result-btn" :to="getSurveyResultsUrl(currSurvey._id)">View Results</router-link>
+        <!-- <section class="survey-preview-tags-container" v-if="currSurvey.tags.length">
           <div
             class="survey-preview-tags"
             v-for="(tag, tagIdx) in currSurvey.tags"
             :key="tagIdx"
-          >#{{tag}}</div>
-        </section>
+          >#{{tag}}
+          </div>
+        </section> -->
         <!-- <router-link
             class="survey-preview-results-btn"
             :to="getSurveyResultsUrl(currSurvey._id)"
