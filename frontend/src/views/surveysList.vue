@@ -2,11 +2,8 @@
 <template>
   <div class="survey-list" v-if="surveys.length > 0">
     <div class="survey-preview-container flex" v-for="currSurvey in surveys" :key="currSurvey._id">
-      <!-- <img src="@/assets/images/tags/default1.jpg" />
-      <img :src="'../assets/images/tags/'+currSurvey.tags[0]+'.jpg'" /> -->
-
       <div class="survey-img-container">
-        <img class="survey-img" src="../assets/images/homepage-background.jpg" alt />
+        <img v-if="currSurvey.tags[0]" class="survey-img" :src="require('@/assets/images/tags/'+currSurvey.tags[0]+'.jpg')"/>
         <div class="title-under-img flex">
           <h3 class="survey-preview-title">{{ currSurvey.name ? currSurvey.name : 'No Title'}}</h3>
           <h5 class="survey-preview-quest-counter">Questions:{{currSurvey.quests.length}}</h5>
@@ -42,18 +39,6 @@
       <section class="survey-preview-btns-container">
         <router-link class="survey-preview-btn" :to="getSurveyUrl(currSurvey._id)">Add Your Opinion </router-link>
         <router-link class="survey-result-btn" :to="getSurveyResultsUrl(currSurvey._id)">View Results</router-link>
-        <!-- <section class="survey-preview-tags-container" v-if="currSurvey.tags.length">
-          <div
-            class="survey-preview-tags"
-            v-for="(tag, tagIdx) in currSurvey.tags"
-            :key="tagIdx"
-          >#{{tag}}
-          </div>
-        </section> -->
-        <!-- <router-link
-            class="survey-preview-results-btn"
-            :to="getSurveyResultsUrl(currSurvey._id)"
-        >Survey Results</router-link>
       </section>
     </div>
   </div>
