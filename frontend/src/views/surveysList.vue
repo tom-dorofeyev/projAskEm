@@ -1,14 +1,14 @@
 
 <template>
   <div class="survey-list" v-if="surveys.length > 0">
+    <h2 class="survey-list-header">Surveys List</h2>
+    <div class="under-title"></div>
     <div class="survey-preview-container flex" v-for="currSurvey in surveys" :key="currSurvey._id">
-      <div class="survey-img-container">
         <img v-if="currSurvey.tags[0]" class="survey-img" :src="require('@/assets/images/tags/'+currSurvey.tags[0]+'.jpg')"/>
         <div class="title-under-img flex">
           <h3 class="survey-preview-title">{{ currSurvey.name ? currSurvey.name : 'No Title'}}</h3>
           <h5 class="survey-preview-quest-counter">Questions:{{currSurvey.quests.length}}</h5>
         </div>
-      </div>
       <section class="survey-preview-tags-container flex" v-if="currSurvey.tags.length">
         <div
             class="survey-preview-tags"

@@ -38,7 +38,7 @@ export default {
         async logout(context) {
             try {
                 await userService.logout()
-                context.commit({ type: 'setUser', user: ''})
+                context.commit({ type: 'setUser', user: null})
                 return Promise.resolve()
             } catch (err) {
                 throw err

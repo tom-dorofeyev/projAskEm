@@ -142,7 +142,14 @@
           color: $color3;
           line-height: 2rem;
           margin-right: 1rem;
-          border-radius: 20px;
+          border-radius: 5px;
+
+          .about-us-img {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+            height: 220px;
+            width: 220px;
+            object-fit: cover;
+          }
 
           span {
             margin-right: 1rem;
@@ -158,10 +165,7 @@
               }
             }
 
-            .about-us-img {
-              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-              object-fit: cover;
-            }
+
           }
         }
 

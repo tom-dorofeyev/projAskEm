@@ -7,18 +7,13 @@ module.exports = {
 }
 
 async function login(req, res) {
-console.log('got to login at auth.controller');
     const { userName, password } = req.body
 
     try {
         const user = await authService.login(userName, password)
-        console.log('after authService at controller');
-        
         req.session.user = user;  
         res.json(user)
-    } catch (err) {
-        console.log('GOT ERROR AT AUTH CONTROLLER: ',err);
-        
+    } catch (err) {      
         res.status(500).send({ error: err })
     }
 }

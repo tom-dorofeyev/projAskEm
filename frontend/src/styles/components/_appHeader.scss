@@ -7,6 +7,7 @@ a {
   @include header-buttons;
   border:none;
   padding: 6px 0 9px 0;
+  background-color: #fff;
 }
 
 a:active {
@@ -31,6 +32,7 @@ img {
   height:100%;
   justify-content: space-between;
   max-width:1140px;
+  align-items: center;
 }
 
 .app-header-div {
@@ -38,16 +40,16 @@ img {
   flex-direction: column;
   flex-grow: 2;
   align-items: center;
-  height: 35px;
+  height: 12vh;
   @include for-wide-layout {
-    margin: 33px 10px;
+    margin: 0 10px;
   }
   @include for-extra-wide-layout {
-    margin:33px 150px;
+    margin: 0 15px;
   }
 }
 
-#sign-in {
+#sign-in{
   background: linear-gradient(205.62deg, #1a47b0 0%, #f91c3d 100%);
   border-radius: 30px;
   color:#FFFFFF;

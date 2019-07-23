@@ -42,11 +42,12 @@
         <span>
           <h2>Nofar Peled</h2>
           <span class="social-media-links">
-            <img src="@/assets/images/facebook.svg" alt="">            
-            <img src="@/assets/images/linkedin.svg" alt="">            
-            <img src="@/assets/images/github.svg" alt="">
+            <a href="https://www.facebook.com/nofarpeled4"><img src="@/assets/images/facebook.svg" alt=""></a>        
+            <a href="https://www.linkedin.com/in/nofar-peled-3392b8159/"><img src="@/assets/images/linkedin.svg" alt="">  </a>
+            <a href="https://github.com/NofarPeled"><img src="@/assets/images/github.svg" alt=""></a>          
+            
           </span>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, ipsum esse dolor sint omnis nemo quidem praesentium nostrum dolore saepe vel error quos veritatis illo temporibus optio accusamus eos molestiae.</p>
+          <p>FullStack developer who have the desire to empower your brand by creating outstanding web application, so you can spread your message and increase your positive impact on the world <br>Looking for the next challenge.</p>
         </span>
         <img class="about-us-img" src="@/assets/images/nofar.jpg" alt="Nofar Picture" />
       </div>
