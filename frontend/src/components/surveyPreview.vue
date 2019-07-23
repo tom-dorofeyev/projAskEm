@@ -2,9 +2,8 @@
   <div class="survey-preview-container flex">
     <div class="survey-img-container">
       <img
-        v-if="survey.tags[0]"
         class="survey-img"
-        :src="require('@/assets/images/tags/'+survey.tags[0]+'.jpg')"
+        :src="survey.imageUrl"
       />
       <div class="title-under-img flex">
         <h3 class="survey-preview-title">{{ survey.name ? survey.name : 'No Title'}}</h3>
