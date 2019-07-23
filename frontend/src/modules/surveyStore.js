@@ -16,7 +16,6 @@ export default {
         }
     },
     actions: {
-        //TODO: add mutation to surveys
         async publishSurvey(context, { survey }) {
             try{
                 await surveyService.add(survey)
@@ -33,6 +32,6 @@ export default {
         },
         submitSurvey(context, { submition }){
             return answerService.add(submition);
-        }
+        },
     },
 }

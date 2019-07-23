@@ -2,7 +2,7 @@ import router from '@/router'
 
 const BASE_URL = process.env.NODE_ENV === 'production'
     ? '/api/'
-    : '//localhost:3000/api/'
+    : 'http://localhost:3000/api/'
 
 
 // import Axios from 'axios';
@@ -13,7 +13,7 @@ const BASE_URL = process.env.NODE_ENV === 'production'
 import axios from 'axios'
 axios.defaults.withCredentials = true;
 
-async function ajax(endpoint, method='get', data=null, query=null) {
+async function ajax(endpoint, method='get', data=null, query=null) {   
     try {
         const res = await axios({
             url: BASE_URL + endpoint,
@@ -23,6 +23,8 @@ async function ajax(endpoint, method='get', data=null, query=null) {
         })
         return res.data;
     } catch (err) {
+        console.log('http service error',err);
+        
         if (err.response.status === 401) {
             router.push('/');
         } 

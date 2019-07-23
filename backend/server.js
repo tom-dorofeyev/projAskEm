@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const multer = require('multer')
+// const multer = require('multer')
 const session = require('express-session');
 const cors = require('cors');
 const app = express();
@@ -19,15 +19,17 @@ const config = {
 
 app.use(cors(config));
 
-
-app.set('trust proxy', true)
 app.use(session({
-    key: 'user',
     secret: 'puki muki',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false, maxAge: 60000}
+    cookie: { secure: false, maxAge: 1000*60*60*1000 }
 }));
+
+if (app.get('env') === 'production') {
+    app.set('trust proxy', 1) 
+    session.cookie.secure = true 
+}
 
 socketService.setup(http);
 

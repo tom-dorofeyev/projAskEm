@@ -1,148 +1,111 @@
 .survey-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 2rem;
+
   .survey-preview-container {
-    display: flex;
-    flex-direction: column;
-    opacity: 1;
-    text-align: left;
-    border: 1px solid black;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    margin-left: 30%;
-    margin-right: 30%;
-  }
-
-  img {
-    // opacity: 0.8;
-    width: 100%;
-    height: auto;
-  }
-  .survey-preview-title {
     position: relative;
-    color: $color1;
-    top: -4vh;
-    margin: 0;
-  }
-
-  .survey-preview-timestamp {
-    padding-left: 0.2em;
-    padding-top: 0.2em;
-    position: relative;
-    top: -4vh;
-    font-size: 12px;
-    margin: 0;
-    align-content: space-around;
-  }
-
-  .survey-preview-tags {
-    position: relative;
-    color: $color3;
-    justify-content: center;
-    flex-direction: row;
+    margin: 1rem;
+    padding: 1rem;
     flex-wrap: wrap;
-    float:right;
-    font-size: 0.8em;
-    font-style: italic;
-    font-weight: bold;
-    padding-right: 0.5vw;
-    top: -11vh;
-  }
+    max-width: 300px;
+    border: 1px solid #DDDFE7;
+    border-radius: 5px;
+    justify-content: center;
+    align-content: space-between;
 
-  .survey-preview-quest-counter {
-    position: relative;
-    color: $color1;
-    top: -12vh;
-    text-align: right;
-    margin: 0;
-    margin-bottom: 5px;
-  }
-  .survey-preview-quest-description {
-    position: relative;
-    text-align: left;
-    font-size: 1em;
-    margin: 0;
-    margin-bottom: 5px;
-    margin-left: 1vw;
-    top: -9vh;
-  }
+    .survey-img-container {
+      position:relative;
+      width: 275px;
+      height: 275px;
+      flex-grow: 1;
 
-  .survey-preview-users-liked-container {
-    margin: 0;
-    margin-bottom: 20px;
-  }
+      &:hover {
+        width: 285px;
+        height: 285px;
+        transition-duration: 0.3s;
 
-  .survey-preview-users-liked-header {
-    text-align: left;
-    margin: 0;
-  }
+        .survey-img {
+          width: 285px;
+          height: 285px;
+          box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+          transition-duration: 0.3s
+        }
+      }
 
-  .survey-preview-users-liked-list {
-    margin: 0;
-  }
+      .survey-img {
+        width: 275px;
+        height: 275px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
 
-  .survey-preview-users-liked-user {
-    list-style: none;
-    margin-left: 5px;
-    float: left;
-  }
+      .title-under-img {
+        justify-content: space-between;
+        position: absolute;
+        height: 44%;
+        top: 77%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width:100%;;
+        color: $color5;
+        background: linear-gradient(1.02deg, #38476b 5.82%, rgba(18, 44, 105, 0) 30.6%);
+        & > * {
+          margin: 0;
+          align-self: flex-end;
+        }
+      }
+      
+      .survey-preview-tags {
+        display: block;
+        width: 100%;
+        margin-right: 1rem;
+      }
 
-  .survey-preview-btns-container {
-    display: flex;
-    max-height: 4.5vh;
-  }
 
-  .survey-preview-btn {
-    margin: 0 auto;
-    background: #3cb0fd;
-    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-    -webkit-border-radius: 18;
-    -moz-border-radius: 18;
-    border-radius: 18px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 10px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-  }
 
-  .survey-preview-btn:hover {
-    background: #3498db;
-    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-    background-image: -o-linear-gradient(top, #3498db, #2980b9);
-    background-image: linear-gradient(to bottom, #3498db, #2980b9);
-    text-decoration: none;
-  }
+    }
 
-  .survey-preview-results-btn {
-    margin: 0 auto;
-    background: #90eb90;
-    background-image: -webkit-linear-gradient(top, #7cd47c, #456843);
-    background-image: -moz-linear-gradient(top, #7cd47c, #456843);
-    background-image: -ms-linear-gradient(top, #7cd47c, #456843);
-    background-image: -o-linear-gradient(top, #7cd47c, #456843);
-    background-image: linear-gradient(to bottom, #7cd47c, #456843);
-    -webkit-border-radius: 18;
-    -moz-border-radius: 18;
-    border-radius: 18px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 10px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-  }
+    .survey-preview-quest-description {
+      display: block;
+      width: 100%;
+    }
 
-  .survey-preview-results-btn:hover {
-    background: #34d934;
-    background-image: -webkit-linear-gradient(top, #34d934, #0f540b);
-    background-image: -moz-linear-gradient(top, #34d934, #0f540b);
-    background-image: -ms-linear-gradient(top, #34d934, #0f540b);
-    background-image: -o-linear-gradient(top, #34d934, #0f540b);
-    background-image: linear-gradient(to bottom, #34d934, #0f540b);
-    text-decoration: none;
+    .survey-preview-btns-container {
+      position: relative;
+      bottom: 8px;
+      margin-top: 1rem;
+
+      .survey-preview-btn {
+        cursor: pointer;  
+        background: linear-gradient(180deg, #123075 0%, #092056 100%);
+        box-shadow: 0px 10px 30px rgba(15, 53, 142, 0.1);
+        border-radius: 5px;
+        padding: 1rem;
+        font-size: 0.8rem;
+        margin: 0.5rem;
+        color: $color5;
+  
+        &::after {
+          content: '  ›';
+          position: relative;
+          top: calc(50% - 1rem/1 - 0px);
+          font-size: 2rem;
+          color: $color5;
+        }
+  
+        &:hover {
+          background: linear-gradient(180deg, #244592 0%, #112b68 100%);
+          transition-delay: 0.3ms;
+        }
+  
+      }
+      .survey-result-btn {
+        color: #0F358E;
+        font-size: 0.8rem;
+        font-weight: bolder;
+      }
+    }
   }
 }

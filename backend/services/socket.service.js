@@ -22,16 +22,17 @@ function setup(http) {
         socket.on('watchingResults', ({surveyId, member}) => {
             room = roomService.placeInRoom(member, surveyId)
             console.log('Placed', member, 'in room:', room);
-            socket.join(room.surveyId)
+            if(room.surveyId) socket.join(room.surveyId)
         })
 
         socket.on('leftResults', (surveyId) => {
             room = roomService.findSurveyRoom(surveyId);
-            socket.leave(room.surveyId)
+            if(room) socket.leave(room.surveyId)
         })
         
         socket.on('surveySubmitted', surveyId => {
             room = roomService.findSurveyRoom(surveyId)
+            if (!room) return
             if(room.surveyId) io.to(room.surveyId).emit('surveySubmit', surveyId)
         })
 

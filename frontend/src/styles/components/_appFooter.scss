@@ -1,7 +1,10 @@
-.footer-section{
+.footer-section {
     background-color: $color4;
     text-align: center;
-
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    
     .follow-us {
         flex-direction: column;
 

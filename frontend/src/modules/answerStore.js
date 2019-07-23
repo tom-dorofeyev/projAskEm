@@ -18,6 +18,6 @@ export default {
         async getAnswersBySurveyId(context, {surveyId}) {
             var surveyAnswers = await answerService.getBySurveyId(surveyId)
             context.commit({type: 'setAnswers', surveyAnswers})
-        }
+        },
     },
 }

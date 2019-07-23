@@ -20,7 +20,7 @@ async function query() {
         const users = await collection.find().toArray();
         return users
     } catch (err) {
-        throw err;
+        return Promise.reject('Couldn\'t Find Users')
     }
 }
 
@@ -29,8 +29,8 @@ async function add(user) {
     try {
         await collection.insertOne(user);
         return user;
-    } catch (err) {
-        throw err;
+    } catch {
+        return Promise.reject('Couldn\'t Add User')
     }
 }
 
@@ -39,19 +39,19 @@ async function remove(userId) {
     try {
         await collection.remove({ "_id": ObjectId(userId) })
     } catch (err) {
-        throw err;
+        return Promise.reject('Couldn\'t Remove User')
     }
 }
 
 async function update(user) {
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
-        let userId = user._id;
+        let userId = JSON.parse(JSON.stringify(user._id));
         delete user._id
         await collection.updateOne({ "_id": ObjectId(userId) }, { $set: user })
         return user
     } catch (err) {
-        throw err;
+        return Promise.reject('Couldn\'t Update User')
     }
 }
 
@@ -61,8 +61,7 @@ async function getById(userId) {
         const user = await collection.findOne({ "_id": ObjectId(userId) })
         return user
     } catch (err) {
-        console.log(`ERROR: cannot find user ${userId}`)
-        throw err;
+        return Promise.reject('Couldn\'t Get User with This ID')
     }
 }
 
@@ -73,7 +72,6 @@ async function getUser(userName) {
         const foundUser = await collection.findOne({userName})
         if(foundUser) return foundUser
     } catch(err){
-        throw err
-
+        return Promise.reject('Couldn\'t Find User with This User Name')
     }
 }
