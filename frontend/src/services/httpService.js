@@ -13,11 +13,7 @@ const BASE_URL = process.env.NODE_ENV === 'production'
 import axios from 'axios'
 axios.defaults.withCredentials = true;
 
-async function ajax(endpoint, method='get', data=null, query=null) {
-    // console.log('endpoint:',`${BASE_URL}${endpoint}`);
-    // console.log('http://localhost:3000/api/auth/login');
-    
-    
+async function ajax(endpoint, method='get', data=null, query=null) {   
     try {
         const res = await axios({
             url: BASE_URL + endpoint,

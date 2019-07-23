@@ -10,9 +10,7 @@ async function login(req, res) {
 console.log('got to login at auth.controller');
     const { userName, password } = req.body
     try {
-        const user = await authService.login(userName, password)
-        console.log('after authService at controller');
-        
+        const user = await authService.login(userName, password)        
         req.session.user = user;  
         res.json(user)
     } catch (err) {
