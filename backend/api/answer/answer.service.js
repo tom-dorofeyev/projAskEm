@@ -9,10 +9,10 @@ const ObjectId = require('mongodb').ObjectId
 const COLLECTION_KEY = 'answer'
 
 async function query(filterBy = {}){
-    const criteria = {};
+    let criteria = {};
 
     if(filterBy.userId) {
-        criteria.userId = filterBy.userId;
+        criteria.userId = `createdBy : _id: ${filterBy.userId}` ;
     }
 
     if(filterBy.surveyId) {
@@ -21,9 +21,8 @@ async function query(filterBy = {}){
 
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
-        return await collection.find(criteria).map(submition => submition.answers).toArray();
+        return await collection.find(criteria).map(submition => submition.answers).toArray();       
     } catch (err) {
-        console.log('ERROR: cannot find answers')
         throw err;
     }
 }

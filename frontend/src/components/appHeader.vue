@@ -19,23 +19,25 @@
 
 <script>
 export default {
-  data() {
-    return {
-    }
-  },
   created(){
-    this.$store.dispatch({ type: "loadUser" })
+    this.$store.dispatch({ type: 'loadUser' })
   },
   methods: {
-    doLogout(){
-      this.$store.dispatch({type:'logout'})      
+    doSignin(){
+      this.$router.push('/signup')
+    },
+    async doLogout(){
+      await this.$store.dispatch({type:'logout'})    
+      this.$router.push('/')
+    },
+    userProfile(){
+      this.$router.push(`/user/${this.user._id}`)
     }
   },
   computed: {
     user(){
-      const user = this.$store.getters.user
-      return user
-    }
+      return this.$store.getters.user
+    },
   }
 
 }

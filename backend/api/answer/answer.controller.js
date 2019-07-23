@@ -12,7 +12,7 @@ async function query(req, res){
         const answers = await answerService.query(filterBy)
         res.json(answers)
 
-    } catch (error) {
+    } catch (error) {       
         res.status(500).send({error})
     }
 }
@@ -30,6 +30,8 @@ async function add(req, res) {
     const answer = req.body
     try {
         const answerWithId = await answerService.add(answer)
+        console.log('got after answer controller add function');
+        
         res.json(answerWithId)
     } catch (error) {
         res.status(500).send({ error })
