@@ -1,73 +1,76 @@
 <template>
   <div class="create-survey">
-    <h1 class="create-survey-header">{{surveyHeader}}</h1>
-    <h3
-      v-if="survey.tags[0]"
-      class="create-survey-header"
-    >Survey #Tags: {{survey.tags}}{{surveyTags}}</h3>
-    <input
-      v-if="!titleReceived"
-      @keyup.enter="titleReady()"
-      class="survey-input"
-      type="text"
-      placeholder="Enter Survey Name"
-      v-model="survey.name"
-    />
-    <div v-if="titleReceived" class="survey-list">
-      <div class="survey-preview-container">
-        <img class="homepage-backgroung-img" src="../assets/images/homepage-background.jpg" alt />
-        <div class="survey-img-container">
-          <h3 v-if="survey.name" class="survey-preview-title">{{survey.name}}</h3>
-          <h3 v-if="!survey.name" class="survey-preview-title">No Title</h3>
-          <h5 class="survey-preview-quest-counter">Questions:{{survey.quests.length}}</h5>
+    <section class="create-survey-container">
+      <h1 class="create-survey-header">{{surveyHeader}}</h1>
+      <h3
+        v-if="survey.tags[0]"
+        class="create-survey-header"
+      >Survey #Tags: {{survey.tags}}{{surveyTags}}</h3>
+      <input
+        v-if="!titleReceived"
+        @keyup.enter="titleReady()"
+        class="survey-input"
+        type="text"
+        placeholder="Enter Survey Name"
+        v-model="survey.name"
+      />
+      <!-- <div v-if="titleReceived" class="survey-list">
+        <div class="survey-preview-container">
+          <img class="homepage-backgroung-img" src="../assets/images/homepage-background.jpg" alt />
+          <div class="survey-img-container">
+            <h3 v-if="survey.name" class="survey-preview-title">{{survey.name}}</h3>
+            <h3 v-if="!survey.name" class="survey-preview-title">No Title</h3>
+            <h5 class="survey-preview-quest-counter">Questions:{{survey.quests.length}}</h5>
+          </div>
+          <h5 class="survey-preview-quest-description">"{{survey.description}}"</h5>
+          <section class="survey-preview-tags-container" v-if="tagsReceived">
+            <div
+              class="survey-preview-tags"
+              v-for="(tag, tagIdx) in survey.tags"
+              :key="tagIdx"
+            >#{{tag}}</div>
+          </section>
         </div>
-        <h5 class="survey-preview-quest-description">"{{survey.description}}"</h5>
-        <section class="survey-preview-tags-container" v-if="survey.tags.length">
-          <div
-            class="survey-preview-tags"
-            v-if="tagsReceived"
-            v-for="(tag, tagIdx) in survey.tags"
-            :key="tagIdx"
-          >#{{tag}}</div>
-        </section>
+      </div>-->
+      <div v-if="titleReceived" class="create-survey-container">
+        <form class="create-survey-form" @submit.prevent="publishSurvey">
+          <section class="survey-base-input-container" v-if="baseOptsOpen">
+            <!-- <input class="survey-input" type="text" placeholder="Survey Name" v-model="survey.name" /> -->
+            <br />
+            <textarea
+              v-if="!descReceived"
+              @keyup.enter="catchDefault()"
+              class="survey-input-desc"
+              placeholder="Enter Survey Description"
+              v-model="survey.description"
+            ></textarea>
+            <button v-if="!descReceived" @click="descReady()" type="button">All Set!</button>
+            <br />
+            <input
+              v-if="descReceived"
+              class="survey-input"
+              type="text"
+              v-model="survey.tags"
+              placeholder="Add Tags..."
+            />
+            <button
+              v-if="descReceived"
+              @click="surveyTags()"
+              type="button"
+            > Add Tag</button>
+            <br />
+          </section>
+          <button
+            class="survey-create-btn"
+            v-if="(tagsReceived && survey.quests.length)"
+            @click="baseReady()"
+            type="button"
+          >{{baseOptsBtn}} Base Settings</button>
+          <create-quest v-if="tagsReceived" v-model="survey.quests"></create-quest>
+          <button v-if="(tagsReceived && survey.quests.length)" type="submit">Publish</button>
+        </form>
       </div>
-    </div>
-    <div v-if="titleReceived" class="create-survey-container">
-      <form class="create-survey-form" @submit.prevent="publishSurvey">
-        <section class="survey-base-input-container" v-if="baseOptsOpen">
-          <input
-            class="survey-input"
-            type="text"
-            placeholder="Survey Name"
-            v-model="survey.name"
-          />
-          <br />
-          <textarea
-            @keyup.prevent
-            class="survey-input-desc"
-            placeholder="Enter Survey Description"
-            v-model="survey.description"
-          ></textarea>
-          <button v-if="!descReceived" @click="descReady()" type="button">All Set!</button>
-          <br />
-          <input
-            v-if="descReceived"
-            class="survey-tags"
-            type="text"
-            v-model="survey.tags"
-            placeholder="Add Tags..."
-          />
-          <br />
-        </section>
-        <button
-          v-if="(tagsReceived && survey.quests.length)"
-          @click="baseReady()"
-          type="button"
-        >{{baseOptsBtn}} Base Settings</button>
-        <create-quest v-if="descReceived" v-model="survey.quests"></create-quest>
-        <button v-if="(tagsReceived && survey.quests.length)" type="submit">Publish</button>
-      </form>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -113,6 +116,9 @@ export default {
   created(){
   },
   methods: {
+    catchDefault() {
+      console.log("Stopping Desc Default");
+    },
     titleReady() {
       this.titleReceived = !this.titleReceived;
       console.log("Got Title!");
