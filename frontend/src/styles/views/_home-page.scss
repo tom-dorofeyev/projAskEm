@@ -1,79 +1,87 @@
 .home-page {
+  & {
+    color: $color5;
+    display: grid;
+    grid-template-columns: 12;
+    height: 70vh;
+    background-color: #123075;
+    overflow: hidden;
+  }
 
-    position: relative;
-    text-align: center;
-    color: $color5;
-    .homepage-header {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+  button {
+    & {
+      background: linear-gradient(193.64deg, #fa2b56 0%, #f91c3d 100%);
+      box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.4);
+      border-radius: 5px;
+      height: 50px;
+      width: 200px;
+      color: $color5;
+      font-size: 1em;
     }
-    .homepage-backgroung-img {
-        object-fit: cover;
-        width: 100%;
-        height: 70vh;
+
+    img {
+      position: relative;
+      right: -20px;
+      height: 13px;
+      width: 8px;
     }
-  .button {
-    cursor: pointer;  
-    display: inline-block;  
-    white-space: nowrap;  
-    background: linear-gradient(180deg,$color1 0%,$color2 49%,$color3 51%,$color2 100%);  
-    border-radius: 3px;  
-    border: 1px solid $color2;  
-    border-width: 1px 1px 1px 1px;
-    padding: 10px 20px 10px 20px;
-    box-shadow: inset 0px 1px 0px rgba(255,255,255,1),0px 1px 3px rgba(0,0,0,0.3);
-    color: $color5;
-    font-size: 1.5rem;  
-    font-family: $font2;   
-    text-shadow: 0px -1px 0px rgba(0,0,0,0.4)
   }
 }
 
+.red-bcg {
+  // grid-column-start: 5;
+  // grid-column-end: 12;
+  background: linear-gradient(253.03deg, #fa2b56 36.56%, #f91c3d 93.83%);
+  box-shadow: -40px 40px 120px rgba(0, 0, 0, 0.3);
+  border-radius: 800px;
+  transform: matrix(0.71, -0.7, 0.72, 0.71, 0, 0);
+  overflow: hidden;
+  position: relative;
+  bottom: 190px;
+  left: 260px;
+  height: 660px;
+  opacity: 0.7;
+  @include for-extra-wide-layout {
+    bottom: 400px;
+    left: 700px;
+  }
+  img {
+    position: relative;
+    top: 50px;
+    right: 100px;
+    transform: rotate(45deg);
+    opacity: 0.4;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    @include for-extra-wide-layout {
+      top: 100px;
+      right: 430px;
+    }
+  }
+}
 
-// .home {
-//     min-height: 100vh;
-//     display: flex;
-//     flex-direction: column;
+.background {
+  // grid-column-start: 5;
+  // grid-column-end: 12;
+  opacity: 0.4;
+  img {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    left: 180px;
+    bottom: 30px;
+    object-fit: contain;
+  }
+}
 
-//     .hello {
-//         flex: 1;
-//     }
-// }
+.text-container {
+  margin-bottom: 40px;
+}
 
-// .logo {
-//     padding: rem(20px);
-//     width: 140px;
-
-//     @include for-normal-layout {
-//         width: auto;
-//     }
-// }
-// header {
-//     display: flex;
-//     align-items: center;
-//     flex-direction: column;
-
-//     @include for-normal-layout {
-//         height: 86vh;
-//     }
-// }
-
-// #nav {
-//     a {
-//         background: green;
-
-//         &:first-child {
-//             background-color: red;
-//         }
-
-//         body.homepage & {
-//             color: gold;
-//         }
-//     }
-// }
-
-// body.homepage #nav a {
-    
-// }
+.homepage-header {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}

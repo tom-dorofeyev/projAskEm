@@ -1,41 +1,54 @@
-.app-header-div {
-  flex-direction: column;
+
+a {
+  @include header-buttons
+}
+
+.header-btn-list > button {
+  @include header-buttons;
+  border:none;
+  padding: 6px 0 9px 0;
+}
+
+a:active {
+  color: $color2;
+}
+.router-link-exact-active {
+  color: $color2;
+}
+
+img {
+  width: 100px;
+  height: 50px;
+}
+
+@include for-wide-layout {
+  flex-direction: row;
+  height: 100px;
+}
+
+.main-nav {
+  width:100%;
+  height:100%;
   justify-content: space-between;
-  padding: 10px 20px;
-  background-color: $color4;
+  max-width:1140px;
+}
 
-  .main-nav {
-    .router-link-exact-active {
-      color: $color2 !important;
-    }
-    justify-content: left;
-    flex-grow: 2;
-    align-items: center;
-
-    a {
-      margin-right: 0.6em;
-      color: $color3;
-      font-weight: 800;
-    }
-
-    a:active {
-      color: $color2;
-    }
-    .router-link-exact-active {
-      color: $color2;
-    }
+.app-header-div {
+  justify-content: left;
+  flex-direction: column;
+  flex-grow: 2;
+  align-items: center;
+  height: 35px;
+  @include for-wide-layout {
+    margin: 33px 10px;
   }
-
-  img {
-    // width: 150px;
-    // height: 60px;
-
-    width: 100px;
-    height: 50px;
-    margin-right: 2rem;
+  @include for-extra-wide-layout {
+    margin:33px 150px;
   }
+}
 
-  @media (min-width: 800px) {
-    flex-direction: row;
-  }
+#sign-in {
+  background: linear-gradient(205.62deg, #1a47b0 0%, #f91c3d 100%);
+  border-radius: 30px;
+  color:#FFFFFF;
 }

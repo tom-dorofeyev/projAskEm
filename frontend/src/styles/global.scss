@@ -12,14 +12,11 @@
 @import "basics/typography.scss";
 
 // Pages
-@import "views/home-page.scss";
 @import "views/survey-app.scss";
 @import "views/about-page.scss";
-@import "views/survey-list.scss";
 @import "views/survey-submit.scss";
 @import "views/create-survey.scss";
 @import "views/user-details.scss";
 
 //Components
-@import "components/appHeader.scss";
 @import "components/appFooter.scss";
