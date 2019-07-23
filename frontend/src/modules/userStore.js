@@ -56,7 +56,7 @@ export default {
         async loadUser(context) {
             try {
                 const user = await userService.query()
-                if(!user) return
+                if (!user) return
                 context.commit({ type: 'setUser', user })
                 return user
             } catch (err) {
