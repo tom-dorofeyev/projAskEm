@@ -32,6 +32,6 @@ export default {
         },
         submitSurvey(context, { submition }){
             return answerService.add(submition);
-        }
+        },
     },
 }

@@ -1,7 +1,7 @@
 export default {
     add,
     query,
-    getById,
+    getById
 }
 
 import httpService from './httpService'

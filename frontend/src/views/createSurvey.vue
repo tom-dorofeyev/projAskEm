@@ -110,7 +110,8 @@ export default {
       }
     };
   },
-  created() {},
+  created(){
+  },
   methods: {
     titleReady() {
       this.titleReceived = !this.titleReceived;
