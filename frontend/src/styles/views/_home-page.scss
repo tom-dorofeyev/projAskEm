@@ -17,6 +17,7 @@
       width: 200px;
       color: $color5;
       font-size: 1em;
+      border: none;
     }
 
     img {
@@ -24,6 +25,9 @@
       right: -20px;
       height: 13px;
       width: 8px;
+    }
+    &:hover{
+      background: linear-gradient(193.64deg, #e7738a 0%, #f86a80 100%);
     }
   }
 }

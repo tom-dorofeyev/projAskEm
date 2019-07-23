@@ -15,11 +15,12 @@
         v-model="survey.name"
       />
       <!-- <div v-if="titleReceived" class="survey-list">
-        <div class="survey-preview-container">
-          <img class="homepage-backgroung-img" src="../assets/images/homepage-background.jpg" alt />
+        <div class="survey-preview-container flex">
           <div class="survey-img-container">
-            <h3 v-if="survey.name" class="survey-preview-title">{{survey.name}}</h3>
-            <h3 v-if="!survey.name" class="survey-preview-title">No Title</h3>
+          <img class="survey-img" src="../assets/images/homepage-background.jpg" alt />
+        <div class="title-under-img flex">
+          <h3 class="survey-preview-title">{{survey.name}}</h3>
+        </div>
             <h5 class="survey-preview-quest-counter">Questions:{{survey.quests.length}}</h5>
           </div>
           <h5 class="survey-preview-quest-description">"{{survey.description}}"</h5>
@@ -31,7 +32,7 @@
             >#{{tag}}</div>
           </section>
         </div>
-      </div>-->
+      </div> -->
       <div v-if="titleReceived" class="create-survey-container">
         <form class="create-survey-form" @submit.prevent="publishSurvey">
           <section class="survey-base-input-container" v-if="baseOptsOpen">
@@ -117,7 +118,6 @@ export default {
   },
   methods: {
     catchDefault() {
-      console.log("Stopping Desc Default");
     },
     titleReady() {
       this.titleReceived = !this.titleReceived;

@@ -13,7 +13,7 @@
       </div>
       <router-link to="/survey/create">
         <button>
-          Start your survey
+          Create your survey
           <img src="@/assets/images/arrow-icon.svg" alt="">
         </button>
       </router-link> 

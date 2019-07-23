@@ -6,7 +6,7 @@ a {
 .header-btn-list > button {
   @include header-buttons;
   border:none;
-  padding: 6px 0 9px 0;
+  padding: 6px 0 10px 0;
 }
 
 a:active {
@@ -49,6 +49,6 @@ img {
 
 #sign-in {
   background: linear-gradient(205.62deg, #1a47b0 0%, #f91c3d 100%);
-  border-radius: 30px;
+  border-radius: 5px;
   color:#FFFFFF;
 }
