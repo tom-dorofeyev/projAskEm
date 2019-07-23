@@ -1,7 +1,7 @@
 
 <template>
   <div class="survey-list" v-if="surveys.length > 0">
-      <survey-preview v-for="currSurvey in surveys" :key="currSurvey._id" :survey="currSurvey"></survey-preview>
+      <survey-preview v-for="currSurvey in surveys" :key="currSurvey._id" :survey="currSurvey" />
   </div>
 </template>
 

@@ -1,4 +1,5 @@
 <template>
+<section class="home-page-container">
   <div class="home-page">
     <div class="background">
     </div>
@@ -18,6 +19,10 @@
       </router-link>
     </div>
   </div>
+  <section class="survey-list top-answered">
+    <survey-preview v-for="currSurvey in popularSurveys" :key="currSurvey._id" :survey="currSurvey"/>
+  </section>
+</section>
 </template>
 
 <script>
@@ -27,8 +32,15 @@ import surveyPreview from '@/components/surveyPreview'
 export default {
   data(){
     return {
-      populerSurveys:[],
+      popularSurveys:[],
     }
+  },
+  async created(){
+    const surveyIds = await this.$store.dispatch('getMostAnsweredSurveyIds')
+    surveyIds.forEach(async surveyId => {
+      const survey = await this.$store.dispatch({type:'surveyById', surveyId})
+      if(survey) this.popularSurveys.push(survey)
+    })
   },
   components: {
     surveyPreview,
