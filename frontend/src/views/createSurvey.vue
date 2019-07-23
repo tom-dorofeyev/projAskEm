@@ -2,75 +2,35 @@
   <div class="create-survey">
     <section class="create-survey-container">
       <h1 class="create-survey-header">{{surveyHeader}}</h1>
-      <h3
-        v-if="survey.tags[0]"
-        class="create-survey-header"
-      >Survey #Tags: {{survey.tags}}{{surveyTags}}</h3>
-      <input
-        v-if="!titleReceived"
-        @keyup.enter="titleReady()"
-        class="survey-input"
-        type="text"
-        placeholder="Enter Survey Name"
-        v-model="survey.name"
-      />
-      <!-- <div v-if="titleReceived" class="survey-list">
-        <div class="survey-preview-container flex">
-          <div class="survey-img-container">
-          <img class="survey-img" src="../assets/images/homepage-background.jpg" alt />
-        <div class="title-under-img flex">
-          <h3 class="survey-preview-title">{{survey.name}}</h3>
-        </div>
-            <h5 class="survey-preview-quest-counter">Questions:{{survey.quests.length}}</h5>
-          </div>
-          <h5 class="survey-preview-quest-description">"{{survey.description}}"</h5>
-          <section class="survey-preview-tags-container" v-if="tagsReceived">
-            <div
-              class="survey-preview-tags"
-              v-for="(tag, tagIdx) in survey.tags"
-              :key="tagIdx"
-            >#{{tag}}</div>
-          </section>
-        </div>
-      </div> -->
-      <div v-if="titleReceived" class="create-survey-container">
-        <form class="create-survey-form" @submit.prevent="publishSurvey">
-          <section class="survey-base-input-container" v-if="baseOptsOpen">
-            <!-- <input class="survey-input" type="text" placeholder="Survey Name" v-model="survey.name" /> -->
-            <br />
-            <textarea
-              v-if="!descReceived"
-              @keyup.enter="catchDefault()"
-              class="survey-input-desc"
-              placeholder="Enter Survey Description"
-              v-model="survey.description"
-            ></textarea>
-            <button v-if="!descReceived" @click="descReady()" type="button">All Set!</button>
-            <br />
-            <input
-              v-if="descReceived"
-              class="survey-input"
-              type="text"
-              v-model="survey.tags"
-              placeholder="Add Tags..."
-            />
-            <button
-              v-if="descReceived"
-              @click="surveyTags()"
-              type="button"
-            > Add Tag</button>
-            <br />
-          </section>
-          <button
-            class="survey-create-btn"
-            v-if="(tagsReceived && survey.quests.length)"
-            @click="baseReady()"
-            type="button"
-          >{{baseOptsBtn}} Base Settings</button>
-          <create-quest v-if="tagsReceived" v-model="survey.quests"></create-quest>
-          <button v-if="(tagsReceived && survey.quests.length)" type="submit">Publish</button>
-        </form>
-      </div>
+      <h3 v-if="survey.tags[0]" class="create-survey-header">#Tags: {{survey.tags}}{{surveyTags}}</h3>
+      <form class="create-survey-form" @submit.prevent="publishSurvey">
+        <section class="survey-base-input-container" v-if="baseOptsOpen">
+          <input
+            class="survey-input"
+            type="text"
+            placeholder="Enter Survey Name"
+            v-model="survey.name"
+          />
+          <br />
+          <input
+            class="survey-input"
+            type="text"
+            v-model="survey.tags"
+            placeholder="Add Tags..."
+          />
+          <br />
+          <textarea
+            @keyup.enter="catchDefault()"
+            class="survey-input-desc"
+            placeholder="Enter Survey Description"
+            v-model="survey.description"
+          ></textarea>
+          <br />
+        </section>
+        <create-quest v-model="survey.quests"></create-quest>
+        <br />
+        <button v-if="(tagsReceived && survey.quests.length)" class="survey-create-btn-publish" type="submit">Publish</button>
+      </form>
     </section>
   </div>
 </template>
@@ -114,11 +74,8 @@ export default {
       }
     };
   },
-  created(){
-  },
+  created() {},
   methods: {
-    catchDefault() {
-    },
     titleReady() {
       this.titleReceived = !this.titleReceived;
       console.log("Got Title!");
@@ -126,9 +83,6 @@ export default {
     descReady() {
       this.descReceived = !this.descReceived;
       console.log("Got Desc!");
-    },
-    baseReady() {
-      this.baseOptsOpen = !this.baseOptsOpen;
     },
     async publishSurvey() {
       let survey = this.survey;
@@ -178,10 +132,6 @@ export default {
         return (
           'Lets Give your survey "' + this.survey.name + '" a Description:'
         );
-    },
-    baseOptsBtn() {
-      if (!this.baseOptsOpen) return "Show";
-      else return "Hide";
     }
   },
   components: {
