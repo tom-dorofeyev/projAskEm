@@ -11,10 +11,15 @@
         <br />
         <h5 class="survey-submit-qst-number">"{{survey.description}}"</h5>
         <br />
-        <div class="quest-list" v-for="(currQuest, questIdx) in survey.quests" :key="questIdx">
-          <quest-submit :quest="currQuest" :questIdx="questIdx" @update-answer="updateAns"></quest-submit>
-        </div>
-
+        <section class="quest-list-container">
+          <div
+            class="quest-list-item"
+            v-for="(currQuest, questIdx) in survey.quests"
+            :key="questIdx"
+          >
+            <quest-submit :quest="currQuest" :questIdx="questIdx" @update-answer="updateAns"></quest-submit>
+          </div>
+        </section>
         <section class="survey-submit-btn">
           <input type="button" @click="submitSurvey" value="Submit Answers!" />
         </section>
