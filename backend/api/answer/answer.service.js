@@ -12,7 +12,7 @@ async function query(filterBy = {}){
     let criteria = {};
 
     if(filterBy.userId) {
-        criteria.userId = filterBy.userId ;
+        criteria.userId = filterBy.userIdx;
     }
 
     if(filterBy.surveyId) {
