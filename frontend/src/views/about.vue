@@ -3,7 +3,7 @@
     <!-- <h2 class="about-title">About Us</h2> -->
     <div class="our-mission-div flex">
       <div class="our-mission">Our Mission</div>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam necessitatibus fugiat blanditiis dolores consequuntur id expedita similique omnis nulla, sequi animi ex asperiores possimus quam nostrum mollitia eos nam? Ratione. Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, cumque? Dolorem dolorum iure sit maxime odit tempora eaque modi, dolor eligendi rerum quisquam quibusdam doloremque dignissimos sequi consectetur quis rem!</p>
+      <p>Ever had a wonderful question? Why not ask the whole world? We started a jurney 3 months ago deciding to create a platform that will allow anyone - anywhere, to create and share online surveys - and host a live result platform for him for free. It doesn't matter if you are a twitch streamer with millions of viewers trying to figure out what game to play next, if you are a country trying to decide if they want to go to war - it doesn't matter - AskEm Platform are here to help you out figure it all out. ps: we don't discriminate, burger or pizza surveys are also cool ;)</p>
     </div>
     <ul class="about-details flex clean-list">
       <li>
