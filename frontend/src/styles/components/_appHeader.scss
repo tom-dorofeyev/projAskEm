@@ -3,6 +3,9 @@ a {
   @include header-buttons
 }
 
+.header-btn-list {
+  align-items: baseline;
+}
 .header-btn-list > button {
   @include header-buttons;
   border:none;
@@ -10,11 +13,14 @@ a {
   background-color: #fff;
 }
 
-a:active {
-  color: $color2;
+router-link , a {
+  height: 100%;
 }
-.router-link-exact-active {
-  color: $color2;
+
+.router-link-exact-active, a:active {
+  color: #7087bd;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 2px 0px 0px #f91c3d;
 }
 
 img {
@@ -51,6 +57,8 @@ img {
 
 #sign-in{
   background: linear-gradient(205.62deg, #1a47b0 0%, #f91c3d 100%);
-  border-radius: 30px;
+  border-radius: 5px;
   color:#FFFFFF;
+  padding: 5px;
+  font-weight: 300;
 }

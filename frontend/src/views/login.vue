@@ -1,49 +1,41 @@
 <template>
-  <div class="login">
-    <h1>Login!</h1>
-    <h3>{{msg}}</h3>
-    <div class="login-container">
-      <form @submit.prevent="doLogin">
-          <b>Username</b>
-        <input
-          type="text"
-          v-model="loginCred.userName" placeholder="Enter Username" required/>
-        <br />
-          <b>Password</b>
-        <input
-          type="password"
-          v-model="loginCred.password" placeholder="Enter Password" required/>
-        <br />
+    <section class="login-page-section">
+        <div>
+            <nav>
+                <button @click="moveToSignIn">Sign In</button>
+                <button @click="moveToSignUp">Sign Up</button>
+            </nav>
+        </div>
+        <div>
+        <sign-in v-if="signIn"></sign-in>
+        <sign-up v-else></sign-up>
 
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  </div>
+        </div>
+    </section>
 </template>
 
-
 <script>
+import signIn from '@/components/signin' 
+import signUp from '@/components/signup'
+
 export default {
-  data() {
-    return {
-      msg: "",
-      loginCred: {
-        userName: "",
-        password: ""
-      }
-    };
-  },
-  methods: {
-    async doLogin() {
-      if (!this.loginCred.userName || !this.loginCred.password)
-        return (this.msg = "Missing user name or password");
-      try {
-        await this.$store.dispatch({ type: "login", userCred: this.loginCred });
-        this.$router.push("/");
-      } catch (err) {
-        this.msg = err;
-      }
+
+    data(){
+        return {
+            signIn: true,
+        }
+    },
+    methods: {
+        moveToSignIn(){
+            this.signIn = true;
+        },
+        moveToSignUp(){
+            this.signIn = false;
+        }
+    },
+    components: {
+        signIn,
+        signUp
     }
-  },
-};
+}
 </script>

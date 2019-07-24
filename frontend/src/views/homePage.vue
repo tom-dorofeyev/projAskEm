@@ -30,7 +30,7 @@
       </div>
       <div class="under-title"></div>
       <div class="use-our-service">
-        <h2 class="companies-use-us">Who Use Us?</h2>
+        <h2 class="companies-use-us">Who Works With Us?</h2>
         <div class="companies-icons flex">
           <img src="@/assets/images/companies/bird.png">
           <img src="@/assets/images/companies/metube.png">

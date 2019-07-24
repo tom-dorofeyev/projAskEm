@@ -8,7 +8,7 @@ import surveySubmit from './views/surveySubmit.vue'
 import surveysList from './views/surveysList.vue'
 import surveyResults from './views/surveyResults.vue'
 import createSurvey from './views/createSurvey.vue'
-import signUp from './components/signup.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -39,11 +39,6 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: login
-    },
-    {
-      path:'/signup',
-      name: 'signup',
-      component: signUp
     },
     {
       path: '/user/:id',
