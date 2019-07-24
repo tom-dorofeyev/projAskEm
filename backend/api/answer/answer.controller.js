@@ -29,9 +29,7 @@ async function getMostAnweredSurveys(req, res) {
 async function add(req, res) {
     const answer = req.body
     try {
-        const answerWithId = await answerService.add(answer)
-        console.log('got after answer controller add function');
-        
+        const answerWithId = await answerService.add(answer)        
         res.json(answerWithId)
     } catch (error) {
         res.status(500).send({ error })

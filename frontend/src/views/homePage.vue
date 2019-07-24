@@ -20,7 +20,13 @@
         </router-link> 
       </div>
     </div>
-      <trending-survey></trending-survey>
+        <section class="trending-surveys title">
+        <h2 class="trending-surveys-title">Most Trending Surveys</h2>
+        <div class="under-title"></div>
+      <section class="survey-list top-answered">
+        <survey-preview v-for="currSurvey in popularSurveys" :key="currSurvey._id" :survey="currSurvey"/>
+      </section>
+        </section>
       <div class="how-it-works">
         <h2 class="how-it-works-title">How It Works</h2>
         <div class="how-it-work-gif-div flex">
@@ -45,11 +51,23 @@
 
 <script>
 import surveyService from '@/services/surveyService'
-import trendingSurvey from '@/components/trendingSurvey'
-export default {
-  components: {
-    trendingSurvey
+import surveyPreview from '@/components/surveyPreview'
 
+export default {
+  data(){
+    return {
+      popularSurveys:[],
+    }
+  },
+  async created(){
+    const surveyIds = await this.$store.dispatch('getMostAnsweredSurveyIds')
+    surveyIds.forEach(async surveyId => {
+      const survey = await this.$store.dispatch({type:'surveyById', surveyId})
+      if(survey) this.popularSurveys.push(survey)
+    })
+  },
+  components: {
+    surveyPreview,
   }
 }
 </script>

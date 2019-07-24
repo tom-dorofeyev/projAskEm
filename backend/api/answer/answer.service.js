@@ -12,7 +12,7 @@ async function query(filterBy = {}){
     let criteria = {};
 
     if(filterBy.userId) {
-        criteria.userId = `createdBy : _id: ${filterBy.userId}` ;
+        criteria.userId = filterBy.userIdx;
     }
 
     if(filterBy.surveyId) {
@@ -36,7 +36,7 @@ async function getMostAnweredSurveys() {
             return acc
         }, {});
         let sortedAnswers = Object.keys(map).sort((a,b) => map[a] < map[b]).filter((ans, idx) => {
-            if(idx < 3) return ans
+            if(idx < 6) return ans
         })
         return sortedAnswers
 

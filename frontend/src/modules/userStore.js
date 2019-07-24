@@ -29,7 +29,7 @@ export default {
             try {
                 const exsistUser = await userService.login(userCred)
                 context.commit({ type: 'setUser', user: exsistUser })
-                return Promise.resolve()
+                return exsistUser
             } catch (err) {
                 console.log('login catch at store',err);
                 throw err
@@ -48,7 +48,7 @@ export default {
             try {
                 const loggedInUser = await userService.getById(userId)
                 context.commit({ type: 'setUser', user: loggedInUser })                
-                return Promise.resolve()
+                return loggedInUser
             } catch (err) {            
                 throw err
             }
@@ -56,8 +56,9 @@ export default {
         async loadUser(context) {
             try {
                 const user = await userService.query()
+                if (!user) return
                 context.commit({ type: 'setUser', user })
-                return Promise.resolve()
+                return user
             } catch (err) {
                 throw err
             }

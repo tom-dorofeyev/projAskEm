@@ -36,17 +36,18 @@
 
       .title-under-img {
         justify-content: space-between;
-        width: 100%;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-bottom: 0.5rem;
-        @include content-title;
-        font-size: 1rem;
-        padding: 0;
-        text-transform: uppercase;
-        margin-bottom: 0.5rem;
+        position: absolute;
+        height: 44%;
+        top: 78%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width:100%;;
+        color: $color5;
+        border-radius:5px;
+        background: linear-gradient(1.02deg, #38476b 5.82%, rgba(18, 44, 105, 0) 30.6%);
         & > * {
-          margin: 0;
+          margin: 4px;
+          align-self: flex-end;
         }
       }
       

@@ -44,5 +44,6 @@ async function getById(id) {
 
 async function query() {
     const user = JSON.parse(sessionStorage.getItem('user'));
+    if(!user) return
     return await httpService.get(`user/${user._id}`)
 }

@@ -1,15 +1,17 @@
-.create-survey {
+.survey-submit-page {
   .survey-submit-container {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: lightgreen;
     text-align: left;
   }
+
   .survey-submit-header {
     text-align: center;
     margin-bottom: 0;
   }
   .survey-submit-qst-number {
     text-align: center;
+    margin: 0;
   }
   .survey-submit-created {
     margin: 0;
