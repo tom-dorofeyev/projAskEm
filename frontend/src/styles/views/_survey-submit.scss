@@ -1,24 +1,47 @@
 .survey-submit-page {
+
+  #myForm{
+    min-height: 80vh;
+    padding-bottom: 130px;
+    position: relative;
+  }
   .survey-submit-container {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: lightgreen;
-    text-align: left;
+    text-align: center;
   }
 
   .survey-submit-header {
-    text-align: center;
     margin-bottom: 0;
   }
   .survey-submit-qst-number {
-    text-align: center;
     margin: 0;
+  }
+
+  .quest-submit {
+    text-align: left;
+    margin-bottom: 1vh;
+    padding: 1em;
+  }
+
+  .quest-list-container {
+    border: 1px solid #DDDFE7;
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  .survey-preview-tags {
   }
   .survey-submit-created {
     margin: 0;
-    text-align: center;
   }
-  .survey-submit-btn {
+
+  .survey-create-btn-publish {
+    background: linear-gradient(180deg, #369224 0%, #116811 100%);
+    border-radius: 5px;
+    height: 25px;
+    width: 200px;
+    color: $color5;
+    font-size: 1em;
     margin: 0 auto;
-    text-align: center;
   }
 }

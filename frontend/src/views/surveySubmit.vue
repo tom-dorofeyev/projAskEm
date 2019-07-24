@@ -11,12 +11,17 @@
         <br />
         <h5 class="survey-submit-qst-number">"{{survey.description}}"</h5>
         <br />
-        <div class="quest-list" v-for="(currQuest, questIdx) in survey.quests" :key="questIdx">
-          <quest-submit :quest="currQuest" :questIdx="questIdx" @update-answer="updateAns"></quest-submit>
-        </div>
-
+        <section class="quest-list-container">
+          <div
+            class="quest-list-item"
+            v-for="(currQuest, questIdx) in survey.quests"
+            :key="questIdx"
+          >
+            <quest-submit :quest="currQuest" :questIdx="questIdx" @update-answer="updateAns"></quest-submit>
+          </div>
+        </section>
         <section class="survey-submit-btn">
-          <input type="button" @click="submitSurvey" value="Submit Answers!" />
+          <input type="button"  class="survey-create-btn-publish" @click="submitSurvey" value="Submit Answers!" />
         </section>
       </form>
     </div>
@@ -49,6 +54,7 @@ export default {
       const surveyId = this.survey._id;
       this.$store.dispatch({ type: "submitSurvey", submition });
       this.$store.dispatch({ type: "emitSubmition", surveyId });
+      this.$router.push('/survey/list')
     },
     updateAns(answer, questIdx) {
       let currAnswer = this.submition.answers[questIdx];

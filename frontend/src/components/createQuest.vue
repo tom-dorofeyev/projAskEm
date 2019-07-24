@@ -2,27 +2,24 @@
   <div class="create-survey-page">
     <section class="quest-editot-list" v-if="quests.length > 0">
       <div v-for="(currQuest, questIdx) in quests" :key="questIdx" class="quest-editor">
-        Enter Question:
-        <input class="survey-input" type="text" v-model="currQuest.title" />
-
+        <input class="survey-input" type="text" placeholder="Enter a Question" v-model="currQuest.title" />
+        <button v-if="currQuest.title" class="survey-create-btn-delete" @click="removeQuest(questIdx)">Delete Question</button>
         <section class="type-selection">
-          choose question type:
+          Type:
           <select v-model="currQuest.type">
             <option v-for="type in typeOptions" :value="type.value" :key="type.value">{{type.txt}}</option>
           </select>
         </section>
-
           <div class="answer-edit-list" v-if="currQuest.opts.length > 0">
             <div class="answer-editor" v-for="(option, ansIdx) in currQuest.opts" :key="ansIdx">
               <input type="text" placeholder="Enter Answer..." v-model="currQuest.opts[ansIdx]">
-              <button @click="removeOption(ansIdx, questIdx)" type="button">x</button>
+              <button class="survey-create-btn-delete" @click="removeOption(ansIdx, questIdx)" type="button">x</button>
             </div>
           </div>
-        <button @click="addOption(questIdx)" v-if="checkAnswerType(questIdx)" type="button">Add Option</button>
-        <button @click="removeQuest(questIdx)">Delete Question</button>
+        <button class="survey-create-btn" @click="addOption(questIdx)" v-if="checkAnswerType(questIdx)" type="button">Add Option</button>
       </div>
     </section>
-    <button @click="addQuest" type="button">Add Question</button>
+    <button class="survey-create-btn" @click="addQuest" type="button">Add Question</button>
   </div>
 </template>
 
