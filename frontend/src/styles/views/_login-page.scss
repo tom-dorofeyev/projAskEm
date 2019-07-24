@@ -1,7 +1,7 @@
 .login-page-section {
     width: 80vw;
     height: 80vh;
-    margin: 0 auto;
+    margin: 1.5rem auto 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 
     .login-page-form {
@@ -56,9 +56,8 @@
             padding: 0;
         }
     }
-
+    
     @media(max-width: 660px){
-        height: 70vh;
         
         .hide {
             display: none;
