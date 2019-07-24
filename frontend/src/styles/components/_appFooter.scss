@@ -1,32 +1,39 @@
 .footer-section {
-    background-color: $color4;
     text-align: center;
     width: 100%;
     position: absolute;
     bottom: 0;
-    
-    .follow-us {
-        flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    color: silver;
 
+    .follow-us {
+        align-self: center;
         & > * {
             margin-bottom:1rem;
         }
 
-        img {
+        a {
             width: 1.5rem;
-            padding: 0.4rem;
-            background-color: silver;
             cursor: pointer;
-        }
+            img {
+                height:23px;
 
-        img:not(:last-child) {
+            }
+        }
+        
+        a:not(:last-child) {
             margin-right: 1rem;
         }
     }
-
-    h6 {
+    
+    h6, h5 {
         margin: 0;
-        padding: 0.5rem;
+        padding: 0.3rem;
+    }
+    h5 {
+        margin-right: 0.5rem;
     }
 
 }

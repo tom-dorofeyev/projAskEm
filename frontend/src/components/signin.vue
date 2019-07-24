@@ -1,16 +1,17 @@
 <template>
   <div class="signin-form">
     <h3>{{msg}}</h3>
-    <div class="login-container">
       <form @submit.prevent="doLogin">
         <input
           type="text"
-          v-model="loginCred.userName" placeholder="Enter Username" required/>
+          v-model="loginCred.userName" placeholder="🜶 Enter User Name" required/>
         <input
           type="password"
-          v-model="loginCred.password" placeholder="Enter Password" required/>
+          v-model="loginCred.password" placeholder="⌨ Enter Password" required/>
         <button type="submit" @click="doLogin">Sign In</button>
       </form>
+    <div class="signin-container">
+      
     </div>
   </div>
 </template>

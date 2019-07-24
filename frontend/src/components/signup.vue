@@ -1,11 +1,11 @@
 <template>
-  <form class="signup-form col s12">
+  <form class="signup-form">
     <h2 class="signup-msg">{{msg}}</h2>
-    <input type="text" v-model="user.userName" placeholder="Enter User Name" required />
-    <input type="email" v-model="user.email" placeholder="Enter Your Email" required />
-    <input type="text" v-model="user.fullName" placeholder="Enter Full Name" required />
-    <input type="password" v-model="user.password" placeholder="Enter Password" required />
-    <input type="password" v-model="user.rePassword" placeholder="Re Enter Password" required />
+    <input type="text" v-model="user.userName"  placeholder="🜶 Enter User Name" required />
+    <input type="email" v-model="user.email" placeholder="✉ Enter Your Email" required />
+    <input type="text" v-model="user.fullName" placeholder="✎ Enter Full Name" required />
+    <input type="password" v-model="user.password" placeholder="⌨ Enter Password" required />
+    <input type="password" v-model="user.rePassword" placeholder="⌨ Re Enter Password" required />
     
     <button type="submit" @click="doSignUp">Create Accout</button>
   </form>
@@ -57,3 +57,7 @@ export default {
   }
 };
 </script>
+
+<style>
+
+</style>

@@ -1,15 +1,14 @@
 <template>
-    <section class="login-page-section">
-        <div>
-            <nav>
-                <button @click="moveToSignIn">Sign In</button>
-                <button @click="moveToSignUp">Sign Up</button>
-            </nav>
+    <section class="login-page-section flex">
+        <div class="side-login-page hide">
+            <h2> Create Surveys and Watch the World Answer!</h2>
+            <img src="@/assets/images/login-img.png" alt="">
         </div>
-        <div>
-        <sign-in v-if="signIn"></sign-in>
-        <sign-up v-else></sign-up>
-
+        <div class="login-page-form">
+            <h2 class="login-header">{{signIn ? 'Sign In' : 'Sign Up' }}</h2>
+            <sign-in v-if="signIn"></sign-in>
+            <sign-up v-else></sign-up>
+            <h5 @click="toggleSignIn" class="login-under-title">{{signIn ? 'Don\'t Have an Account? Sign Up' : 'Already Have an Account? Sign In'}}</h5>
         </div>
     </section>
 </template>
@@ -26,11 +25,8 @@ export default {
         }
     },
     methods: {
-        moveToSignIn(){
-            this.signIn = true;
-        },
-        moveToSignUp(){
-            this.signIn = false;
+        toggleSignIn() {
+            this.signIn = !this.signIn;
         }
     },
     components: {

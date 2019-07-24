@@ -1,13 +1,20 @@
 .home-page {
   position: relative;
   
-  & {
-    color: $color5;
-    // display: grid;
-    // grid-template-columns: 12;
-    height: 70vh;
-    background-color: #123075;
-    overflow: hidden;
+  .text-container {
+    width: 100vw;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+
+    h2 {
+      color: white;
+    }
+  }
+  .homepage-header-img {
+    width: 100vw;
+    height: 75vh;
+    object-fit: cover;
   }
 
   button {
@@ -34,40 +41,40 @@
   }
 }
 
-.red-bcg {
-  // grid-column-start: 5;
-  // grid-column-end: 12;
-  background: linear-gradient(253.03deg, #fa2b56 36.56%, #f91c3d 93.83%);
-  box-shadow: -40px 40px 120px rgba(0, 0, 0, 0.3);
-  border-radius: 800px;
-  transform: matrix(0.71, -0.7, 0.72, 0.71, 0, 0);
-  overflow: hidden;
-  position: relative;
-  bottom: 190px;
-  left: 260px;
-  height: 660px;
-  opacity: 0.7;
+// .red-bcg {
+//   // grid-column-start: 5;
+//   // grid-column-end: 12;
+//   background: linear-gradient(253.03deg, #fa2b56 36.56%, #f91c3d 93.83%);
+//   box-shadow: -40px 40px 120px rgba(0, 0, 0, 0.3);
+//   border-radius: 800px;
+//   transform: matrix(0.71, -0.7, 0.72, 0.71, 0, 0);
+//   overflow: hidden;
+//   position: relative;
+//   bottom: 190px;
+//   left: 260px;
+//   height: 660px;
+//   opacity: 0.7;
   
-  @include for-extra-wide-layout {
-    bottom: 400px;
-    left: 700px;
-  }
-  img {
-    position: relative;
-    top: 50px;
-    right: 100px;
-    transform: rotate(45deg);
-    opacity: 0.4;
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+//   @include for-extra-wide-layout {
+//     bottom: 400px;
+//     left: 700px;
+//   }
+//   img {
+//     position: relative;
+//     top: 50px;
+//     right: 100px;
+//     transform: rotate(45deg);
+//     opacity: 0.4;
+//     height: 100%;
+//     width: 100%;
+//     object-fit: contain;
 
-    @include for-extra-wide-layout {
-      top: 100px;
-      right: 430px;
-    }
-  }
-}
+//     @include for-extra-wide-layout {
+//       top: 100px;
+//       right: 430px;
+//     }
+//   }
+// }
 
 .background {
   opacity: 0.4;

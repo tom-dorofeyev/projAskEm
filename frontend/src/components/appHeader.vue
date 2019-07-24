@@ -8,7 +8,6 @@
           <router-link to="/about">About</router-link> 
           <router-link to="/survey/list">Surveys</router-link> 
           <template v-if="!user.userName">
-            <router-link to="/signup" >Sign up</router-link>
             <router-link to="/login" id="sign-in">Sign In</router-link>
           </template>
           <button v-if="user.userName" id="log-out" @click="doLogout">Log Out</button>

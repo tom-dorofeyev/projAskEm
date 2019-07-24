@@ -50,3 +50,11 @@ $wide-breakpoint: 980px;
     height: 2px;
     opacity: 0.5;
 }
+
+@mixin gradient-button {
+    background: linear-gradient(205.62deg, #1a47b0 0%, #f91c3d 100%);
+    border-radius: 5px;
+    color:#FFFFFF;
+    padding: 5px;
+    font-weight: 300;
+}
