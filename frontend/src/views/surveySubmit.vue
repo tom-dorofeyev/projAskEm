@@ -21,7 +21,18 @@
           </div>
         </section>
         <section class="survey-submit-btn">
-          <input type="button"  class="survey-create-btn-publish" @click="submitSurvey" value="Submit Answers!" />
+          <input
+            type="button"
+            class="survey-create-btn-publish"
+            @click="submitSurvey"
+            value="Submit Answers!"
+          />
+          <input
+            type="button"
+            class="survey-create-btn-results"
+            @click="viewResults"
+            value="View Results!"
+          />
         </section>
       </form>
     </div>
@@ -54,13 +65,16 @@ export default {
       const surveyId = this.survey._id;
       this.$store.dispatch({ type: "submitSurvey", submition });
       this.$store.dispatch({ type: "emitSubmition", surveyId });
-      this.$router.push('/survey/list')
+      // this.$router.push('/survey/list')
     },
     updateAns(answer, questIdx) {
       let currAnswer = this.submition.answers[questIdx];
       if (typeof answer === "number") currAnswer.optIdx = answer;
       else if (Array.isArray(answer)) currAnswer.optionsIdxs = answer;
       else if (typeof answer === "string") currAnswer.txt = answer;
+    },
+    viewResults(answer, questIdx) {
+      this.$router.push(`/survey/results/${this.survey._id}`)
     }
   },
   computed: {},
