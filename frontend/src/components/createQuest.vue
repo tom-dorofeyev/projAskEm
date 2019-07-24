@@ -2,15 +2,14 @@
   <div class="create-survey-page">
     <section class="quest-editot-list" v-if="quests.length > 0">
       <div v-for="(currQuest, questIdx) in quests" :key="questIdx" class="quest-editor">
-        <input class="survey-input-qst" type="text" placeholder="Enter a Question" v-model="currQuest.title" />
-        <button v-if="currQuest.title" class="survey-create-btn-delete" @click="removeQuest(questIdx)">x</button>
+        <input class="survey-input" type="text" placeholder="Enter a Question" v-model="currQuest.title" />
+        <button v-if="currQuest.title" class="survey-create-btn-delete" @click="removeQuest(questIdx)">Delete Question</button>
         <section class="type-selection">
           Type:
           <select v-model="currQuest.type">
             <option v-for="type in typeOptions" :value="type.value" :key="type.value">{{type.txt}}</option>
           </select>
         </section>
-
           <div class="answer-edit-list" v-if="currQuest.opts.length > 0">
             <div class="answer-editor" v-for="(option, ansIdx) in currQuest.opts" :key="ansIdx">
               <input type="text" placeholder="Enter Answer..." v-model="currQuest.opts[ansIdx]">

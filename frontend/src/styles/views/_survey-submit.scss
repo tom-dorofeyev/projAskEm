@@ -1,5 +1,9 @@
 .survey-submit-page {
+
   #myForm{
+    min-height: 80vh;
+    padding-bottom: 130px;
+    position: relative;
   }
   .survey-submit-container {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -30,7 +34,14 @@
   .survey-submit-created {
     margin: 0;
   }
-  .survey-submit-btn {
+
+  .survey-create-btn-publish {
+    background: linear-gradient(180deg, #369224 0%, #116811 100%);
+    border-radius: 5px;
+    height: 25px;
+    width: 200px;
+    color: $color5;
+    font-size: 1em;
     margin: 0 auto;
   }
 }

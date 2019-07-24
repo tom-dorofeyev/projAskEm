@@ -1,36 +1,40 @@
 <template>
   <div class="create-survey">
     <section class="create-survey-container">
-      <h1 class="create-survey-header">{{surveyHeader}}</h1>
-      <h3 v-if="survey.tags[0]" class="create-survey-header">#Tags: {{survey.tags}}{{surveyTags}}</h3>
-      <form class="create-survey-form" @submit.prevent="publishSurvey">
-        <section class="survey-base-input-container" v-if="baseOptsOpen">
-          <input
-            class="survey-input"
-            type="text"
-            placeholder="Enter Survey Name"
-            v-model="survey.name"
-          />
+        <h1 class="create-survey-header">Ready to AskEm?</h1>
+    <section class="survey-preview-tags-container flex" v-if="survey.tags.length">
+      <div class="survey-preview-tags" v-for="(tag, tagIdx) in survey.tags" :key="tagIdx">#{{tag }}</div>
+            <button v-if="survey.tags.length" class="survey-create-btn-delete" @click="removeTag" type="button">Delete Tag</button>
+    </section>
+        <form class="create-survey-form" @submit.prevent="publishSurvey">
+          <section class="survey-base-input-container">
+            <input
+              class="survey-input"
+              type="text"
+              placeholder="Enter Survey Name"
+              v-model="survey.name"
+            />
+            <br />
+            <input class="survey-input" type="text" v-model="inputTag" placeholder="Add a Tag..." />
+            <button v-if="inputTag" class="survey-create-btn-tags" @click="addTag" type="button">Add Tag</button>
+            <br />
+            <textarea
+              @keyup.enter="catchDefault()"
+              class="survey-input-desc"
+              placeholder="Enter Survey Description"
+              v-model="survey.description"
+            ></textarea>
+            <br />
+          </section>
+          <create-quest v-model="survey.quests"></create-quest>
           <br />
-          <input
-            class="survey-input"
-            type="text"
-            v-model="survey.tags"
-            placeholder="Add Tags..."
-          />
-          <br />
-          <textarea
-            @keyup.enter="catchDefault()"
-            class="survey-input-desc"
-            placeholder="Enter Survey Description"
-            v-model="survey.description"
-          ></textarea>
-          <br />
-        </section>
-        <create-quest v-model="survey.quests"></create-quest>
-        <br />
-        <button v-if="(tagsReceived && survey.quests.length)" class="survey-create-btn-publish" type="submit">Publish</button>
-      </form>
+          <div hidden>{{isSurveyReady}}</div>
+          <button
+            v-if="surveyReady"
+            class="survey-create-btn-publish"
+            type="submit"
+          >Publish</button>
+        </form>
     </section>
   </div>
 </template>
@@ -41,13 +45,14 @@ import createQuest from "@/components/createQuest";
 export default {
   data() {
     return {
-      titleReceived: false,
-      descReceived: false,
-      tagsReceived: false,
-      baseOptsOpen: true,
+      // titleReceived: false,
+      // descReceived: false,
+      // tagsReceived: false,
+      surveyReady: false,
+      inputTag: null,
       survey: {
-        name: "",
-        description: "",
+        name: null,
+        description: null,
         tags: [],
         isActive: true,
         createdBy: {},
@@ -76,13 +81,12 @@ export default {
   },
   created() {},
   methods: {
-    titleReady() {
-      this.titleReceived = !this.titleReceived;
-      console.log("Got Title!");
+    addTag() {
+      this.survey.tags.push(this.inputTag);
+      this.inputTag = null;
     },
-    descReady() {
-      this.descReceived = !this.descReceived;
-      console.log("Got Desc!");
+    removeTag() {
+      this.survey.tags.pop() 
     },
     async publishSurvey() {
       let survey = this.survey;
@@ -101,38 +105,43 @@ export default {
     user() {
       return this.$store.getters.user;
     },
-    surveyTags() {
-      let survey = this.survey;
-      let res = survey.tags;
-      if (survey.tags.includes(",")) {
-        this.tagsReceived = true;
-        res = survey.tags.split(",");
+    isSurveyReady() {
+      if (this.survey.name && this.survey.tags.length && this.survey.description && this.survey.quests.length && this.survey.quests[0].opts.length > 1) {
+       return this.surveyReady = true 
       }
-      if (survey.tags.includes(" ")) {
-        this.tagsReceived = true;
-        res = survey.tags.split(" ");
-      }
-      if (survey.tags.includes("-")) {
-        this.tagsReceived = true;
-        res = survey.tags.split("-");
-      }
-      if (survey.tags.includes("#")) {
-        this.tagsReceived = true;
-        res = survey.tags.split("#");
-      }
-      survey.tags = res;
-      this.survey.tags = survey.tags;
-    },
-    surveyHeader() {
-      if (this.tagsReceived) return "Great! Now Lets Add Questions:";
-      if (!this.titleReceived) return "Ready to AskEm?";
-      if (this.titleReceived && this.descReceived)
-        return 'Lets Give "' + this.survey.name + '" At Least One Tag:';
-      if (this.titleReceived)
-        return (
-          'Lets Give your survey "' + this.survey.name + '" a Description:'
-        );
     }
+    // surveyTags() {
+    //   let survey = this.survey;
+    //   let res = survey.tags;
+    //   if (survey.tags.includes(",")) {
+    //     this.tagsReceived = true;
+    //     res = survey.tags.split(",");
+    //   }
+    //   if (survey.tags.includes(" ")) {
+    //     this.tagsReceived = true;
+    //     res = survey.tags.split(" ");
+    //   }
+    //   if (survey.tags.includes("-")) {
+    //     this.tagsReceived = true;
+    //     res = survey.tags.split("-");
+    //   }
+    //   if (survey.tags.includes("#")) {
+    //     this.tagsReceived = true;
+    //     res = survey.tags.split("#");
+    //   }
+    //   survey.tags = res;
+    //   this.survey.tags = survey.tags;
+    // },
+    // surveyHeader() {
+    //   if (this.tagsReceived) return "Great! Now Lets Add Questions:";
+    //   if (!this.titleReceived) return "Ready to AskEm?";
+    //   if (this.titleReceived && this.descReceived)
+    //     return 'Lets Give "' + this.survey.name + '" At Least One Tag:';
+    //   if (this.titleReceived)
+    //     return (
+    //       'Lets Give your survey "' + this.survey.name + '" a Description:'
+    //     );
+    // }
   },
   components: {
     createQuest
