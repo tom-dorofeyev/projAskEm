@@ -4,6 +4,7 @@ export default {
     getById,
     getBySurveyId,
     add,
+    getMostAnsweredSurveyIds
 }
 
 import httpService from './httpService'
@@ -24,6 +25,10 @@ async function getBySurveyId(surveyId) {
 
 async function getById(id){
     return await httpService.get(`${API_KEY}/${id}`)
+}
+
+async function getMostAnsweredSurveyIds(){
+    return await httpService.get(`${API_KEY}/mostAnswered`)
 }
 
 function _getSummedResults(array){

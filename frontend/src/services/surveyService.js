@@ -16,8 +16,8 @@ async function add(survey) {
     return await httpService.post('survey', survey)
 }
 
-async function query() {
-    return await httpService.get('survey')
+async function query(filterBy) {
+    return await httpService.get('survey', null, filterBy)
 }
 
 async function getById(id) {

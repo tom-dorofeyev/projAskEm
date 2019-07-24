@@ -32,7 +32,6 @@ export default {
     getSurveyResultsUrl() {
       return `/survey/results/${this.survey._id}`;
     }
-  },
-  components: {}
+  }
 };
 </script>

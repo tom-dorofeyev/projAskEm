@@ -19,5 +19,9 @@ export default {
             var surveyAnswers = await answerService.getBySurveyId(surveyId)
             context.commit({type: 'setAnswers', surveyAnswers})
         },
+        async getMostAnsweredSurveyIds() {
+            const surveyIds = await answerService.getMostAnsweredSurveyIds()
+            return surveyIds
+        }
     },
 }
