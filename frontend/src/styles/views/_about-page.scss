@@ -57,6 +57,7 @@
   }
   .about-details {
     flex-direction: column;
+    flex-wrap: wrap;
     text-align: center;
     background-color: $color3;
     color: silver;
@@ -66,7 +67,6 @@
     }
 
     .heading {
-      font-weight: bold;
       font-size: 3rem;
     }
 
@@ -89,7 +89,6 @@
 
     .our-team-div {
       flex-direction: column;
-      flex-grow: 1;
       justify-content: space-around;
 
       & > * {
@@ -102,6 +101,7 @@
         color: $color3;
         line-height: 1.6rem;
         margin-right: 1rem;
+        flex-direction: column-reverse;
 
         span {
           margin-right: 1rem;
@@ -111,16 +111,15 @@
             img {
               width: 1.5rem;
               margin-right: 1rem;
-              background-color: $color4;
-              border: 1px solid $color3;
-              padding: 5px;
+              cursor: pointer;
             }
           }
 
-          .about-us-img {
-            // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-            object-fit: cover;
-          }
+        }
+        .about-us-img {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+          width: 100%;
+          object-fit: cover;
         }
       }
 
@@ -142,7 +141,7 @@
           color: $color3;
           line-height: 2rem;
           margin-right: 1rem;
-          border-radius: 20px;
+          border-radius: 5px;
 
           span {
             margin-right: 1rem;
@@ -152,18 +151,13 @@
               img {
                 width: 1.5rem;
                 margin-right: 1rem;
-                background-color: $color4;
-                border: 1px solid $color3;
-                padding: 5px;
               }
             }
 
-            .about-us-img {
-              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-              object-fit: cover;
-            }
+
           }
         }
+        
         @media (min-width: 750px) {
           flex-direction: row;
           align-items: flex-start;
@@ -187,6 +181,7 @@
           }
         }
       }
+      
       .about-us {
         span {
           margin-right: 0;

@@ -1,6 +1,8 @@
 
 <template>
   <div class="survey-list" v-if="surveys.length > 0">
+    <h2 class="survey-list-header">Surveys List</h2>
+    <div class="under-title"></div>
       <survey-preview v-for="currSurvey in surveys" :key="currSurvey._id" :survey="currSurvey" />
   </div>
 </template>

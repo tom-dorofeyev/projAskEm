@@ -1,0 +1,104 @@
+.login-page-section {
+    width: 80vw;
+    height: 80vh;
+    margin: 1.5rem auto 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+
+    .login-page-form {
+        @media(max-width: for-normal-layout) {
+            width: 100%;
+        }
+        height: 100%;
+        width: 50%;
+        padding-left: 1.5rem;
+        & > * {
+            width: 100%;
+            button {
+                text-align: left;
+            }
+
+        }
+        .login-header {
+            @include content-title;
+            padding-left: 0;
+        }
+
+        .login-under-title{
+            cursor: pointer;
+            text-decoration: underline;
+            color: #585858;
+        }
+        
+    }
+
+    .side-login-page {
+        height: 100%;
+        width: 50%;
+        position: relative;
+        text-align: center;
+        color: white;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        h2{ 
+            position: absolute;
+            font-weight: 100;
+            transform: translate(-50%, -50%);
+            font-family: $font2;
+            text-align: left;
+            margin-left: 1.5rem;
+            top: 40%;
+            left: 42%;
+            font-size: 35px;
+            padding: 0;
+        }
+    }
+    
+    @media(max-width: 660px){
+        
+        .hide {
+            display: none;
+        }
+        .login-page-form {
+            width: 100%;
+        }
+
+
+    };
+
+}
+
+
+.signup-form , .signin-form{
+    input {
+        display: flex;
+        align-items: stretch;
+        padding: 1rem;
+        border-radius: 2px;
+        border: none;
+        border-bottom: 2px solid silver;
+        display: block;
+        margin-bottom: 0.7rem;
+        width: 85%;
+        &::placeholder {
+            font-family: $font2;
+        }
+        &:focus {
+            outline: none;
+
+        }
+    }
+    button[type=submit] {
+        @include gradient-button;
+        border: none;
+        align-self: flex-end;
+    }
+
+    
+}
+
+
+

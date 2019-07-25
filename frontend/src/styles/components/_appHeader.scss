@@ -3,17 +3,24 @@ a {
   @include header-buttons
 }
 
+.header-btn-list {
+  align-items: baseline;
+}
 .header-btn-list > button {
   @include header-buttons;
   border:none;
-  padding: 6px 0 10px 0;
+  padding: 6px 0 9px 0;
+  background-color: #fff;
 }
 
-a:active {
-  color: $color2;
+router-link , a {
+  height: 100%;
 }
-.router-link-exact-active {
-  color: $color2;
+
+.router-link-exact-active, a:active {
+  color: #7087bd;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 2px 0px 0px #f91c3d;
 }
 
 img {
@@ -31,6 +38,8 @@ img {
   height:100%;
   justify-content: space-between;
   max-width:1140px;
+  align-items: center;
+  padding: 1rem;
 }
 
 .app-header-div {
@@ -38,17 +47,19 @@ img {
   flex-direction: column;
   flex-grow: 2;
   align-items: center;
-  height: 35px;
+  height: 12vh;
   @include for-wide-layout {
-    margin: 33px 10px;
+    margin: 0 10px;
   }
   @include for-extra-wide-layout {
-    margin:33px 150px;
+    margin: 0 15px;
   }
 }
 
-#sign-in {
+#sign-in{
   background: linear-gradient(205.62deg, #1a47b0 0%, #f91c3d 100%);
   border-radius: 5px;
   color:#FFFFFF;
+  padding: 5px;
+  font-weight: 300;
 }

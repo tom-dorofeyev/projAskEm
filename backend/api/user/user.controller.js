@@ -15,7 +15,6 @@ async function getUser(req, res) {
 }
 
 async function getUsers(req, res){
-    console.log('req session in the be user controller',req.session);
     
     try {
         const users = await userService.query()

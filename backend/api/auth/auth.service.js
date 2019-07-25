@@ -24,7 +24,7 @@ async function login(userName, password) {
 
 async function signup(email, password, userName, fullName) {
     if (!email || !password || !userName || !fullName) return Promise.reject('Email, user name, full name and password are required!')
-    if (!_validateEmail(email)) return Promise.reject('Invalid email!')
+    if (!_validateEmail(email)) return Promise.reject('Invalid Email, user name, full name or password!')
     
     const userNameTaken = await userService.getUser(userName)    
     if(userNameTaken) return Promise.reject('User name is taken!')
