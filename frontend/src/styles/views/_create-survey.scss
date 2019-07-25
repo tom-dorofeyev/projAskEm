@@ -3,32 +3,141 @@
   text-align: center;
   display: flex;
   flex-grow: 1;
+  
 
-
-.create-survey-container{
-  display: flex;
-  flex-direction: column;
-  align-self: stretch;
-  flex-grow: 1;
-}
-
-  .survey-input{
-    text-align: center;
+  .create-survey-container {
     display: flex;
-    margin: 0 auto;
+    flex-direction: column;
+    align-self: stretch;
+    flex-grow: 1;
+  }
+
+  .survey-base-input-container {
+    flex-direction: row;
+  }
+
+  .survey-input {
+    text-align: center;
+    width: 100%;
     height: 48px;
-    border: 1px solid #EBEBEB;
+    border: 1px solid #ebebeb;
     border-radius: 4px;
-    width: 50%;
     margin-bottom: 1px;
   }
-  .survey-tags{
+
+  .survey-input-tags {
+    text-align: center;
+    width: 60%;
+    height: 48px;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    margin-bottom: 1px;
+  }
+
+  .survey-input-qst {
+    position: relative;
+    text-align: center;
+    height: 48px;
+    border: 1px solid #ebebeb;
+    padding: 5px;
+    width: 90%;
+    border-radius: 4px;
+    margin-bottom: 1px;
+  }
+
+  .survey-input-desc {
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    border: 1px solid #ebebeb;
+  }
+
+  .survey-tags {
     width: 40%;
     margin: 0 auto;
   }
 
-  .survey-create-btn{
+  .survey-preview-btns-container {
+    position: relative;
+    bottom: 8px;
+    margin-top: 1rem;
+
+    .survey-preview-btn {
+      cursor: pointer;
+      background: linear-gradient(180deg, #123075 0%, #092056 100%);
+      box-shadow: 0px 10px 30px rgba(15, 53, 142, 0.1);
+      border-radius: 5px;
+      font-size: 0.8rem;
+      margin: 0.5rem;
+      color: $color5;
+
+      &::after {
+        content: "  ›";
+        position: relative;
+        top: calc(50% - 1rem / 1 - 0px);
+        font-size: 2rem;
+        color: $color5;
+      }
+
+      &:hover {
+        background: linear-gradient(180deg, #244592 0%, #112b68 100%);
+        transition-delay: 0.3ms;
+      }
+    }
+    .survey-result-btn {
+      color: #0f358e;
+      font-size: 0.8rem;
+      font-weight: bolder;
+    }
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .survey-preview-tags-container {
+    margin: 0 auto;
+  }
+
+  .survey-preview-tags {
+    padding: 5px;
+    font-size: 0.9rem;
+    color: $color3;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  .survey-create-btn-delete {
     background: linear-gradient(193.64deg, #fa2b56 0%, #f91c3d 100%);
+    border-radius: 5px;
+    color: $color5;
+    font-size: 0.7em;
+    position: absolute;
+    right: 25.5vw;
+    margin-top: 1px;
+  }
+
+  .survey-create-btn {
+    background: linear-gradient(180deg, #244592 0%, #112b68 100%);
+    border-radius: 5px;
+    color: $color5;
+    font-size: 0.7em;
+  }
+  .survey-create-btn-tags {
+    background: linear-gradient(180deg, #244592 0%, #112b68 100%);
+    border-radius: 5px;
+    color: $color5;
+    font-size: 0.7em;
+    position: absolute;
+  }
+
+  .survey-create-btn-publish {
+    background: linear-gradient(180deg, #369224 0%, #116811 100%);
     border-radius: 5px;
     height: 25px;
     width: 200px;
@@ -36,24 +145,20 @@
     font-size: 1em;
   }
 
-  .survey-input-desc{
-    width: 100%;
-    height: 10vh;
-  }
-
   .create-survey-container {
     // margin-top: 15vh;
     // margin-bottom: 15vh;
+    display: flex;
   }
 
-  .create-survey-header{
-
+  .create-survey-page {
+    text-align: left;
   }
 
   .create-survey-form {
     padding: 5px;
     // border: 1px solid rgba(0, 0, 0, 0.199);
-    text-align: left;
+    text-align: center;
     margin-left: 25vw;
     margin-right: 25vw;
   }
