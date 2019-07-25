@@ -47,8 +47,7 @@ export default {
     survey: {},
     submition: { surveyId: "", userId: null, answers: [] }
   }),
-  created() {
-    (async () => {
+  async created() {
       let surveyId = this.$route.params.id;
       this.submition.surveyId = surveyId;
       const foundSurvey = await this.$store.dispatch({
@@ -57,7 +56,6 @@ export default {
       });
       this.survey = foundSurvey;
       this.survey.quests.forEach(() => this.submition.answers.push({}));
-    })();
   },
   methods: {
     submitSurvey() {
