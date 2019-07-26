@@ -6,8 +6,14 @@
         <h1 class="survey-submit-header">{{survey.name}}</h1>
         <h6 class="survey-submit-created">Created {{survey.createdAt | moment("from", "now") }}</h6>
         <h6 class="survey-submit-qst-number">Survey has {{survey.quests.length}} Questions</h6>
-        <br />
-        <div class="survey-preview-tags" v-for="(tag, tagIdx) in survey.tags" :key="tagIdx">#{{tag}}</div>
+        <div class="survey-preview-tags-container">
+          Tags: &nbsp;  
+          <div
+            class="survey-preview-tags"
+            v-for="(tag, tagIdx) in survey.tags"
+            :key="tagIdx"
+          > #{{tag}} &nbsp;</div>
+        </div>
         <br />
         <h5 class="survey-submit-qst-number">"{{survey.description}}"</h5>
         <br />
