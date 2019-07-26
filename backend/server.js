@@ -1,23 +1,27 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-// const multer = require('multer')
 const session = require('express-session');
 const cors = require('cors');
+const path = require('path')
 const app = express();
 const http = require('http').createServer(app);
 const socketService = require('./services/socket.service')
 
 app.use(cookieParser());
-app.use(express.static('public'));
 app.use(bodyParser.json());
 
-const config = {
-    origin: 'http://localhost:8080',
-    credentials: true,
-};
+if (process.env.NODE_ENV !== 'production') {
+    const corsOptions = {
+        origin: 'http://localhost:8080',
+        credentials: true
+    };
+    app.use(cors(corsOptions));
+}
 
-app.use(cors(config));
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.resolve(__dirname, 'public')));
+}
 
 app.use(session({
     secret: 'puki muki',
