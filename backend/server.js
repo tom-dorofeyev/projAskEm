@@ -33,23 +33,6 @@ if (app.get('env') === 'production') {
 
 socketService.setup(http);
 
-//CLOUDINARY
-// const cloudinary = require('cloudinary').v2;
-// const upload = multer({ dest: 'uploads/' })
-// const cloudinaryConfig = require('./config.json').cloudinary
-// cloudinary.config(cloudinaryConfig)
-
-// app.post('/upload/cloudinary', upload.single('imgUpload'), (req, res) => {
-//     const transformation = [{ angle: 60 }]
-//     console.log(req.file)
-//     cloudinary.uploader.upload(req.file.path,
-//         { transformation }, //OPTIONS OBJECT
-//         function (error, result) {
-//             res.json(result)
-//         });
-// })
-
-
 //ROUTES
 const surveyRoute = require('./api/survey/survey.routes');
 const answerRoute = require('./api/answer/answer.routes');
