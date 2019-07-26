@@ -11,16 +11,16 @@ const socketService = require('./services/socket.service')
 app.use(cookieParser());
 app.use(bodyParser.json());
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.resolve(__dirname, 'public')));
+}
+
 if (process.env.NODE_ENV !== 'production') {
     const corsOptions = {
         origin: 'http://localhost:8080',
         credentials: true
     };
     app.use(cors(corsOptions));
-}
-
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.resolve(__dirname, 'public')));
 }
 
 app.use(session({
