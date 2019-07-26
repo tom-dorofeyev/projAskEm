@@ -74,7 +74,7 @@ export default {
       else if (typeof answer === "string") currAnswer.txt = answer;
     },
     viewResults(answer, questIdx) {
-      this.$router.push(`/survey/results/${this.survey._id}`)
+      this.$router.push(`/survey/results/${this.survey._id}`);
     }
   },
   computed: {},
