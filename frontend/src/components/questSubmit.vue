@@ -1,7 +1,7 @@
 <template>
   <div class="quest-submit">
       {{quest.title}}
-      <component :is="ansType" :quest="quest" @update-answer="updateAns"></component>
+      <component :is="ansType" :quest="quest" @update-answer="updateAns" />
   </div>
 </template>
 

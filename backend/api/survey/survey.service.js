@@ -26,7 +26,8 @@ async function query(filterBy = {}){
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
         const surveys = await collection.find(criteria).toArray();
-        return surveys
+        const sorted = surveys.reverse()
+        return sorted
     } catch (err) {
         console.log('ERROR: cannot find surveys')
         throw err;
