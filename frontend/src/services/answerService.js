@@ -28,7 +28,7 @@ async function getById(id){
 }
 
 async function getMostAnsweredSurveyIds(){
-    return await httpService.get(`${API_KEY}/mostAnswered`)
+    return await httpService.get(`${API_KEY}mostAnswered`)
 }
 
 function _getSummedResults(array){

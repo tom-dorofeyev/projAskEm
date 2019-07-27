@@ -11,12 +11,28 @@
         <br />
         <h5 class="survey-submit-qst-number">"{{survey.description}}"</h5>
         <br />
-        <div class="quest-list" v-for="(currQuest, questIdx) in survey.quests" :key="questIdx">
-          <quest-submit :quest="currQuest" :questIdx="questIdx" @update-answer="updateAns"></quest-submit>
-        </div>
-
+        <section class="quest-list-container">
+          <div
+            class="quest-list-item"
+            v-for="(currQuest, questIdx) in survey.quests"
+            :key="questIdx"
+          >
+            <quest-submit :quest="currQuest" :questIdx="questIdx" @update-answer="updateAns"></quest-submit>
+          </div>
+        </section>
         <section class="survey-submit-btn">
-          <input type="button" @click="submitSurvey" value="Submit Answers!" />
+          <input
+            type="button"
+            class="survey-create-btn-publish"
+            @click="submitSurvey"
+            value="Submit Answers!"
+          />
+          <input
+            type="button"
+            class="survey-create-btn-results"
+            @click="viewResults"
+            value="View Results!"
+          />
         </section>
       </form>
     </div>
@@ -31,8 +47,7 @@ export default {
     survey: {},
     submition: { surveyId: "", userId: null, answers: [] }
   }),
-  created() {
-    (async () => {
+  async created() {
       let surveyId = this.$route.params.id;
       this.submition.surveyId = surveyId;
       const foundSurvey = await this.$store.dispatch({
@@ -41,7 +56,6 @@ export default {
       });
       this.survey = foundSurvey;
       this.survey.quests.forEach(() => this.submition.answers.push({}));
-    })();
   },
   methods: {
     submitSurvey() {
@@ -55,6 +69,9 @@ export default {
       if (typeof answer === "number") currAnswer.optIdx = answer;
       else if (Array.isArray(answer)) currAnswer.optionsIdxs = answer;
       else if (typeof answer === "string") currAnswer.txt = answer;
+    },
+    viewResults(answer, questIdx) {
+      this.$router.push(`/survey/results/${this.survey._id}`)
     }
   },
   computed: {},
@@ -62,6 +79,4 @@ export default {
     questSubmit
   }
 };
-
-// <style lang="scss" scoped src="@/styles/views/_survey-submit.scss"></style>;
 </script>

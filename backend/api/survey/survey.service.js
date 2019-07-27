@@ -14,8 +14,9 @@ async function query(filterBy = {}){
     const criteria = {};
 
     if (filterBy.name) {
-        criteria.name = filterBy.name;
+        criteria.name = {$regex:'(?i)' + _quote(filterBy.name)}
     }
+
     if (filterBy.type) {
         criteria.type = filterBy.type;
     }
@@ -26,7 +27,8 @@ async function query(filterBy = {}){
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
         const surveys = await collection.find(criteria).toArray();
-        return surveys
+        const sorted = surveys.reverse()
+        return sorted
     } catch (err) {
         console.log('ERROR: cannot find surveys')
         throw err;
@@ -77,3 +79,8 @@ async function getById(surveyId) {
         throw err;
     }
 }
+
+function _quote(regex) {
+    return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
+  }
+

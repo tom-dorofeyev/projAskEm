@@ -1,0 +1,9 @@
+.trending-surveys {
+    .trending-surveys-title {
+        @include content-title
+    }
+    .under-title {
+        @include gradient-line
+    }
+
+}

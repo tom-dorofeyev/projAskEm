@@ -1,10 +1,8 @@
 <template>
   <div class="survey-preview-container flex">
     <div class="survey-img-container">
-      <img
-        class="survey-img"
-        :src="survey.imageUrl"
-      />
+      <img v-if="survey.imageUrl" class="survey-img" :src="survey.imageUrl" />
+      <img class="survey-img" src="@/assets/images/homepage-background.jpg" v-if="!survey.imageUrl" />
       <div class="title-under-img flex">
         <h3 class="survey-preview-title">{{ survey.name ? survey.name : 'No Title'}}</h3>
         <h5 class="survey-preview-quest-counter">Questions:{{survey.quests.length}}</h5>

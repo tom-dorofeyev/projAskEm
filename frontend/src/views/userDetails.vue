@@ -3,7 +3,9 @@
   <section class="user-details-section" v-if="user.userName">
     <img class="user-details-top-img" src="@/assets/images/userDetails/background.png" />
     <h2 class="user-details-name">{{user.userName}}'s Profile</h2>
-    <div class="users-details-container">
+    <div class="user-details-container">
+      <h2>Your Profile</h2>
+      <img class="user-details-img" :src='user.imgUrl ? user.imgUrl : "@/assets/images/userDetails/guest-icon.png"'>
       <h4>
         User Name:
         <span class="user-detail-span">{{user.userName}}</span>
@@ -15,7 +17,6 @@
     </div>
   </section>
 </template>
-
 <script>
 import userService from "../services/userService.js";
 export default {

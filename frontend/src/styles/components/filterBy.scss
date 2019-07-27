@@ -1,0 +1,17 @@
+input {
+    display: flex;
+    align-items: stretch;
+    padding: 1rem;
+    border-radius: 2px;
+    border: none;
+    border-bottom: 2px solid silver;
+    display: block;
+    margin-bottom: 0.7rem;
+    &::placeholder {
+        font-family: $font2;
+    }
+    &:focus {
+        outline: none;
+
+    }
+}

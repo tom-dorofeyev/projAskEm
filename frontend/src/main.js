@@ -4,7 +4,6 @@ import router from './router'
 import store from './store'
 import VueMoment  from 'vue-moment'
 import './registerServiceWorker'
-
 Vue.config.productionTip = false
 Vue.use(VueMoment )
 
