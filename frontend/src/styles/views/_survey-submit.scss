@@ -17,7 +17,7 @@
   .survey-submit-header {
     position: absolute;
     text-align: center;
-    width: 100vw;
+    width: 100%;
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
@@ -121,7 +121,6 @@
 
   .survey-create-btn-publish {
     cursor: pointer;
-    min-width: 2em;
     background: $color6;
     border-radius: 5px;
     height: 50px;
@@ -136,7 +135,6 @@
 
   .survey-create-btn-results {
     cursor: pointer;
-    min-width: 2em;
     background: $color8;
     border-radius: 5px;
     height: 50px;
@@ -156,7 +154,6 @@
     position: relative;
     label {
       padding: 12px 30px;
-      // padding-left: 1rem;
       width: 100%;
       display: block;
       text-align: left;
