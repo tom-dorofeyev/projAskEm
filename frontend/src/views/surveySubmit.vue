@@ -60,8 +60,7 @@ export default {
     survey: {},
     submition: { surveyId: "", userId: null, answers: [] }
   }),
-  created() {
-    (async () => {
+  async created() {
       let surveyId = this.$route.params.id;
       this.submition.surveyId = surveyId;
       const foundSurvey = await this.$store.dispatch({
@@ -70,7 +69,6 @@ export default {
       });
       this.survey = foundSurvey;
       this.survey.quests.forEach(() => this.submition.answers.push({}));
-    })();
   },
   methods: {
     submitSurvey() {
@@ -78,7 +76,6 @@ export default {
       const surveyId = this.survey._id;
       this.$store.dispatch({ type: "submitSurvey", submition });
       this.$store.dispatch({ type: "emitSubmition", surveyId });
-      // this.$router.push('/survey/list')
     },
     updateAns(answer, questIdx) {
       let currAnswer = this.submition.answers[questIdx];
@@ -95,6 +92,4 @@ export default {
     questSubmit
   }
 };
-
-// <style lang="scss" scoped src="@/styles/views/_survey-submit.scss"></style>;
 </script>
