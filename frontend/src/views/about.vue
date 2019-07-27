@@ -32,7 +32,7 @@
             </span>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptate iste cum? Qui id voluptas aspernatur. Voluptatibus, accusantium. Dolor laboriosam maiores pariatur quisquam consectetur expedita omnis sit fuga fugit officiis!</p>
           </span>
-          <img class="about-us-img" src="@/assets/images/tom.jpg" alt="Tom Picture" />
+          <img class="about-us-img" src="@/assets/images/tom.jpeg" alt="Tom Picture" />
         </div>
         <div class="about-us flex">
           <span>
