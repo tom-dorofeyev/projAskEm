@@ -13,8 +13,8 @@ const COLLECTION_KEY = 'survey'
 async function query(filterBy = {}){
     const criteria = {};
 
-    if (filterBy.search) {
-        criteria.name = {$regex:'(?i)' + _quote(filterBy.search)}
+    if (filterBy.name) {
+        criteria.name = {$regex:'(?i)' + _quote(filterBy.name)}
     }
 
     if (filterBy.type) {
