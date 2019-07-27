@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 2rem;
-
+  
   .survey-list-header {
     @include content-title;
   }
@@ -96,7 +96,7 @@
         color: $color5;
   
         &::after {
-          content: '  ›';
+          // content: '  ›';
           position: relative;
           top: calc(50% - 1rem/1 - 0px);
           font-size: 2rem;
@@ -114,6 +114,9 @@
         font-size: 0.8rem;
         font-weight: bolder;
       }
+    }
+    .survey-preview-tags-container {
+      padding-top: 10px;
     }
   }
 }

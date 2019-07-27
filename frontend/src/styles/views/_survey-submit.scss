@@ -1,20 +1,84 @@
 .survey-submit-page {
-
-  #myForm{
-    min-height: 80vh;
-    padding-bottom: 130px;
-    position: relative;
-  }
-  .survey-submit-container {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
+  .survey-submit-name {
+    position: absolute;
     text-align: center;
+    width: 100%;
+    top: 28vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    margin: 0;
+    font-family: $font2;
+    color: $color5;
   }
 
   .survey-submit-header {
-    margin-bottom: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    margin: 0;
+    font-family: $font2;
+    color: $color5;
+
+    .survey-submit-details {
+      position: absolute;
+      bottom: 0vh;
+    }
+
+    .survey-submit-created {
+      margin: 0;
+      text-align: left;
+      margin-left: 2em;
+      font-size: 0.8rem;
+    }
+
+    .survey-preview-tags-container {
+      margin: 0;
+      display: flex;
+      justify-content: left;
+      margin-left: 2em;
+      margin-bottom: 2em;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
   }
+  .survey-submit-description {
+    margin: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: $color3;
+  }
+
   .survey-submit-qst-number {
     margin: 0;
+    text-align: left;
+    margin-left: 2em;
+    font-size: 0.8rem;
+  }
+
+  .survey-img-trans-cover {
+    position: absolute;
+    background-color: #aa3941;
+    opacity: 0.7;
+    height: 36vh;
+    width: 100%;
+  }
+
+  .survey-img {
+    height: 36vh;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .survey-submit-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
   }
 
   .quest-submit {
@@ -24,46 +88,188 @@
     padding: 1em;
   }
 
-  .quest-submit-container{
+  .quest-submit-container {
     font-weight: 500;
     line-height: 1.5em;
+    & textarea {
+      font-family: $font1;
+      font-size: 0.8em;
+      width: 100%;
+      height: 5em;
+      background-color: transparent;
+      resize: none;
+      outline: none;
+      border: 2px solid #dddfe7;
+      &:focus {
+        border-color: $color2;
+      }
+    }
   }
 
   .quest-list-container {
-    border: 1px solid #DDDFE7;
+    border: 1px solid #dddfe7;
     margin: 0 auto;
-    width: 70%;
+    width: 100%;
   }
 
-  .survey-preview-tags {
-  }
-  .survey-submit-created {
-    margin: 0;
-  }
-
-  .survey-submit-btn{
+  .survey-submit-btn {
     padding: 1em;
+    display: flex;
+    justify-content: space-evenly;
   }
+
   .survey-create-btn-publish {
     cursor: pointer;
-    background: linear-gradient(180deg, #369224 0%, #116811 100%);
+    background: $color6;
     border-radius: 5px;
-    height: 25px;
-    width: 200px;
-    color: $color5;
+    height: 50px;
+    width: 10em;
+    color: white;
     font-size: 1em;
-    margin: 0 auto;
+    border: none;
+    &:hover {
+      background: $color7;
+    }
   }
 
   .survey-create-btn-results {
     cursor: pointer;
-    background: linear-gradient(180deg, #f17725 0%, #ee892b 100%);
+    background: $color8;
     border-radius: 5px;
-    height: 25px;
-    width: 200px;
-    color: $color5;
+    height: 50px;
+    width: 6em;
+    color: white;
     font-size: 1em;
+    border: none;
+    &:hover {
+      background: $color9;
+    }
+  }
+
+  .inputGroup {
+    background-color: #fff;
+    display: block;
+    margin: 10px 0;
+    position: relative;
+    label {
+      padding: 12px 30px;
+      width: 100%;
+      display: block;
+      text-align: left;
+      color: #3c454c;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      transition: color 200ms ease-in;
+      overflow: hidden;
+      &:before {
+        width: 100%;
+        height: 10px;
+        content: "";
+        background-color: $color3;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale3d(1, 1, 1);
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        z-index: -1;
+      }
+      &:after {
+        width: 32px;
+        height: 32px;
+        content: "";
+        border: 2px solid #d1d7dc;
+        background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+        background-repeat: no-repeat;
+        background-position: 2px 3px;
+        z-index: 2;
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        transition: all 200ms ease-in;
+      }
+    }
+    label.round:after {
+      border-radius: 50%;
+    }
+    input:checked ~ label {
+      color: #fff;
+
+      &:before {
+        transform: translate(-50%, -50%) scale3d(56, 56, 1);
+        opacity: 1;
+      }
+
+      &:after {
+        background-color: $color6;
+        border-color: $color6;
+      }
+    }
+
+    input {
+      width: 32px;
+      height: 32px;
+      order: 1;
+      z-index: 2;
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      visibility: hidden;
+    }
+  }
+
+  body {
+    background-color: #d1d7dc;
+    font-family: "Fira Sans", sans-serif;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  code {
+    background-color: #9aa3ac;
+    padding: 0 8px;
+  }
+  .form {
+    padding: 0 16px;
+    max-width: 850px;
     margin: 0 auto;
-    margin-left: 1em;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 36px;
+  }
+  @include for-mobile-layout {
+    label {
+      font-size: 0.8em;
+    }
+
+    .survey-submit-name {
+      margin-bottom: 0;
+      font-size: 2em !important;
+    }
+  }
+  #myForm {
+    min-height: 80vh;
+    padding-bottom: 130px;
+    position: relative;
+    padding: 0 16px;
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 36px;
   }
 }

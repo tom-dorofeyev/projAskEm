@@ -42,7 +42,7 @@
               <img @click="newTabTo('https://www.linkedin.com/in/nadav-abuhatsira-7a2578105')" src="@/assets/images/socialNetworkIcons/linkedin.png" />
               <img @click="newTabTo('https://github.com/Nudu')" src="@/assets/images/socialNetworkIcons/github.png"/>
             </span>
-            <p>An ambitious and detail-oriented individual that enjoys the finesse in code and isn't scared of tackling and solving challenges, passionate about new technologies but also intrigued by creative monetisation and the Ad Tech world and how those all come together, Enjoys listening to anything with a good beat and a long time avid gamer</p>
+            <p>An ambitious and detail-oriented individual that enjoys the finesse in code and isn't scared of tackling and solving challenges, passionate about new technologies but also intrigued by creative monetisation and the Ad Tech world and how all those come together, Enjoys listening to anything with a good beat and a long time avid gamer</p>
           </span>
           <img class="about-us-img" src="@/assets/images/nadav.jpg" alt="Nadav Picture" />
         </div>
