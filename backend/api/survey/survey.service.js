@@ -13,9 +13,10 @@ const COLLECTION_KEY = 'survey'
 async function query(filterBy = {}){
     const criteria = {};
 
-    if (filterBy.name) {
-        criteria.name = filterBy.name;
+    if (filterBy.search) {
+        criteria.name = {$regex:'(?i)' + _quote(filterBy.search)}
     }
+
     if (filterBy.type) {
         criteria.type = filterBy.type;
     }
@@ -78,3 +79,8 @@ async function getById(surveyId) {
         throw err;
     }
 }
+
+function _quote(regex) {
+    return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
+  }
+
