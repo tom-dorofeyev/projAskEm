@@ -10,7 +10,10 @@
           <template v-if="!user.userName">
             <router-link to="/login" id="sign-in">Sign In</router-link>
           </template>
-          <button v-if="user.userName" id="log-out" @click="doLogout">Log Out</button>
+          <template v-if="user.userName">
+            <router-link :to="`/user/${user._id}`">Profile</router-link>
+            <button id="log-out" @click="doLogout">Log Out</button>
+          </template>
         </div>
       </nav>
     </div>
@@ -29,9 +32,6 @@ export default {
       await this.$store.dispatch({type:'logout'})    
       this.$router.push('/')
     },
-    userProfile(){
-      this.$router.push(`/user/${this.user._id}`)
-    }
   },
   computed: {
     user(){
