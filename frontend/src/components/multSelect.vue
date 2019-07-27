@@ -1,8 +1,8 @@
 <template>
     <section class="quest-submit-container">
-        <div class="option-list" v-for="(option, index) in optCopy" :key="index">
-            <input type="checkbox" :name="quest.title" @input="updateAns(index)" />
-            {{option}}
+        <div class="inputGroup" v-for="(option, index) in optCopy" :key="index">
+            <input :id="quest.title+'-'+option+'-'+(index)" type="checkbox" :name="quest.title" @input="updateAns(index)" />
+            <label :for="quest.title+'-'+option+'-'+(index)">{{option}}</label>
         </div>
     </section>
 </template>
