@@ -30,10 +30,10 @@ app.use(session({
     cookie: { secure: false, maxAge: 1000*60*60*1000 }
 }));
 
-if (app.get('env') === 'production') {
-    app.set('trust proxy', 1) 
-    session.cookie.secure = true 
-}
+// if (app.get('env') === 'production') {
+//     app.set('trust proxy', 1) 
+//     session.cookie.secure = true 
+// }
 
 socketService.setup(http);
 
