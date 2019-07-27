@@ -1,21 +1,27 @@
 
 <template>
   <div class="survey-submit-page" v-if="survey._id">
+    <div class="survey-img-trans-cover"></div>
+    <img v-if="survey.imageUrl" class="survey-img" :src="survey.imageUrl" />
+    <img class="survey-img" src="@/assets/images/homepage-background.jpg" v-if="!survey.imageUrl" />
+    <section class="survey-submit-header">
+      <h2 class="survey-submit-name">{{survey.name}}</h2>
+
+      <h6 class="survey-submit-created">Created {{survey.createdAt | moment("from", "now") }}</h6>
+      <h6 class="survey-submit-qst-number">Survey has {{survey.quests.length}} Questions</h6>
+      <div class="survey-preview-tags-container">
+        Tags: &nbsp;
+        <div
+          class="survey-preview-tags"
+          v-for="(tag, tagIdx) in survey.tags"
+          :key="tagIdx"
+        >#{{tag}} &nbsp;</div>
+      </div>
+    </section>
     <div class="survey-submit-container">
       <form id="myForm">
-        <h1 class="survey-submit-header">{{survey.name}}</h1>
-        <h6 class="survey-submit-created">Created {{survey.createdAt | moment("from", "now") }}</h6>
-        <h6 class="survey-submit-qst-number">Survey has {{survey.quests.length}} Questions</h6>
-        <div class="survey-preview-tags-container">
-          Tags: &nbsp;  
-          <div
-            class="survey-preview-tags"
-            v-for="(tag, tagIdx) in survey.tags"
-            :key="tagIdx"
-          > #{{tag}} &nbsp;</div>
-        </div>
         <br />
-        <h5 class="survey-submit-qst-number">"{{survey.description}}"</h5>
+      <h5 class="survey-submit-description">"{{survey.description}}"</h5>
         <br />
         <section class="quest-list-container">
           <div
