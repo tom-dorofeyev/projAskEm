@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from './views/homePage.vue'
-import about from './views/about.vue'
 import login from './views/login.vue'
 import userDetails from './views/userDetails.vue'
 import surveySubmit from './views/surveySubmit.vue'
-import surveysList from './views/surveysList.vue'
 import surveyResults from './views/surveyResults.vue'
 import createSurvey from './views/createSurvey.vue'
 
@@ -23,7 +21,7 @@ export default new Router({
     {
       path: '/survey/list',
       name: 'surveysList',
-      component: surveysList
+      component: () => import('./views/surveysList.vue')
     },
     {
       path: '/survey/results/:surveyId',
@@ -33,7 +31,7 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      component: about
+      component: () => import('./views/about.vue')
     },
     {
       path: '/login',

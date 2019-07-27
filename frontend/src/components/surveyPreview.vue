@@ -13,7 +13,7 @@
     </section>
     <h5 v-if="survey.description" class="survey-preview-quest-description">"{{survey.description}}"</h5>
     <section class="survey-preview-btns-container">
-      <router-link class="survey-preview-btn" :to="getSurveyUrl">Add Your Opinion ></router-link>
+      <router-link class="survey-preview-btn" :to="getSurveyUrl">Add Your Opinion <img src="@/assets/images/arrow-icon.svg"></router-link>
       <router-link class="survey-result-btn" :to="getSurveyResultsUrl">View Results</router-link>
     </section>
   </div>

@@ -4,7 +4,7 @@
       <form @submit.prevent="doLogin">
         <input
           type="text"
-          v-model="loginCred.userName" placeholder="🜶 Enter User Name" required/>
+          v-model="loginCred.userName" placeholder="🜶 Enter User Name" autofocus required/>
         <input
           type="password"
           v-model="loginCred.password" placeholder="⌨ Enter Password" required/>
