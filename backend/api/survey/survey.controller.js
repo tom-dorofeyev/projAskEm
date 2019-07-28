@@ -39,7 +39,7 @@ async function remove(req, res) {
 }
 
 async function getById(req, res) {
-    const id = req.params.id
+    const id = req.params.id   
     try {
         const foundSurvey = await userService.getById(id)
         res.json(foundSurvey)

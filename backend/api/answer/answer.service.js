@@ -1,7 +1,8 @@
 module.exports = {
     add,
     getMostAnweredSurveys,
-    query
+    query,
+    getAnswersByUserId
 }
 
 const dbService = require('../../services/db.service')
@@ -12,7 +13,7 @@ async function query(filterBy = {}){
     let criteria = {};
 
     if(filterBy.userId) {
-        criteria.userId = filterBy.userIdx;
+        criteria.userId = filterBy.userId;
     }
 
     if(filterBy.surveyId) {
@@ -22,6 +23,15 @@ async function query(filterBy = {}){
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
         return await collection.find(criteria).map(submition => submition.answers).toArray();       
+    } catch (err) {
+        throw err;
+    }
+}
+
+async function getAnswersByUserId(userId){
+    const collection = await dbService.getCollection(COLLECTION_KEY);
+    try {
+        return await collection.find(userId).toArray();
     } catch (err) {
         throw err;
     }
@@ -56,3 +66,4 @@ async function add(answer) {
         throw err;
     }
 }
+

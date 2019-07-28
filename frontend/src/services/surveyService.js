@@ -22,7 +22,6 @@ async function query(filterBy) {
 
 async function getById(id) {
     return await httpService.get(`survey/${id}`)
-
 }
 
 async function _addUrlToSurvey(survey) {

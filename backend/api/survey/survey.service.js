@@ -10,7 +10,7 @@ const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
 const COLLECTION_KEY = 'survey'
 
-async function query(filterBy = {}){
+async function query(filterBy = {}) {
     const criteria = {};
 
     if (filterBy.name) {
@@ -19,8 +19,8 @@ async function query(filterBy = {}){
     if (filterBy.type) {
         criteria.type = filterBy.type;
     }
-    if(filterBy.createdBy) {
-        criteria.createdBy = filterBy.createdBy;
+    if (filterBy.createdBy) {
+        criteria["createdBy._id"] = filterBy.createdBy;
     }
 
     const collection = await dbService.getCollection(COLLECTION_KEY)
@@ -47,7 +47,7 @@ async function add(survey) {
 async function remove(surveyId) {
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
-        await collection.remove({"_id":ObjectId(surveyId)})
+        await collection.remove({ "_id": ObjectId(surveyId) })
     } catch (err) {
         console.log(`ERROR: cannot remove survey ${surveyId}`)
         throw err;
@@ -59,7 +59,7 @@ async function update(survey) {
     try {
         let surveyId = survey._id;
         delete survey._id
-        await collection.updateOne({"_id":ObjectId(surveyId)}, {$set : survey})
+        await collection.updateOne({ "_id": ObjectId(surveyId) }, { $set: survey })
         return survey
     } catch (err) {
         console.log(`ERROR: cannot update surveyId ${survey._id}`)
@@ -70,7 +70,7 @@ async function update(survey) {
 async function getById(surveyId) {
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
-        const survey = await collection.findOne({"_id":ObjectId(surveyId)})
+        const survey = await collection.findOne({ "_id": ObjectId(surveyId) })
         return survey
     } catch (err) {
         console.log(`ERROR: cannot find survey ${surveyId}`)
