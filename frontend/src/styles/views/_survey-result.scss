@@ -7,3 +7,26 @@
     width:45vw;
   }
 }
+
+button {
+  & {
+    background: linear-gradient(193.64deg, #fa2b56 0%, #f91c3d 100%);
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    height: 50px;
+    width: 200px;
+    color: $color5;
+    font-size: 1em;
+    border: none;
+  }
+
+  img {
+    position: relative;
+    right: -20px;
+    height: 13px;
+    width: 8px;
+  }
+  &:hover{
+    background: linear-gradient(193.64deg, #e7738a 0%, #f86a80 100%);
+  }
+}

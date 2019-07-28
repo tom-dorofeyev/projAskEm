@@ -1,12 +1,14 @@
 export default {
     add,
     query,
-    getById
+    getById,
+    shortenUrl
 }
 
 import httpService from './httpService'
 import axios from 'axios'
 const PHOTO_KEY = 'https://api.unsplash.com/search/photos/'
+const URL_API = 'https://hideuri.com/api/v1/shorten'
 const photoClientId = 'b51860a1e3ca293d18665117be530181d5ecb34b7e14f2f963605050a6f63a91'
 
 async function add(survey) {
@@ -14,6 +16,19 @@ async function add(survey) {
         await _addUrlToSurvey(survey)
     } catch (err) { }
     return await httpService.post('survey', survey)
+}
+
+async function shortenUrl(surveyPath) {
+    const config = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
+      try {
+    var qs = require('qs');
+    const res = await axios.post(URL_API, qs.stringify({url: surveyPath}), config)
+    console.log(res)
+    } catch (err) { }
 }
 
 async function query(filterBy) {

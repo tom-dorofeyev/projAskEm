@@ -30,6 +30,9 @@ export default {
         async surveyById(context, { surveyId }) {
             return surveyService.getById(surveyId)
         },
+        async getShortUrl(context, { surveyPath }) {
+            return surveyService.shortenUrl(surveyPath)
+        },
         submitSurvey(context, { submition }) {
             return answerService.add(submition);
         },

@@ -12,21 +12,6 @@
           </button>
         </router-link>
         </div>
-    <!-- <div class="red-bcg">
-        <img src="@/assets/images/askem-bcg-img.png" alt="">
-      </div>
-      <div class="homepage-header">
-        <div class="text-container">
-          <img src="../assets/images/askem.png" alt=""/>
-          <h2>Watch The World Answer</h2>
-        </div>
-        <router-link to="/survey/create">
-          <button>
-            Create Survey
-            <img src="@/assets/images/arrow-icon.svg" alt="">
-          </button>
-        </router-link> 
-    </div>  -->
       </div>
         <section class="trending-surveys title">
         <div class="under-title"></div>
@@ -40,7 +25,6 @@
         <h2 class="how-it-works-title">How It Works</h2>
         <div class="how-it-work-gif-div flex">
           <h3>Make a surveys, Publish him, Track the results live and Watch the world answer! </h3>
-        <!-- <img class="guide-gif" src="@/assets/images/guide-gif.gif" alt=""> -->
         </div>
       </div>
       <div class="use-our-service">
