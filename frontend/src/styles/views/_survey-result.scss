@@ -1,11 +1,44 @@
 .result-list{
   &{
+
     display:flex;
     flex-wrap:wrap;
   }
   & > .result-preview{
-    width:45vw;
+    width:40vw;
+    margin: 0 auto;
   }
+}
+
+.survey-no-results{
+  text-align: center;
+}
+
+.survey-no-result-img{
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.survey-inner-container{
+  display: flex;
+  border: 1px solid #dddfe7;
+  margin: 0 auto;
+  width: 80%;
+  justify-content: center;
+}
+
+.qrCanvas-title{
+  text-align: center;
+  margin: 0;
+}
+
+#qr-canvas{
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+  // position: absolute;
+  text-align: center;
 }
 
 button {
