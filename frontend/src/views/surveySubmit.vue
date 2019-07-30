@@ -76,6 +76,7 @@ export default {
       const surveyId = this.survey._id;
       this.$store.dispatch({ type: "submitSurvey", submition });
       this.$store.dispatch({ type: "emitSubmition", surveyId });
+      this.$router.push(`/survey/results/${this.survey._id}`);
     },
     updateAns(answer, questIdx) {
       let currAnswer = this.submition.answers[questIdx];

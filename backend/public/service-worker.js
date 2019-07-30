@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.2e2d4c38e73e1753d77fad875748c91d.js"
+  "/precache-manifest.3d6a402f01f0a07f4a7bff367e7d895a.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "askem-proj"});
