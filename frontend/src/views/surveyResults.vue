@@ -20,9 +20,14 @@
         </section>
       </section>
     </div>
-    <h1 v-if="!(answersToShow.length > 0 && survey.name)" class="survey-no-results" >No Results Yet!</h1>
-    <img class="survey-no-result-img"  v-if="!(answersToShow.length > 0 && survey.name)" src="@/assets/images/nosearchresults.jpg" alt="">
-    <h5 v-if="(answersToShow.length > 0 && survey.name)" class="qrCanvas-title" >QR code:</h5>
+    <h1 v-if="!(answersToShow.length > 0 && survey.name)" class="survey-no-results">No Results Yet!</h1>
+    <img
+      class="survey-no-result-img"
+      v-if="!(answersToShow.length > 0 && survey.name)"
+      src="@/assets/images/nosearchresults.jpg"
+      alt
+    />
+    <h5 v-if="(answersToShow.length > 0 && survey.name)" class="qrCanvas-title">QR code:</h5>
     <canvas v-if="(answersToShow.length > 0 && survey.name)" ref="qrCanvas" id="qr-canvas"></canvas>
     <div class="survey-inner-container" v-if="answersToShow.length > 0 && survey.name">
       <div class="result-list">
@@ -54,17 +59,18 @@ export default {
     socket.on("surveySubmit", () => {
       this.$store.dispatch({ type: "getAnswersBySurveyId", surveyId });
     });
-    qrCode.toCanvas(this.$refs.qrCanvas, window.location.href, error => {
-      if (error) console.error(error);
-      console.log("QR success!");
-    });
+    setTimeout(() => {
+      qrCode.toCanvas(this.$refs.qrCanvas, window.location.href, error => {
+        if (error) console.error(error);
+        console.log("QR success!");
+      });
+    }, 0);
   },
   computed: {
     answersToShow() {
       return this.$store.getters.surveyAnswers;
     }
   },
-  mounted() {},
   destroyed() {
     let surveyId = this.survey._id;
     this.$store.dispatch({ type: "leftResults", surveyId });
