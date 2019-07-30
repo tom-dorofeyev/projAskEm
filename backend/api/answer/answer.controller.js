@@ -3,7 +3,8 @@ const answerService = require('./answer.service')
 module.exports = {
     add,
     getMostAnweredSurveys,
-    query
+    query,
+    getAnswersByUserId
 }
 
 async function query(req, res){
@@ -23,6 +24,17 @@ async function getMostAnweredSurveys(req, res) {
         res.json(mostAnsweredSurveys)
     } catch (error) {
         res.status(500).send({ error })
+    }
+}
+
+async function getAnswersByUserId(req, res) {
+    const userId = req.query;
+
+    try {
+        const answeredByUserId = await answerService.getAnswersByUserId(userId)
+        res.json(answeredByUserId)
+    } catch (err) {
+        res.status(500).send({err})
     }
 }
 

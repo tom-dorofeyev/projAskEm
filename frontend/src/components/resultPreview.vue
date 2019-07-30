@@ -1,7 +1,7 @@
 <template>
   <section class="result-preview" v-if="quest.title">
-    <h3>{{quest.title}}</h3>
-    <bar-chart :labels="getLabels" :data="getData"/>
+    <h3 v-if="quest.opts.length">{{quest.title}}</h3>
+    <bar-chart v-if="quest.opts.length" :labels="getLabels" :data="getData"/>
   </section>
 </template>
 

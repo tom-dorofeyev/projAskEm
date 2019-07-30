@@ -3,7 +3,7 @@ import answerService from '@/services/answerService'
 
 export default {
     state: {
-        surveys: []
+        surveys: [],
     },
     getters: {
         getSurveyList(state) {
@@ -30,8 +30,14 @@ export default {
         async surveyById(context, { surveyId }) {
             return surveyService.getById(surveyId)
         },
+        async getShortUrl(context, { surveyPath }) {
+            return surveyService.shortenUrl(surveyPath)
+        },
         submitSurvey(context, { submition }) {
             return answerService.add(submition);
         },
-    },
+        async surveyByUserId(context, {userId}) {
+            return surveyService.query({createdBy: userId})
+        }
+    }
 }

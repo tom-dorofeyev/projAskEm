@@ -73,6 +73,13 @@
 
 
 .signup-form , .signin-form{
+
+    .signin-msg , .signup-msg {
+        color: red;
+        margin: 0;
+        font-size: 1rem;
+    }
+
     input {
         display: flex;
         align-items: stretch;

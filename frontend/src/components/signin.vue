@@ -1,6 +1,6 @@
 <template>
   <div class="signin-form">
-    <h3>{{msg}}</h3>
+    <h2 class="signin-msg">{{msg}}</h2>
       <form @submit.prevent="doLogin">
         <input
           type="text"
@@ -11,7 +11,6 @@
         <button type="submit" @click="doLogin">Sign In</button>
       </form>
     <div class="signin-container">
-      
     </div>
   </div>
 </template>
