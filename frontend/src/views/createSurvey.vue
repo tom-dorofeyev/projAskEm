@@ -45,9 +45,6 @@ import createQuest from "@/components/createQuest";
 export default {
   data() {
     return {
-      // titleReceived: false,
-      // descReceived: false,
-      // tagsReceived: false,
       surveyReady: false,
       inputTag: null,
       survey: {
@@ -59,23 +56,7 @@ export default {
         quests: [],
         createdAt: null,
         endDate: null,
-        userLiked: [
-          {
-            _id: "u101",
-            name: "bobo",
-            img: ""
-          },
-          {
-            _id: "u102",
-            name: "kabobo",
-            img: ""
-          },
-          {
-            _id: "u103",
-            name: "shlomo",
-            img: ""
-          }
-        ]
+        userLiked: []
       }
     };
   },
@@ -110,38 +91,6 @@ export default {
        return this.surveyReady = true 
       }
     }
-    // surveyTags() {
-    //   let survey = this.survey;
-    //   let res = survey.tags;
-    //   if (survey.tags.includes(",")) {
-    //     this.tagsReceived = true;
-    //     res = survey.tags.split(",");
-    //   }
-    //   if (survey.tags.includes(" ")) {
-    //     this.tagsReceived = true;
-    //     res = survey.tags.split(" ");
-    //   }
-    //   if (survey.tags.includes("-")) {
-    //     this.tagsReceived = true;
-    //     res = survey.tags.split("-");
-    //   }
-    //   if (survey.tags.includes("#")) {
-    //     this.tagsReceived = true;
-    //     res = survey.tags.split("#");
-    //   }
-    //   survey.tags = res;
-    //   this.survey.tags = survey.tags;
-    // },
-    // surveyHeader() {
-    //   if (this.tagsReceived) return "Great! Now Lets Add Questions:";
-    //   if (!this.titleReceived) return "Ready to AskEm?";
-    //   if (this.titleReceived && this.descReceived)
-    //     return 'Lets Give "' + this.survey.name + '" At Least One Tag:';
-    //   if (this.titleReceived)
-    //     return (
-    //       'Lets Give your survey "' + this.survey.name + '" a Description:'
-    //     );
-    // }
   },
   components: {
     createQuest

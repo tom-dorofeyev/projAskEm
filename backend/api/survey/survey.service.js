@@ -7,6 +7,7 @@ module.exports = {
 }
 
 const dbService = require('../../services/db.service')
+const logger = require('../../services/logger.service')
 const ObjectId = require('mongodb').ObjectId
 const COLLECTION_KEY = 'survey'
 
@@ -30,7 +31,7 @@ async function query(filterBy = {}) {
         const sorted = surveys.reverse()
         return sorted
     } catch (err) {
-        console.log('ERROR: cannot find surveys')
+        logger.error('cannot find surveys')
         throw err;
     }
 }
@@ -41,7 +42,7 @@ async function add(survey) {
         const surveyWithId = await collection.insertOne(survey);
         return surveyWithId;
     } catch (err) {
-        console.log(`ERROR: cannot insert survey`)
+        logger.error(`cannot insert survey`)
         throw err;
     }
 }
@@ -51,7 +52,7 @@ async function remove(surveyId) {
     try {
         await collection.remove({ "_id": ObjectId(surveyId) })
     } catch (err) {
-        console.log(`ERROR: cannot remove survey ${surveyId}`)
+        logger.error(`cannot remove survey ${surveyId}`)
         throw err;
     }
 }
@@ -64,7 +65,7 @@ async function update(survey) {
         await collection.updateOne({ "_id": ObjectId(surveyId) }, { $set: survey })
         return survey
     } catch (err) {
-        console.log(`ERROR: cannot update surveyId ${survey._id}`)
+        logger.error(`cannot update surveyId ${survey._id}`)
         throw err;
     }
 }
@@ -75,7 +76,7 @@ async function getById(surveyId) {
         const survey = await collection.findOne({ "_id": ObjectId(surveyId) })
         return survey
     } catch (err) {
-        console.log(`ERROR: cannot find survey ${surveyId}`)
+        logger.error(`cannot find survey ${surveyId}`)
         throw err;
     }
 }

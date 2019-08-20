@@ -16,4 +16,3 @@ router.post('/', add)
 //REMOVE SURVEY
 router.delete('/:id', remove)
 
-//CONSIDER: adding update survey route
