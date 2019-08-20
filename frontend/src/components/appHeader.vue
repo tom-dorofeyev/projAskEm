@@ -39,11 +39,6 @@ export default {
     user() {
       return this.$store.getters.user;
     },
-    userProfile() {
-      console.log(this.user._id,'user id inn the header');
-      
-      this.$router.push(`/user/${this.user._id}`);
-    }
   }
 };
 </script>
