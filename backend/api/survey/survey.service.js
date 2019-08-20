@@ -15,7 +15,7 @@ async function query(filterBy = {}) {
     const criteria = {};
 
     if (filterBy.name) {
-        criteria.name = {$regex:'(?i)' + _quote(filterBy.name)}
+        criteria.name = { $regex: '(?i)' + _quote(filterBy.name) }
     }
 
     if (filterBy.type) {
@@ -27,9 +27,8 @@ async function query(filterBy = {}) {
 
     const collection = await dbService.getCollection(COLLECTION_KEY)
     try {
-        const surveys = await collection.find(criteria).toArray();
-        const sorted = surveys.reverse()
-        return sorted
+        const surveys = await collection.find(criteria).hint({ $natural: -1 }).toArray();
+        return surveys
     } catch (err) {
         logger.error('cannot find surveys')
         throw err;
@@ -83,5 +82,5 @@ async function getById(surveyId) {
 
 function _quote(regex) {
     return regex.replace(/([()[{*+.$^\\|?])/g, '\\$1');
-  }
+}
 

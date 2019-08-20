@@ -6,7 +6,6 @@ module.exports = {
 }
 
 const surveyService = require('./survey.service')
-// const logger = require('../../services/logger.service')
 
 async function query(req, res) {
     const filterBy = req.query;

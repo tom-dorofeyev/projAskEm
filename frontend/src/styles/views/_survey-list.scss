@@ -23,18 +23,7 @@
       position:relative;
       width: 275px;
       height: 275px;
-      flex-grow: 1;
-      &:hover {
-        width: 285px;
-        height: 285px;
-        transition-duration: 0.3s;
-        .survey-img {
-          width: 285px;
-          height: 285px;
-          box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
-          transition-duration: 0.3s
-        }
-      }
+      flex-grow: 1; 
       .survey-img {
         width: 275px;
         height: 275px;
