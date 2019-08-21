@@ -7,6 +7,7 @@ const path = require('path')
 const app = express();
 const http = require('http').createServer(app);
 const socketService = require('./services/socket.service')
+const logger = require('./services/logger.service')
 
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -30,11 +31,6 @@ app.use(session({
     cookie: { secure: false, maxAge: 1000*60*60*1000 }
 }));
 
-// if (app.get('env') === 'production') {
-//     app.set('trust proxy', 1) 
-//     session.cookie.secure = true 
-// }
-
 socketService.setup(http);
 
 //ROUTES
@@ -49,4 +45,4 @@ app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
 
 const port = process.env.PORT || 3000;
-http.listen(port, () => console.log('Example app listening on port' + port + '!'))
+http.listen(port, () => logger.info('Example app listening on port' + port + '!'))
