@@ -30,7 +30,9 @@
               <img @click="newTabTo('')" src="@/assets/images/socialNetworkIcons/linkedin.png" />
               <img @click="newTabTo('https://github.com/tomdor123')" src="@/assets/images/socialNetworkIcons/github.png" />
             </span>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti voluptate iste cum? Qui id voluptas aspernatur. Voluptatibus, accusantium. Dolor laboriosam maiores pariatur quisquam consectetur expedita omnis sit fuga fugit officiis!</p>
+            <p>
+              Fullstack web developer experienced with
+            </p>
           </span>
           <img class="about-us-img" src="@/assets/images/tom.jpeg" alt="Tom Picture" />
         </div>
