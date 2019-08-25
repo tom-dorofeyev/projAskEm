@@ -27,11 +27,11 @@
             <h2>Tom Dorofeyev</h2>
             <span class="social-media-links">
               <img @click="newTabTo('https://www.facebook.com/tom.dorofeyev')" src="@/assets/images/socialNetworkIcons/facebook.png" />
-              <img @click="newTabTo('')" src="@/assets/images/socialNetworkIcons/linkedin.png" />
+              <img @click="newTabTo('https://www.linkedin.com/in/tom-dorofeyev-9b69ab18a')" src="@/assets/images/socialNetworkIcons/linkedin.png" />
               <img @click="newTabTo('https://github.com/tomdor123')" src="@/assets/images/socialNetworkIcons/github.png" />
             </span>
             <p>
-              Fullstack web developer experienced with
+              Young passionate developer, experienced with advanced web technologies like Vue.js, React.js, AngularJS, NodeJS, MongoDB, SPA, PWA, Strong state management capabilities like Vuex and Redux. love solving problems, taking on challenges & learning new technologies.
             </p>
           </span>
           <img class="about-us-img" src="@/assets/images/tom.jpeg" alt="Tom Picture" />
@@ -68,7 +68,7 @@
 <script>
 export default {
   methods: {
-    newTabTo: function(url) {
+    newTabTo(url) {
       window.open(url, "_blank");
     }
   }
